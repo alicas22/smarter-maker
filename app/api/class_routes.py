@@ -31,12 +31,7 @@ def single_class(id):
     return singleClass.to_dict()
 
 
-# Get all Classes for a User
-# @class_routes.route("/current")
-# @login_required
-# def classes_by_user():
-#     classes = Class.query.filter(Class.owner_id == current_user.id).all()
-#     return {c.id: c.to_dict() for c in classes}
+
 
 
 @class_routes.route("/", methods=["POST"])
@@ -77,7 +72,7 @@ def update_class(id):
 
         db.session.commit()
         return current_class.to_dict()
-    print('>>>>>>>>>>>>>>>>>>>>>>>>form.errors', form.errors)
+
     return {"errors": validation_errors_to_error_messages(form.errors)}, 401
 
 

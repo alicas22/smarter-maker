@@ -1,0 +1,40 @@
+.login-modal-form {
+  padding-top: 8px;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  width: 80%;
+}
+
+.login-modal-header{
+
+color: #324a6b;
+font-family: "Mont Bold", Mont, sans-serif;
+font-size: 36px;
+font-weight: 700;
+text-align: center;
+text-transform: capitalize;
+
+}
+
+.login-modal-button {
+  border-radius: 33px;
+  margin: 0 auto;
+  max-width: 186px;
+  padding: 0;
+  width: 100%;
+  background-color: #ff8243;
+  color: white;
+  box-sizing: border-box;
+  border: none;
+  font-size: 12px;
+  height: 48px;
+  margin-bottom: 15px;
+}
+
+.validation-errors{
+    color: red;
+    list-style: none;
+    padding-left: 0;
+    text-align: center;
+}

@@ -15,10 +15,6 @@ const loadSingleClassAction = (singleClass) => ({
     singleClass
   });
 
-// const getUserClasses = (classes) => ({
-//   type: GET_CLASSES,
-//   payload: classes,
-// });
 
 const createClassAction = (newClass) => ({
   type: CREATE_CLASS,
@@ -44,13 +40,6 @@ export const loadAllClassesThunk = () => async (dispatch) => {
   }
 };
 
-// export const getCurrentUserClasses = () => async (dispatch) => {
-//   const response = await fetch(`/api/classes/current`);
-//   if (response.ok) {
-//     const classes = await response.json();
-//     dispatch(getUserClasses(classes));
-//   }
-// };
 
 export const loadSingleClassThunk = (classId) => async (dispatch) => {
   const response = await fetch(`/api/classes/${classId}`);

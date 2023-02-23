@@ -13,6 +13,7 @@ function Decks() {
     const history = useHistory();
     const user = useSelector((state) => state.session.user);
     const allDecksObj = useSelector((state)=> state.decks.allDecks)
+    console.log('alldecksObj', allDecksObj)
 
 	useEffect(() => {
         dispatch(loadAllDecksThunk())
