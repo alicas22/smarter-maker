@@ -89,6 +89,7 @@ export const deleteDeckThunk = (deckId) => async (dispatch) => {
   const response = await fetch(`/api/decks/${deckId}`, {
     method: "DELETE",
   });
+  console.log('deckid from thunk', deckId)
   if (response.ok) {
     const data = await response.json();
     dispatch(deleteDeckAction(deckId));
@@ -136,8 +137,8 @@ const decksReducer = (state = initialState, action) => {
     }
     case DELETE_DECK: {
       const newState = { ...state };
+
       delete newState.decks[action.id];
-      console.log('newState.decks', newState.decks)
       return newState;
     }
     default:

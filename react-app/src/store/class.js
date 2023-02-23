@@ -144,13 +144,13 @@ const classReducer = (state = initialState, action) => {
     case CREATE_CLASS:{
         const newState = { ...state }
         newState.allClasses = { ...newState.allClasses, [action.newClass.id]: action.newClass }
-        newState.singleClass = { ...newState.singleClass, ...action.newClass }
+        // newState.singleClass = { ...newState.singleClass, ...action.newClass }
         return newState
       }
     case UPDATE_CLASS: {
         const newState = { ...state }
         newState.allClasses = { ...newState.allClasses, [action.updatedClass.id]: action.updatedClass }
-        newState.singleClass = { ...newState.singleClass, ...action.updatedClass }
+        // newState.singleClass = { ...newState.singleClass, ...action.updatedClass }
         return newState
       }
     case DELETE_CLASS:{
