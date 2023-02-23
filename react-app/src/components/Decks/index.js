@@ -12,7 +12,7 @@ function Decks() {
     const dispatch = useDispatch();
     const history = useHistory();
     const user = useSelector((state) => state.session.user);
-    const allDecksObj = useSelector((state)=> state.decks.decks)
+    const allDecksObj = useSelector((state)=> state.decks.allDecks)
 
 	useEffect(() => {
         dispatch(loadAllDecksThunk())

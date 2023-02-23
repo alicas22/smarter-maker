@@ -45,7 +45,7 @@ def seed_cards():
             Cold-blooded (ectothermic) creatures include fish, amphibians, reptiles, and insects.""", mastery=0
     )
     card10_deck1 = Card(
-            deck_id=1, question = "What is the English translation of the famous René Descartes quote “cogito ergo sum”?", answer="""“I think, therefore I am.” : This is perhaps the most famous statement from the man often called the ‘father of modern philosophy’.
+            deck_id=1, question = "What is the English translation of the famous René Descartes quote “cogito ergo sum”?", answer="""“I think, therefore I am.” : This is perhaps the most famous statement from the man often called the 'father of modern philosophy'.
 
             Descartes originally wrote this in French in 1637 as Je pense, donc je suis, but later included the better known Latin translation Cogito ergo sum. """, mastery=0
     )
@@ -64,11 +64,11 @@ def seed_cards():
     card4_deck2 = Card(
             deck_id=2, question = """What term is used for an error in speech that is believed to be the result of some unconscious belief or desire?
 
-            (Hint: the term derives from the name of a famous psychologist)""", answer="""Freudian slip: Named after Freud because he’s said to have often interpreted such slip-ups as being more indicative of deep unconscious desires than is probably the case.
+            (Hint: the term derives from the name of a famous psychologist)""", answer="""Freudian slip: Named after Freud because he's said to have often interpreted such slip-ups as being more indicative of deep unconscious desires than is probably the case.
 
             An example of a Freudian slip: a child who accidentally calls his teacher “Mom”.
 
-            Freud would have a psychoanalytic interpretation for the example above. However, it is more likely to be the child’s transition from spending most of the day with his teacher instead of his mother.""", mastery=0
+            Freud would have a psychoanalytic interpretation for the example above. However, it is more likely to be the child's transition from spending most of the day with his teacher instead of his mother.""", mastery=0
     )
     card5_deck2 = Card(
             deck_id=2, question = """“____ vs ____” is the phrase typically used to describe the controversy over whether behavior is inherited vs. learned from experience.""", answer="""John Locke (1662 - 1704) is best known for implying that all human development is developed from experience, and that infant brains begin with a completely blank slate (“tabula rasa”).
@@ -104,7 +104,7 @@ def seed_cards():
 
             Dopamine is the “reward chemical” that your brain produces when achieving a goal.""", answer="""False: Dopamine is actually what your brain produces when it expects a reward. It is a primary driver of our motivation, and sometimes, when we come to associate a certain activity with pleasure, mere anticipation may be enough to raise our dopamine levels.
 
-            Our reward circuits are actually quite complicated and involve many parts of the brain. And dopamine itself is also involved in mood, sleep, and movement in ways neuroscientists still don’t fully understand.""", mastery=0
+            Our reward circuits are actually quite complicated and involve many parts of the brain. And dopamine itself is also involved in mood, sleep, and movement in ways neuroscientists still don't fully understand.""", mastery=0
     )
 
     card1_deck3 = Card(
@@ -144,7 +144,7 @@ def seed_cards():
             Example: Greenpeace is collecting donations for the pandas in China due to deforestation. It doesn't get much response. Now they campaign for a single panda named 'Billie' living in a tropical forest in China. The donations rise dramatically.""", mastery=0
     )
     card2_deck4 = Card(
-            deck_id=4, question = """Which famous Shakespeare play centers on the ghost of the King of Denmark telling his son to avenge his murder by killing the new king.""", answer="""Hamlet: Hamlet is one of Shakespeare’s longest plays and is so popular, it has even been translated into the Klingon language found in Star Trek.""", mastery=0
+            deck_id=4, question = """Which famous Shakespeare play centers on the ghost of the King of Denmark telling his son to avenge his murder by killing the new king.""", answer="""Hamlet: Hamlet is one of Shakespeare's longest plays and is so popular, it has even been translated into the Klingon language found in Star Trek.""", mastery=0
     )
     card3_deck4 = Card(
             deck_id=4, question = """Which dog breed was originally bred as a lapdog for Chinese royalty?""", answer="""Pug: The pug is famously known for its cute smooshed-in, wrinkled face.
@@ -203,7 +203,7 @@ def seed_cards():
     card5_deck5 = Card(
             deck_id=5, question = """True or false:
 
-            If you think a victim lying on the ground may have injured their spine, you should immediately move them to a bed or soft surface to prevent further damage.""", answer="""FALSE: Important: never move a victim from their location unless their current position provides an immediate risk to their life. If the victim’s neck or spinal column is broken, then moving them may lacerate their spinal cord and lead to permanent paralyzation. Stop traffic if you have to!""", mastery=0
+            If you think a victim lying on the ground may have injured their spine, you should immediately move them to a bed or soft surface to prevent further damage.""", answer="""FALSE: Important: never move a victim from their location unless their current position provides an immediate risk to their life. If the victim's neck or spinal column is broken, then moving them may lacerate their spinal cord and lead to permanent paralyzation. Stop traffic if you have to!""", mastery=0
     )
     card6_deck5 = Card(
             deck_id=5, question = """What single appliance uses the most electricity in a household?""", answer="""refrigerator: Studies show the refrigerator to use up about 30 percent of the electricity in your home.""", mastery=0
@@ -258,7 +258,7 @@ def seed_cards():
             Meanwhile, as long as the body as hydrated, a person can survive without food for up to a month or even longer.""", mastery=0
     )
     card8_deck6 = Card(
-            deck_id=6, question = """What should you do when confronted with an enraged grizzly or brown bear?""", answer="""Back away quietly and avoid direct eye contact. (if it decides to attack, play dead):  Brown bears and grizzlies get bored with prey that doesn’t struggle. Unlike with black bears, do NOT challenge the bear by shouting at it.
+            deck_id=6, question = """What should you do when confronted with an enraged grizzly or brown bear?""", answer="""Back away quietly and avoid direct eye contact. (if it decides to attack, play dead):  Brown bears and grizzlies get bored with prey that doesn't struggle. Unlike with black bears, do NOT challenge the bear by shouting at it.
 
             Make sure to remain 'dead' even after the bear leaves. Their initial departure is often a test to see if their prey is still willing to fight.""", mastery=0
     )

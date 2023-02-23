@@ -28,7 +28,7 @@ const UpdateDeckModal = ({deckId, classId}) => {
 
         if (!user) return null
         const data = await dispatch(updateDeckThunk(payload))
-        console.log('updateDeck data', data)
+        
         if (data.errors) {
             setErrors(data.errors);
         } else {

@@ -77,19 +77,25 @@ export const updateDeckThunk = (payload) => async (dispatch) => {
     },
     body: JSON.stringify(payload),
   });
-  console.log('response from updateDeck', response)
+
   if (response.ok) {
     const newDeck = await response.json();
     dispatch(updateDeckAction(newDeck));
     return newDeck;
+  }  else if (response.status < 500) {
+    const data = await response.json();
+    if (data.errors) {
+      return data;
+    }
   }
+
 };
 
 export const deleteDeckThunk = (deckId) => async (dispatch) => {
   const response = await fetch(`/api/decks/${deckId}`, {
     method: "DELETE",
   });
-  console.log('deckid from thunk', deckId)
+
   if (response.ok) {
     const data = await response.json();
     dispatch(deleteDeckAction(deckId));
@@ -115,7 +121,7 @@ const decksReducer = (state = initialState, action) => {
   switch (action.type) {
     case LOAD_DECKS: {
       const newState = { ...state }
-      newState.decks = normalize(action.decks)
+      newState.allDecks = normalize(action.decks)
       return newState;
     }
     case LOAD_SINGLE_DECK: {
@@ -125,20 +131,21 @@ const decksReducer = (state = initialState, action) => {
     }
     case CREATE_DECK: {
       const newState = { ...state }
-      newState.decks = { ...newState.decks, [action.newDeck.id]: action.newDeck };
+      console.log('action.newdeck.id', action.newDeck.id)
+      newState.allDecks = { ...newState.allDecks, [action.newDeck.id]: action.newDeck };
       // newState.singleDeck={...newState.singleDeck, ...action.newDeck}
       return newState
     }
     case UPDATE_DECK: {
       const newState = {...state}
-      newState.decks = { ...newState.decks, [action.updatedDeck.id]: action.updatedDeck };
+      newState.allDecks = { ...newState.allDecks, [action.updatedDeck.id]: action.updatedDeck };
       // newState.singleDeck={...newState.singleDeck, ...action.newDeck}
       return newState
     }
     case DELETE_DECK: {
       const newState = { ...state };
-
-      delete newState.decks[action.id];
+      console.log('action.id from delete reducer', action.id)
+      delete newState.allDecks[action.id];
       return newState;
     }
     default:
