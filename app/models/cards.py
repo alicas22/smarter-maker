@@ -11,7 +11,7 @@ class Card(db.Model):
     id = db.Column(db.Integer, primary_key=True)
     deck_id = db.Column(db.Integer, db.ForeignKey(add_prefix_for_prod('decks.id')), nullable=False)
     question = db.Column(db.String(255), nullable=False)
-    answer = db.Column(db.String(500), nullable=False)
+    answer = db.Column(db.String(1000), nullable=False)
     mastery = db.Column(db.Integer, nullable=False, default = 0)
 
     deck = db.relationship("Deck", back_populates = 'cards')

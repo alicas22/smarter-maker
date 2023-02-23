@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux"
 import { createClassThunk } from "../../store/class"
 import { useModal } from "../../context/Modal"
-// import "./CreateProduct.css"
+import "./CreateClassModal.css"
 
 
 const CreateClassModal = () => {
@@ -46,9 +46,9 @@ const CreateClassModal = () => {
     // }, [createdProduct])
 
     return (
-        <div className="create-product-form">
+        <div className="create-class-form">
             <h1>Create Class</h1>
-            <form className='product-form' onSubmit={handleSubmit}>
+            <form className='class-form' onSubmit={handleSubmit}>
                 <ul className="validation-errors">
                     {errors.map((error, idx) => (
 					    <li key={idx}>{error}</li>
@@ -90,7 +90,7 @@ const CreateClassModal = () => {
                         onChange={(e) => setDescription(e.target.value)}
                     />
                 </label>
-                <button className="create-product-submit-button" type="submit">Submit</button>
+                <button className="create-class-submit-button" type="submit">Submit</button>
             </form>
         </div>
     )
