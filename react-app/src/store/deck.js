@@ -131,7 +131,7 @@ const decksReducer = (state = initialState, action) => {
     }
     case CREATE_DECK: {
       const newState = { ...state }
-      console.log('action.newdeck.id', action.newDeck.id)
+
       newState.allDecks = { ...newState.allDecks, [action.newDeck.id]: action.newDeck };
       // newState.singleDeck={...newState.singleDeck, ...action.newDeck}
       return newState
@@ -144,7 +144,8 @@ const decksReducer = (state = initialState, action) => {
     }
     case DELETE_DECK: {
       const newState = { ...state };
-      console.log('action.id from delete reducer', action.id)
+      const id=action.id
+      console.log("newState.allDecks", newState.allDecks)
       delete newState.allDecks[action.id];
       return newState;
     }
