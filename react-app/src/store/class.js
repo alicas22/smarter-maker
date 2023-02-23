@@ -124,7 +124,7 @@ const normalize = (arr) => {
     return resObj
 }
 
-//class reducer
+
 
 const initialState = {};
 
