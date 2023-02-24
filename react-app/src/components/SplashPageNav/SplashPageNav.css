@@ -2,11 +2,11 @@
     display: flex;
     position: fixed;
     justify-content: space-between;
-    align-items: center;
+    /* align-items: center; */
     top: 0;
     left: 0;
     background-color: #fafbfb;
-    width: 100vw;
+    width: 100%;
     height: 5rem;
     /* z-index: 5; */
   }
@@ -14,16 +14,22 @@
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: center;
     padding-left: 5rem;
 }
 
 .fa-head-side-virus{
     font-size: 2rem;
-    color: rgb(30, 30, 251)
+    color: rgb(30, 3, 251);
+
 }
 .splash-page-nav-bar-app-name{
     text-indent: 0.5rem;
-    font-size:1.5rem;
+    font-size:1.25rem;
+    margin-top:0;
+    font-family: "Open Sans", sans-serif;
+    font-weight:bolder;
+
   }
 
 .splash-page-nav-link-container{
@@ -36,10 +42,9 @@
     justify-content: flex-end;
     box-sizing: border-box;
     width: 350px;
-
-
-
 }
+
+
   /* .nav-links {
     display: flex;
     width: 100%;
@@ -53,7 +58,7 @@
     width: 165px;
   } */
 
-  .login-modal-button,
+  .login-modal-open-button,
   .splash-page-nav-login-modal{
     display: flex;
     align-items: center;
@@ -67,12 +72,12 @@
     width: 100%;
     height: 100%;
   }
-  .signup-modal-button,
+  .signup-modal-open-button,
   .splash-page-nav-signup-modal{
     display: flex;
     align-items: center;
     justify-content: center;
-    font-family: inherit;
+    font-family: "Open Sans", sans-serif;
     width: 100%;
     height: 100%;
     cursor: pointer;
@@ -82,12 +87,12 @@
     font-size: 1rem;
     font-weight: 500;
   }
-  .login-modal-button:hover,
+  .login-modal-open-button:hover,
   .splash-page-nav-login-modal:hover  {
     font-size: 1.1rem;
     background-color: #eff2f2;
   }
-  .signup-modal-button:hover,
+  .signup-modal-open-button:hover,
   .splash-page-nav-signup-modal:hover {
     font-size: 1.1rem;
   }

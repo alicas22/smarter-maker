@@ -43,7 +43,7 @@ def create_card():
             deck_id=form.data["deck_id"],
             mastery=0
         )
-        print('>>>>>>>>>>>>>>>>>>card', card)
+
         db.session.add(card)
         db.session.commit()
         return card.to_dict()
