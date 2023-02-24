@@ -143,12 +143,9 @@ const decksReducer = (state = initialState, action) => {
       return newState
     }
     case DELETE_DECK: {
-      console.log('state before newState', state)
-      const newState = { ...state };
-      console.log('newState initialized', newState)
-      console.log('action.id from delete case', action.id)
+      const newState = { allDecks : {...state.allDecks}}
       delete newState.allDecks[action.id];
-      console.log('newState after delete', newState)
+
       return newState;
     }
     default:
