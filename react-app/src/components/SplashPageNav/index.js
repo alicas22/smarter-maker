@@ -16,14 +16,14 @@ const SplashPageNav = () => {
         <OpenModalButton
             buttonText="Log In"
             modalComponent={<LoginFormModal />}
-            className="login-modal-button"
+            className="login-modal-open-button"
         />
         </div>
         <div className="splash-page-nav-signup-modal">
         <OpenModalButton
             buttonText="Get Started"
             modalComponent={<SignupFormModal />}
-            className="signup-modal-button"
+            className="signup-modal-open-button"
         />
         </div>
       </div>

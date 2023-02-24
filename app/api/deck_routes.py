@@ -31,12 +31,6 @@ def single_deck(id):
     deck = Deck.query.get(id)
     return deck.to_dict()
 
-# #Get current user's decks
-# @deck_routes.route("/user")
-# @login_required
-# def user_decks():
-#     decks = Deck.query.filter(Deck.owner_id == current_user.id).all()
-#     return {deck.id: deck.to_dict() for deck in decks}
 
 @deck_routes.route("/", methods=["POST"])
 @login_required
@@ -62,7 +56,7 @@ def update_deck(id):
     current_deck = Deck.query.get(id)
     form = DeckForm()
     form['csrf_token'].data = request.cookies['csrf_token']
-    print('>>>>>>>update deck put', form.classId)
+
     res = request.get_json()
     if form.validate_on_submit():
         form.populate_obj(current_deck)

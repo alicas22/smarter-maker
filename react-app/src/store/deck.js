@@ -143,15 +143,13 @@ const decksReducer = (state = initialState, action) => {
       return newState
     }
     case DELETE_DECK: {
-      const newState = { ...state };
-      const id=action.id
-      console.log("newState.allDecks", newState.allDecks)
+      const newState = { allDecks : {...state.allDecks}}
       delete newState.allDecks[action.id];
+
       return newState;
     }
     default:
       return state;
   }
 }
-
 export default decksReducer;

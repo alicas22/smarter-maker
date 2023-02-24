@@ -1,0 +1,73 @@
+.signup-modal-form {
+    padding-top: 8px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .signup-modal-header{
+  color: #324a6b;
+  font-family: "Mont Bold", Mont, sans-serif;
+  font-size: 36px;
+  font-weight: 700;
+  text-align: center;
+  text-transform: capitalize;
+
+  }
+
+  .signup-modal-input {
+    background-color: transparent;
+    color: #197096;
+    font-size: 16px;
+    font-weight: 600;
+    border: none;
+    border-bottom: 4px solid #EEE;
+    border-radius: 0;
+    height: 36px;
+    padding: 0;
+    position: relative;
+    width: 100%;
+    z-index: 10;
+  }
+
+  .signup-modal-input:focus {
+    border-bottom: 4px solid #197096;
+    outline: none;
+  }
+
+  .signup-modal-button {
+    font-family: "Open Sans", "Helvetica Neue", "Helvetica", "Arial", sans-serif;
+    font-size:14px;
+    border-radius: 33px;
+    margin: 0 auto;
+    max-width: 186px;
+    padding: 0;
+    width: 100%;
+    background-color: #ff8243;
+    color: white;
+    box-sizing: border-box;
+    border: none;
+    font-size: 12px;
+    height: 48px;
+    margin-bottom: 15px;
+    margin-top:50px
+  }
+
+  .validation-errors{
+      color: red;
+      list-style: none;
+      padding-left: 0;
+      text-align: center;
+  }
+
+  label {
+    font-family: 'Open Sans', sans-serif;
+    color: #aaa;
+    font-weight: 300;
+    font-weight: normal;
+    /* position: absolute;
+    pointer-events: none;
+    top: 8px;
+    transition: 0.2s ease all; */
+  }

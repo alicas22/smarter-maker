@@ -5,3 +5,68 @@
 .hidden {
   display: none;
 }
+
+.nav-bar-container {
+  display: flex;
+  flex-direction: column;
+  width: 370px;
+  color: rgba(255, 255, 255, 0.6);
+  background-color: #324A6B;
+  height: 100vh;
+  font-family: 'Open Sans', sans-serif;
+}
+.nav-head-icon{
+  color:white
+}
+
+.nav-bar-header-container{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
+  padding-left: .5rem;
+  padding-top: 3rem;
+  padding-right: .5rem;
+  padding-bottom: 8rem;
+  font-size: 20px;
+  color: white;
+
+}
+.nav-bar-user-container{
+  display:flex;
+  flex-direction: column;
+  align-items: center;
+  font-family: 'Mont', sans-serif;
+  /* justify-content: center; */
+}
+.fa-face-smile{
+  font-size:46px;
+  padding-bottom:5px
+}
+.nav-bar-user-gear{
+  color: rgba(255, 255, 255, 0.3);
+  font-size:30px
+}
+
+.my-classes{
+  color:white
+}
+.nav-bar-my-classes-header{
+  display:flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: 1rem;
+  padding-right: 1rem;
+}
+.nav-bar-create-class-modal{
+  cursor: pointer;
+  font-size: 26px;
+  border: 2px solid;
+  padding-left: 8px;
+  padding-right: 8px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border-radius: 50%;
+  color:#324A6B;
+  background-color: rgba(255, 255, 255, 0.3);
+}
