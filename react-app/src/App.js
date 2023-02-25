@@ -38,7 +38,10 @@ function App() {
           <Route exact path="/">
             <SplashPage />
           </Route>
-          <Route exact path="/dashboard">
+          {/* <Route path="/dashboard">
+            <Dashboard isLoaded={isLoaded}/>
+          </Route> */}
+          <Route path="/dashboard/:classId">
             <Dashboard isLoaded={isLoaded}/>
           </Route>
         </Switch>

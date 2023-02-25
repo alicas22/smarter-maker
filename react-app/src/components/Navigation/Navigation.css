@@ -1,5 +1,10 @@
 .profile-dropdown {
   position: absolute;
+  border:.5px solid black;
+  background-color: rgba(255, 255, 255,1);
+  color:black;
+  margin-top:15px;
+  border-radius:8px
 }
 
 .hidden {
@@ -14,6 +19,9 @@
   background-color: #324A6B;
   height: 100vh;
   font-family: 'Open Sans', sans-serif;
+  padding-right:0px;
+  margin-right:0px;
+  border-right:0px;
 }
 .nav-head-icon{
   color:white
@@ -26,10 +34,9 @@
   padding-left: .5rem;
   padding-top: 3rem;
   padding-right: .5rem;
-  padding-bottom: 8rem;
+  padding-bottom: 4rem;
   font-size: 20px;
   color: white;
-
 }
 .nav-bar-user-container{
   display:flex;
@@ -47,9 +54,28 @@
   font-size:30px
 }
 
-.my-classes{
-  color:white
+
+.fa-gear {
+
+  transition: rotate 0.5s ease-in-out;
 }
+
+.fa-gear-click {
+  rotate: 45deg;
+}
+.fa-gear:hover{
+  color:rgb(92, 161, 214);
+}
+
+
+.nav-bar-classes-cards-created{
+  text-align: center;
+  padding-bottom:2rem;
+}
+.my-classes{
+  color:white;
+}
+
 .nav-bar-my-classes-header{
   display:flex;
   flex-direction: row;
@@ -57,6 +83,8 @@
   justify-content: space-between;
   padding-left: 1rem;
   padding-right: 1rem;
+  padding-bottom: 2rem;
+
 }
 .nav-bar-create-class-modal{
   cursor: pointer;
@@ -69,4 +97,62 @@
   border-radius: 50%;
   color:#324A6B;
   background-color: rgba(255, 255, 255, 0.3);
+}
+
+
+
+.nav-bar-class-card-container{
+  display: flex;
+  flex-direction: row;
+  height:72px;
+  align-items: center;
+  cursor: pointer;
+  border-left: 6px solid transparent;
+  padding-left:1rem
+}
+.class-list-inactive{
+  text-decoration: none;
+  color:rgba(255, 255, 255, 0.3)
+}
+
+.nav-bar-class-card-container:hover,
+/* .nav-bar-class-card-container:active, */
+.class-list-inactive:active
+.class-list-active
+{
+ border-left: 6px solid #C3E6F5;
+ color:white
+}
+
+
+.little-hat{
+  padding-right: 1rem;
+  font-size: 3rem;
+}
+.class-name-and-delete-button{
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  width:100%
+}
+.nav-bar-class-card-container:hover .class-delete-button {
+  visibility: visible;
+}
+.class-delete-button {
+  position: relative;
+  top: -15px;
+  cursor: pointer;
+  margin-right:2rem;
+  padding-left:7px;
+  padding-right:7px;
+  visibility: hidden;
+  color:rgba(255, 255, 255, 0.3)
+
+}
+
+.class-delete-button:hover{
+  background-color: rgb(35, 35, 105);
+  border-radius: 50%;
+
+
 }

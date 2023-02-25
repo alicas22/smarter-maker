@@ -13,14 +13,20 @@ def validation_errors_to_error_messages(validation_errors):
     errorMessages = []
     for field in validation_errors:
         for error in validation_errors[field]:
-            errorMessages.append(f'{field} : {error}')
+            errorMessages.append(f'{error}')
     return errorMessages
 
 
-@class_routes.route("/")
-# @login_required
-def all_classes():
-    classes = Class.query.all()
+# @class_routes.route("/")
+# # @login_required
+# def all_classes():
+#     classes = Class.query.all()
+#     return [singleClass.to_dict() for singleClass in classes]
+
+@class_routes.route("/user")
+@login_required
+def user_classes():
+    classes = Class.query.filter(Class.user_id == current_user.id).all()
     return [singleClass.to_dict() for singleClass in classes]
 
 

@@ -1,4 +1,9 @@
-.dashboard-page-container{
+.dashboard-page-container {
     display: flex;
     flex-direction: row;
+    width: 100%;
+}
+
+.dashboard-rest-of-page{
+    width:100%
 }

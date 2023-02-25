@@ -8,20 +8,23 @@ import "./LoginForm.css";
 
 function LoginFormModal() {
   const dispatch = useDispatch();
-  const history=useHistory
+  const history=useHistory()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
   const { closeModal } = useModal();
 
+
+
   const handleSubmit = async (e) => {
     e.preventDefault();
     const data = await dispatch(login(email, password));
-    history.push('/dispatch')
+
     if (data) {
       setErrors(data);
     } else {
       closeModal()
+      history.push('/dashboard/1')
     }
   };
 
@@ -30,11 +33,11 @@ function LoginFormModal() {
   const handleDemoLogin = async (e) => {
 		e.preventDefault();
 		const data = await dispatch(login(demoEmail, demoPassword));
-    history.push('/dispatch')
 		if (data) {
-		  setErrors(data);
+      setErrors(data);
 		} else {
-			closeModal()
+      closeModal()
+      history.push('/dashboard/1')
 		}
 	  };
 

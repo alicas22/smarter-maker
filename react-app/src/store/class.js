@@ -33,7 +33,7 @@ const deleteClassAction = (classId) => ({
 });
 
 export const loadAllClassesThunk = () => async (dispatch) => {
-  const response = await fetch("/api/classes");
+  const response = await fetch("/api/classes/user");
   if (response.ok) {
     const classes = await response.json();
     dispatch(loadClassesAction(classes));
