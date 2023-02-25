@@ -33,7 +33,7 @@ const deleteClassAction = (classId) => ({
 });
 
 export const loadAllClassesThunk = () => async (dispatch) => {
-  const response = await fetch("/api/classes");
+  const response = await fetch("/api/classes/user");
   if (response.ok) {
     const classes = await response.json();
     dispatch(loadClassesAction(classes));
@@ -143,7 +143,7 @@ const classReducer = (state = initialState, action) => {
         return newState
       }
     case DELETE_CLASS:{
-        const newState = { ...state };
+        const newState = { allClasses : {...state.allClasses}}
         delete newState.allClasses[action.classId]
         return newState;
       }
