@@ -1,0 +1,71 @@
+.class-about-container {
+    display: flex;
+    flex-direction: row;
+    /* justify-content: center; */
+    align-items: center;
+    padding: 3rem;
+}
+
+.class-about-header {
+    font-family: "Mont Bold", Mont, sans-serif;
+    display: flex;
+    flex-direction: column;
+    padding-left: 3rem;
+}
+
+.class-about-name-pencil {
+    font-family: "Mont Bold", Mont, sans-serif;
+    color: #324A6B;
+    font-size: 30px;
+}
+
+.class-about-subtitle {
+    padding-top: .5rem;
+    color: #7D93A4
+}
+
+.big-hat {
+    font-size: 120px;
+    color: rgb(11, 119, 83)
+}
+
+.fa-pencil {
+    text-indent: 2rem;
+}
+
+.class-about-sub-button-container {
+    display: flex;
+    flex-direction: column;
+}
+
+.class-about-nav-bar {
+
+    color: #46505e;
+    font-family: 'Open Sans', sans-serif;
+    font-size:larger;
+    display: flex;
+    background-color: rgba(5, 101, 156, 0.08);
+    border-bottom: 1px solid rgba(46, 64, 86, 0.26);
+    height: 3rem;
+}
+
+.class-about-nav-bar-link{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex: 1;
+    cursor: pointer;
+    border-bottom: 4px solid transparent;
+    color: rgba(70, 80, 94, 0.8);
+    font-size: 18px;
+}
+
+.class-about-nav-bar-link:hover {
+    color: #6cb5f9;
+    border-bottom: 4px solid rgba(18, 57, 108, 0.18);
+  }
+.class-about-nav-bar-link-active,
+.class-about-nav-bar-link:active{
+  border-bottom: 4px solid rgb(50, 74, 107) !important;
+  color: #46505e !important;
+}

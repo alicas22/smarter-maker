@@ -6,7 +6,7 @@ import LoginFormPage from "./components/LoginFormPage";
 import SplashPage from "./components/SplashPage";
 import Dashboard from "./components/Dashboard";
 import { authenticate } from "./store/session";
-import Navigation from "./components/Navigation";
+import SplashPageNav from "./components/SplashPageNav";
 import { useSelector } from 'react-redux';
 
 function App() {
@@ -18,11 +18,13 @@ function App() {
     dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
-  if(!sessionUser){
-    return (
-        <SplashPage />
-    )
-}
+  // if (!sessionUser) {
+  //   return (
+  //     <>
+  //       <SplashPage />
+  //     </>
+  //   )
+  // }
 
   return (
     <>
@@ -38,8 +40,11 @@ function App() {
           <Route exact path="/">
             <SplashPage />
           </Route>
-          <Route exact path="/dashboard">
+          {/* <Route path="/dashboard">
             <Dashboard isLoaded={isLoaded}/>
+          </Route> */}
+          <Route path="/dashboard/:classId">
+            <Dashboard isLoaded={isLoaded} />
           </Route>
         </Switch>
       )}
