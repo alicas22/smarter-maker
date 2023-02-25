@@ -54,7 +54,7 @@ function Navigation(isLoaded) {
 	if (!allClassesObj) return null
 	const userClasses = Object.values(allClassesObj)
 	if (!userClasses) return null
-	console.log('userClasses', userClasses)
+
 
 
 
@@ -62,7 +62,10 @@ function Navigation(isLoaded) {
 		<>
 			<div className="nav-bar-container">
 				<div className="nav-bar-header-container">
-					<i class="fa-solid fa-head-side-virus nav-head-icon"></i>
+					<NavLink to='/'
+						style={{ textDecoration: 'none' }}>
+						<i class="fa-solid fa-head-side-virus nav-head-icon"></i>
+					</NavLink>
 					<div className="nav-bar-user-container">
 						<div className="nav-bar-user-icon">
 							<i class="fa-regular fa-face-smile"></i>
@@ -90,13 +93,24 @@ function Navigation(isLoaded) {
 				<div className="nav-bar-class-list-container">
 					{userClasses.map((singleClass) => (
 						<div>
-							<NavLink
-								to={`/dashboard/${singleClass.id}`}
-								exact
-								className="class-list-inactive"
-								// activeClassName="class-list-active"
+							<div className="nav-bar-class-card-container">
+								<NavLink
+									to={`/dashboard/${singleClass.id}`}
+									exact
+									className="class-list-inactive try-this-one"
+									activeClassName="class-list-active try-this-one-active"
+									isActive={() => {
+										// Get the current URL
+										const currentUrl = window.location.pathname;
+
+										// Check if the current URL matches the class URL
+										const classUrl = `/dashboard/${singleClass.id}`;
+										const isActive = currentUrl === classUrl;
+
+										// Return true to activate the link, false otherwise
+										return isActive;
+									}}
 								>
-								<div className="nav-bar-class-card-container">
 									<i class="fa-solid fa-graduation-cap little-hat"></i>
 									<div className="class-name-and-delete-button">
 										<h3>{singleClass.name}</h3>
@@ -104,20 +118,15 @@ function Navigation(isLoaded) {
 											className="class-delete-button">x
 										</div>
 									</div>
-								</div>
-							</NavLink>
+								</NavLink>
+							</div>
 							<div className="edit-class-modal" style={{ cursor: "pointer" }}>
 								<OpenModalButton
 									buttonText="Update Class"
 									modalComponent={<UpdateClassModal classId={singleClass.id} />}
 								/>
 							</div>
-							{/* <div className="create-deck-modal" style={{ cursor: "pointer" }}>
-								<OpenModalButton
-									buttonText="Create Deck"
-									modalComponent={<CreateDeckModal classId={singleClass.id} />}
-								/>
-							</div> */}
+
 						</div>
 					))}
 				</div>

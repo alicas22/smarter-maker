@@ -22,7 +22,7 @@ function ClassAbout() {
     const allClassesArr = Object.values(allClassesObj)
     const singleClass = allClassesArr.find((singleClass) => singleClass.id === +classId)
     const singleClassDecks = allDecksArr.filter((singleDeck) => singleDeck.classId === +classId)
-    // console.log('singleClass from ClassAbout', singleClass)
+
 
 
 

@@ -2,13 +2,12 @@
     display: flex;
     position: fixed;
     justify-content: space-between;
-    /* align-items: center; */
     top: 0;
     left: 0;
     background-color: #fafbfb;
     width: 100%;
     height: 5rem;
-    /* z-index: 5; */
+    z-index: 1;
   }
   .splash-page-nav-logo {
     display: flex;
@@ -44,20 +43,7 @@
     width: 350px;
 }
 
-
-  /* .nav-links {
-    display: flex;
-    width: 100%;
-    height: 100%;
-    justify-content: flex-end;
-  } */
-
-  /* .login-container,
-  .signup-container {
-    box-sizing: border-box;
-    width: 165px;
-  } */
-
+  .splash-page-nav-logout-button,
   .login-modal-open-button,
   .splash-page-nav-login-modal{
     display: flex;
@@ -72,6 +58,7 @@
     width: 100%;
     height: 100%;
   }
+  .splash-page-nav-dashboard-link,
   .signup-modal-open-button,
   .splash-page-nav-signup-modal{
     display: flex;
@@ -87,11 +74,15 @@
     font-size: 1rem;
     font-weight: 500;
   }
+
+  .splash-page-nav-logout-button:hover,
   .login-modal-open-button:hover,
   .splash-page-nav-login-modal:hover  {
     font-size: 1.1rem;
     background-color: #eff2f2;
   }
+
+  .splash-page-nav-dashboard-link:hover,
   .signup-modal-open-button:hover,
   .splash-page-nav-signup-modal:hover {
     font-size: 1.1rem;

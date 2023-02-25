@@ -1,0 +1,47 @@
+.splash-page-container {
+    font-family: "Mont Bold", Mont, sans-serif;
+}
+
+.splash-page-carousel-container{
+    margin-top: 5rem;
+}
+
+.splash-page-carousel-captions {
+    position: absolute;
+    top:25%;
+    z-index: 2;
+    margin-right: 4%;
+    margin-left: 4%;
+    white-space: pre-line !important;
+}
+.splash-page-header {
+    display: flex;
+    color: #ffffff;
+    font-weight: bold;
+    font-size: 8vw;
+    margin-bottom: 4rem;
+
+  }
+  .splash-page-subheader {
+    font-family: "Open Sans", sans-serif !important;
+    color: #ffffff;
+    font-weight: 300;
+    margin-bottom: 4rem;
+    line-height: 0;
+    font-size: 2vw;
+    padding-top:2rem
+}
+
+.slide {
+    height: 100vh;
+    object-fit: cover;
+}
+
+img {
+    height: 100%;
+    object-fit: cover;
+}
+
+.carousel {
+    height: 91.5vh;
+}

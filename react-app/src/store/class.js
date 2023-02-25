@@ -143,7 +143,7 @@ const classReducer = (state = initialState, action) => {
         return newState
       }
     case DELETE_CLASS:{
-        const newState = { ...state };
+        const newState = { allClasses : {...state.allClasses}}
         delete newState.allClasses[action.classId]
         return newState;
       }
