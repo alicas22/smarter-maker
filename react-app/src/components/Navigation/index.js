@@ -1,12 +1,10 @@
 import { useSelector, useDispatch } from "react-redux";
 import { NavLink, Switch, useHistory } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { loadAllClassesThunk } from "../../store/class";
 import { deleteClassThunk } from "../../store/class"
 import CreateClassModal from '../CreateClassModal'
 import UpdateClassModal from '../UpdateClassModal'
 import OpenModalButton from "../OpenModalButton";
-import CreateDeckModal from "../CreateDeckModal";
 import ProfileButton from "./ProfileButton";
 import "./Navigation.css"
 
@@ -16,10 +14,6 @@ function Navigation(isLoaded) {
 	const history = useHistory()
 	const user = useSelector((state) => state.session.user);
 	const [showMenu, setShowMenu] = useState(false);
-
-	useEffect(() => {
-		dispatch(loadAllClassesThunk())
-	}, [dispatch])
 
 	const openMenu = () => {
 		if (showMenu) return;
@@ -49,14 +43,22 @@ function Navigation(isLoaded) {
 			</div>
 		);
 	}
-
 	const allClassesObj = useSelector((state) => state.classes.allClasses);
-	if (!allClassesObj) return null
+	const allDecksObj = useSelector((state) => state.decks.allDecks);
+	const allCardsObj = useSelector((state)=> state.cards.allCards)
+
+	if (!allClassesObj || !allDecksObj || !allCardsObj ) return null
+
 	const userClasses = Object.values(allClassesObj)
-	if (!userClasses) return null
+	const allDecksArr = Object.values(allDecksObj)
+	const allCardsArr = Object.values(allCardsObj)
 
-
-
+    const singleUserDecks = allDecksArr.filter(deck => {
+        return userClasses.some(singleClass => singleClass.id === deck.classId);
+      });
+	const singleUserCards = allCardsArr.filter(card => {
+		return singleUserDecks.some(deck =>deck.id === card.deckId)
+	})
 
 	return (
 		<>
@@ -64,11 +66,11 @@ function Navigation(isLoaded) {
 				<div className="nav-bar-header-container">
 					<NavLink to='/'
 						style={{ textDecoration: 'none' }}>
-						<i class="fa-solid fa-head-side-virus nav-head-icon"></i>
+						<i className="fa-solid fa-head-side-virus nav-head-icon"></i>
 					</NavLink>
 					<div className="nav-bar-user-container">
 						<div className="nav-bar-user-icon">
-							<i class="fa-regular fa-face-smile"></i>
+							<i className="fa-regular fa-face-smile"></i>
 						</div>
 						<div className="nav-bar-user-name">
 							{user.firstName} {user.lastName}
@@ -77,7 +79,12 @@ function Navigation(isLoaded) {
 					{sessionLinks}
 				</div>
 				<div className="nav-bar-classes-cards-created">
-					_________________________________
+					<div className="user-decks-created">
+						Decks Created <span className="number-decks-created">{singleUserDecks.length}</span>
+					</div>
+					<div className="user-cards-created">
+						Cards Created <span className="number-cards-created">{singleUserCards.length}</span>
+					</div>
 				</div>
 				<div className="nav-bar-my-classes-header">
 					<h3 className="my-classes"> My Classes ({userClasses.length})</h3>
@@ -90,9 +97,10 @@ function Navigation(isLoaded) {
 					</div>
 				</div>
 
+
 				<div className="nav-bar-class-list-container">
-					{userClasses.map((singleClass) => (
-						<div>
+					{userClasses.map((singleClass, i) => (
+						<div key ={i}>
 							<div className="nav-bar-class-card-container">
 								<NavLink
 									to={`/dashboard/${singleClass.id}`}
@@ -111,21 +119,29 @@ function Navigation(isLoaded) {
 										return isActive;
 									}}
 								>
-									<i class="fa-solid fa-graduation-cap little-hat"></i>
-									<div className="class-name-and-delete-button">
+									<i className="fa-solid fa-graduation-cap little-hat"></i>
+									<div className="class-name-edit-modal-delete-button">
 										<h3>{singleClass.name}</h3>
-										<div onClick={e => deleteButton(e, singleClass.id)}
-											className="class-delete-button">x
+										<div className="edit-class-modal" style={{ cursor: "pointer" }}>
+											<div className="delete-class-edit-modal-only">
+												<OpenModalButton
+													buttonText=<i className="fa-solid fa-pencil class-pencil"></i>
+													modalComponent={<UpdateClassModal singleClass={singleClass} />}
+												/>
+											</div>
+											<div onClick={e => deleteButton(e, singleClass.id)}
+												className="class-delete-button">x
+											</div>
 										</div>
 									</div>
 								</NavLink>
 							</div>
-							<div className="edit-class-modal" style={{ cursor: "pointer" }}>
+							{/* <div className="edit-class-modal" style={{ cursor: "pointer" }}>
 								<OpenModalButton
 									buttonText="Update Class"
-									modalComponent={<UpdateClassModal classId={singleClass.id} />}
+									modalComponent={<UpdateClassModal singleClass={singleClass} />}
 								/>
-							</div>
+							</div> */}
 
 						</div>
 					))}

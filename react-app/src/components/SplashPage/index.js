@@ -1,4 +1,4 @@
-import { useSelector } from 'react-redux';
+
 import SplashPageNav from '../SplashPageNav';
 import image1 from "./images/image-1.jpg";
 import image2 from "./images/image-2.jpg";
@@ -23,7 +23,7 @@ function SplashPage() {
                     <div className="splash-page-carousel-captions">
                         <div className="splash-page-header">Rise to <br/>your challenge.</div>
                         <div className="splash-page-subheader">
-                            Flashcards for <b>serious learners.</b>
+                            Flashcards for <div className='subheader-bold-text'>serious learners.</div>
                         </div>
                     </div>
                     <div className="splash-page-carousel">

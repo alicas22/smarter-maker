@@ -18,13 +18,6 @@ function App() {
     dispatch(authenticate()).then(() => setIsLoaded(true));
   }, [dispatch]);
 
-  // if (!sessionUser) {
-  //   return (
-  //     <>
-  //       <SplashPage />
-  //     </>
-  //   )
-  // }
 
   return (
     <>
@@ -40,10 +33,7 @@ function App() {
           <Route exact path="/">
             <SplashPage />
           </Route>
-          {/* <Route path="/dashboard">
-            <Dashboard isLoaded={isLoaded}/>
-          </Route> */}
-          <Route path="/dashboard/:classId">
+          <Route path="/dashboard">
             <Dashboard isLoaded={isLoaded} />
           </Route>
         </Switch>

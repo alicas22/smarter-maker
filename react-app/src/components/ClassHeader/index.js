@@ -1,48 +1,50 @@
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { loadAllClassesThunk } from "../../store/class";
+import { loadAllDecksThunk } from "../../store/deck";
 import { useParams } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import Decks from "../Decks";
-import './ClassAbout.css'
+import './ClassHeader.css'
 
-function ClassAbout() {
+function ClassHeader() {
     const { classId } = useParams();
-    // const dispatch = useDispatch()
+    const dispatch = useDispatch()
     const user = useSelector((state) => state.session.user);
     const allDecksObj = useSelector((state) => state.decks.allDecks);
     const allClassesObj = useSelector((state) => state.classes.allClasses);
+    const allCardsObj = useSelector((state)=> state.cards.allCards)
 
-    // useEffect(() => {
-    //     dispatch(loadAllClassesThunk())
-    // }, [dispatch])
-    if (!allClassesObj || !allDecksObj) return null
+    if (!allClassesObj || !allDecksObj || !allCardsObj ) return null
 
     const allDecksArr = Object.values(allDecksObj)
     const allClassesArr = Object.values(allClassesObj)
     const singleClass = allClassesArr.find((singleClass) => singleClass.id === +classId)
     const singleClassDecks = allDecksArr.filter((singleDeck) => singleDeck.classId === +classId)
-
+    const allCardsArr = Object.values(allCardsObj)
+    const singleClassesCards = allCardsArr.filter(card => {
+        return singleClassDecks.some(deck => deck.id === card.deckId);
+        });
 
 
 
     return (
         <>
             <div className="class-about-container">
-
-                <i class="fa-solid fa-graduation-cap big-hat"></i>
+                <i className="fa-solid fa-graduation-cap big-hat"></i>
                 <div className="class-about-header">
                     <div className="class-about-sub-button-container">
                         <div className="class-about-name-pencil">
                             {singleClass.name}
-                            <i class="fa-solid fa-pencil"></i>
+                            <i className="fa-solid fa-pencil"></i>
                         </div>
                         <div className="class-about-subtitle">
-                            Creator: {user.firstName} {user.lastName} Add number of cards here
+                            Creator: {user.firstName} {user.lastName}
+                            <span className="unique-cards-created">{singleClassesCards.length} unique cards</span>
                         </div>
-                        <div className="class-about-study button">
+                        {/* <div className="class-about-study button">
                             <NavLink to={`/dashboard/${classId}/decks/`}>Study</NavLink>
-                        </div>
+                        </div> */}
                     </div>
                 </div>
 
@@ -61,12 +63,9 @@ function ClassAbout() {
                     Decks ({singleClassDecks.length})
                 </NavLink>
             </div>
-            <div className="class-about-bottom-half">
-
-            </div>
         </>
 
     )
 }
 
-export default ClassAbout
+export default ClassHeader
