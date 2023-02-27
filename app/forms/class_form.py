@@ -12,7 +12,7 @@ def validate_name(form, field):
 def validate_headline(form, field):
     headline = field.data
     if len(headline) < 10 or len(headline) > 255:
-        raise ValidationError('Description must be between 10 and 255 characters long')
+        raise ValidationError('Headline must be between 10 and 255 characters long')
 
 def validate_description(form, field):
     description = field.data

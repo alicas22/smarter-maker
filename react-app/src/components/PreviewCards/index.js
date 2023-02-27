@@ -1,6 +1,7 @@
 import { useDispatch, useSelector } from 'react-redux'
 import { useParams } from "react-router-dom";
 import CreateCardModal from '../CreateCardModal';
+import UpdateCardModal from '../UpdateCardModal';
 import OpenModalButton from "../OpenModalButton";
 import { deleteCardThunk } from '../../store/card';
 import './PreviewCards.css'
@@ -47,7 +48,14 @@ function PreviewCards() {
                         {card.answer}
                     </div>
                     <div className='decks-delete-deck-button'
-                        onClick={e => deleteButton(e, deckId)}><i className="fa-solid fa-xmark"></i>
+                        onClick={e => deleteButton(e, card.id)}><i className="fa-solid fa-xmark"></i>
+                    </div>
+                    <div className="create-class-modal" style={{ cursor: "pointer" }}>
+                        <OpenModalButton
+                            buttonText=<i className="fa-solid fa-pencil card-pencil"></i>
+                            modalComponent={<UpdateCardModal card={card} />}
+                            className="nav-bar-create-class-modal"
+                        />
                     </div>
                 </div>
             ))}

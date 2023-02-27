@@ -47,8 +47,9 @@ export const loadSingleCardThunk = (cardId) => async (dispatch) => {
   }
 };
 
+
 export const createCardThunk = (payload) => async (dispatch) => {
-  console.log('beggining of create card thunk')
+
   const response = await fetch("/api/cards/", {
     method: "POST",
     headers: {
@@ -56,7 +57,7 @@ export const createCardThunk = (payload) => async (dispatch) => {
     },
     body: JSON.stringify(payload),
   });
-  console.log('response create card thunk', payload)
+
   if (response.ok) {
     const newCard = await response.json();
     dispatch(createCardAction(newCard));
@@ -71,7 +72,8 @@ export const createCardThunk = (payload) => async (dispatch) => {
 };
 
 export const updateCardThunk = (payload) => async (dispatch) => {
-  const response = await fetch(`/api/cards/${payload.cardId}`, {
+  
+  const response = await fetch(`/api/cards/${payload.id}`, {
     method: "PUT",
     headers: {
       "Content-Type": "application/json",

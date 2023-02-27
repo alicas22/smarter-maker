@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import createCardThunk from '../../store/card'
+import {createCardThunk} from '../../store/card'
 import { useModal } from "../../context/Modal"
 // import "./CreateClassModal.css"
 
@@ -26,13 +26,13 @@ const CreateCardModal = ({deckId}) => {
             mastery: 0
         }
         if (!user) return null
-        console.log('payload from create modal form', payload)
+
         const data = await dispatch(createCardThunk(payload))
-        console.log('data from create modal form', data)
+
         if (data.errors) {
             setErrors(data.errors);
         } else {
-            await setCreatedCard(data)
+            // await setCreatedCard(data)
             closeModal();
         }
     }
