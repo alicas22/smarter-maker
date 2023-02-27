@@ -35,7 +35,7 @@
   padding-left: .5rem;
   padding-top: 3rem;
   padding-right: .5rem;
-  padding-bottom: 4rem;
+  padding-bottom: 2rem;
   font-size: 20px;
   color: white;
 }
@@ -71,10 +71,26 @@
   color: rgb(92, 161, 214);
 }
 
+.user-decks-created,
+.user-cards-created{
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
 
-.nav-bar-classes-cards-created {
+.number-decks-created,
+.number-cards-created{
   text-align: center;
+  color:white
+}
+.nav-bar-classes-cards-created {
+  display: flex;
+  flex: row;
+  justify-content: space-between;
   padding-bottom: 2rem;
+  margin-left: 2rem;
+  margin-right: 2rem;
+  border-bottom:1px solid rgba(255, 255, 255, 0.3);
 }
 
 .my-classes {
@@ -89,6 +105,7 @@
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: 2rem;
+  padding-top:2rem
 
 }
 
@@ -105,7 +122,7 @@
   background-color: rgba(255, 255, 255, 0.3);
 }
 .nav-bar-create-class-modal:hover{
-  background-color:white
+  background-color:rgb(92, 161, 214);
 }
 
 
@@ -147,13 +164,16 @@
   font-size: 3rem;
 }
 
-.class-name-and-delete-button {
+.class-name-edit-modal-delete-button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
   width: 100%
 }
 
+.class-pencil:hover{
+  color:rgb(92, 161, 214);
+}
 .nav-bar-class-card-container:hover .class-delete-button {
   display: block;
 }
@@ -170,6 +190,6 @@
 }
 
 .class-delete-button:hover {
-  background-color: rgb(35, 35, 105);
+  background-color:rgb(92, 161, 214);
   border-radius: 50%;
 }

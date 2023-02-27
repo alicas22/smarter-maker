@@ -47,11 +47,16 @@
     background-color: #757575;
 }
 
+.decks-create-decks-modal-button:hover {
+   background-color: rgb(92, 161, 214);
+}
+
 .decks-class-card {
     display: flex;
     flex-direction: row;
-    padding: 24px 30px 24px 0px;
+    padding: 30px 30px 30px 0px;
     border-bottom: 1px solid rgba(191, 191, 191, 0.8);
+
 }
 
 .decks-deck-card-info-container {
@@ -59,17 +64,36 @@
     flex-direction: row;
     justify-content: space-between;
     width: 100%;
-    padding-right: 5rem;
+    padding-right: 3.6rem;
 }
 
-.decks-card-crud-buttons{
+.decks-card-crud-buttons {
     display: flex;
     flex-direction: row;
 }
-.edit-class-modal{
+
+.edit-class-modal {
     padding-right: 1rem;
     /* margin-right: 1rem; */
+    color: #757575;
 }
-.fa-xmark{
+.card-pencil{
+    font-size: 20px;
+  
+}
+.fa-xmark {
     cursor: pointer;
+    color: #757575;
+    padding-left: 3rem;
+    font-size: 22px;
+
+}
+
+.card-pencil:hover,
+.fa-xmark:hover {
+    color: rgb(92, 161, 214);
+}
+
+.decks-class-card:hover {
+    background-color: rgb(108, 181, 249, 0.1);
 }

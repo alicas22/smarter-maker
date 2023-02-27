@@ -2,18 +2,19 @@
     font-family: "Mont Bold", Mont, sans-serif;
 }
 
-.splash-page-carousel-container{
+/* .splash-page-carousel-container {
     margin-top: 5rem;
-}
+} */
 
 .splash-page-carousel-captions {
     position: absolute;
-    top:25%;
+    top: 25%;
     z-index: 2;
     margin-right: 4%;
     margin-left: 4%;
     white-space: pre-line !important;
 }
+
 .splash-page-header {
     display: flex;
     color: #ffffff;
@@ -21,27 +22,51 @@
     font-size: 8vw;
     margin-bottom: 4rem;
 
-  }
-  .splash-page-subheader {
-    font-family: "Open Sans", sans-serif !important;
-    color: #ffffff;
-    font-weight: 300;
-    margin-bottom: 4rem;
-    line-height: 0;
-    font-size: 2vw;
-    padding-top:2rem
 }
 
-.slide {
+.splash-page-subheader {
+    font-family: "Open Sans", sans-serif !important;
+    color: #ffffff;
+    margin-bottom: 4rem;
+    font-size: 2vw;
+    display: flex;
+
+}
+
+.subheader-bold-text {
+    font-weight: 700;
+    padding-left: 10px;
+}
+
+.slide,
+img {
     height: 100vh;
     object-fit: cover;
 }
 
-img {
-    height: 100%;
-    object-fit: cover;
+.carousel {
+    height: 100vh;
 }
 
-.carousel {
-    height: 91.5vh;
+
+.control-dots {
+    height: 100%;
+    top: 15rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: flex-end;
+}
+
+.carousel .control-dots .dot {
+    height: 21px;
+    width: 21px;
+    margin-top: 20px;
+    margin-right: 3rem;
+}
+
+.carousel .control-dots .dot.selected {
+    height: 27px;
+    width: 27px;
+    margin-right: 2.79rem
 }

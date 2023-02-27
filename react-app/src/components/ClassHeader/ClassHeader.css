@@ -37,7 +37,9 @@
     display: flex;
     flex-direction: column;
 }
-
+.unique-cards-created{
+    padding-left:2rem;
+}
 .class-about-nav-bar {
 
     color: #46505e;
