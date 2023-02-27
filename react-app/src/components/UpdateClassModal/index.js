@@ -6,16 +6,16 @@ import { useModal } from "../../context/Modal"
 // import "./CreateProduct.css"
 
 
-const UpdateClassModal = (classId) => {
+const UpdateClassModal = ({singleClass}) => {
     const dispatch = useDispatch()
     const history = useHistory()
     const { closeModal } = useModal();
-    const [name, setName] = useState('')
-    const [description, setDescription] = useState('')
-    const [headline, setHeadline] = useState('')
+    const [name, setName] = useState(singleClass.name)
+    const [description, setDescription] = useState(singleClass.description)
+    const [headline, setHeadline] = useState(singleClass.headline)
     const [errors, setErrors] = useState([])
     const [createdClass, setCreatedClass] = useState()
-
+    console.log('singleClass', singleClass)
     const user = useSelector(state => state.session.user)
 
     const handleSubmit = async (e) => {
@@ -27,7 +27,7 @@ const UpdateClassModal = (classId) => {
             name,
             headline,
             description,
-            id: classId.classId
+            id: singleClass.id
         }
         if (!user) return null
         const data = await dispatch(updateClassThunk(payload))
@@ -70,7 +70,7 @@ const UpdateClassModal = (classId) => {
                     <p>
                     Headline
                     </p>
-                    <input
+                    <textarea
                         id="headline"
                         type="text"
                         name="headline"
@@ -82,7 +82,7 @@ const UpdateClassModal = (classId) => {
                     <p>
                     Description
                     </p>
-                    <input
+                    <textarea
                         id="description"
                         type="text"
                         name="description"

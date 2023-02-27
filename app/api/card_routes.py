@@ -18,10 +18,10 @@ def validation_errors_to_error_messages(validation_errors):
 
 
 @card_routes.route("/")
-@login_required
+# @login_required
 def all_cards():
     cards = Card.query.all()
-    return {card.id: card.to_dict() for card in cards}
+    return [card.to_dict() for card in cards]
 
 @card_routes.route("/<int:id>")
 @login_required
@@ -40,7 +40,7 @@ def create_card():
         card = Card(
             question=form.data["question"],
             answer=form.data["answer"],
-            deck_id=form.data["deck_id"],
+            deck_id=form.data["deckId"],
             mastery=0
         )
 
@@ -64,6 +64,8 @@ def update_card(id):
         current_card.question = res['question']
         current_card.answer = res['answer']
         current_card.mastery = res['mastery']
+        current_card.deck_id= res['deckId']
+        current_card.id=id
         db.session.commit()
         return current_card.to_dict()
     return {"errors": validation_errors_to_error_messages(form.errors)}, 401
@@ -73,7 +75,7 @@ def update_card(id):
 @login_required
 def delete_card(id):
     deleted_card = Card.query.get(id)
-
+    print('deleted card', deleted_card)
     if(deleted_card):
         db.session.delete(deleted_card)
         db.session.commit()

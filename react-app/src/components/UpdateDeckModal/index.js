@@ -6,11 +6,11 @@ import { useModal } from "../../context/Modal"
 // import "./CreateProduct.css"
 
 
-const UpdateDeckModal = ({deckId, classId}) => {
+const UpdateDeckModal = ({deck}) => {
     const dispatch = useDispatch()
     const history = useHistory()
     const { closeModal } = useModal();
-    const [name, setName] = useState('')
+    const [name, setName] = useState(deck.name)
     const [errors, setErrors] = useState([])
     const [createdDeck, setCreatedDeck] = useState()
 
@@ -21,14 +21,14 @@ const UpdateDeckModal = ({deckId, classId}) => {
         setErrors([])
 
         const payload = {
-            classId: classId,
-            deckId: deckId,
+            classId: deck.classId,
+            deckId: deck.id,
             name
         }
 
         if (!user) return null
         const data = await dispatch(updateDeckThunk(payload))
-        
+
         if (data.errors) {
             setErrors(data.errors);
         } else {

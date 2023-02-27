@@ -1,0 +1,23 @@
+.about-container{
+    padding-left:3rem;
+    padding-top:2rem;
+    padding-right:3rem;
+    font-family: 'Open Sans', sans-serif;
+}
+
+.about-description-header,
+.about-headline-header {
+    color: #29A5DC;
+    font-size: 18px;
+    font-weight: 600;
+    border-bottom: 1px solid lightgray;
+    padding-bottom:0.5rem;
+    padding-top:1rem;
+}
+
+.about-headline-content,
+.about-description-content{
+    font-size: 20px;
+    padding-top:1rem;
+    padding-bottom:1.5rem;
+}
