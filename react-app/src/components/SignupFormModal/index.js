@@ -3,9 +3,11 @@ import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { signUp } from "../../store/session";
 import "./SignupForm.css";
+import { useHistory } from "react-router-dom";
 
 function SignupFormModal() {
 	const dispatch = useDispatch();
+	const history = useHistory()
 	const [firstName, setFirstName] = useState("");
 	const [lastName, setLastName] = useState("");
 	const [email, setEmail] = useState("");
@@ -18,11 +20,12 @@ function SignupFormModal() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (password === confirmPassword) {
-			const data = await dispatch(signUp(firstName,lastName, username, email, password));
+			const data = await dispatch(signUp(firstName, lastName, username, email, password));
 			if (data) {
 				setErrors(data);
 			} else {
 				closeModal();
+				history.push('/dashboard')
 			}
 		} else {
 			setErrors([
@@ -33,8 +36,8 @@ function SignupFormModal() {
 
 	return (
 		<>
-			<form className="signup-modal-form"onSubmit={handleSubmit}>
-			<h1 className='signup-modal-header'>Sign Up</h1>
+			<form className="signup-modal-form" onSubmit={handleSubmit}>
+				<h1 className='signup-modal-header'>Sign Up</h1>
 				<ul className="validation-errors">
 					{errors.map((error, idx) => (
 						<li key={idx}>{error}</li>
