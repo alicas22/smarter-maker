@@ -21,7 +21,7 @@ function CardHeader() {
     return (
         <div className="card-header-container">
             <div className="card-header-back-to-class-container">
-                <NavLink to = {`/dashboard/${classId}`}
+                <NavLink to = {`/dashboard/${classId}/decks`}
                 style = {{textDecoration:'none',  color:'#777'}}>
                 <div className="card-header-arrow-hat-classname">
                     <i className="fa-solid fa-chevron-left"></i>
