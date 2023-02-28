@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux"
 import { createDeckThunk } from "../../store/deck"
 import { useModal } from "../../context/Modal"
-// import "./CreateProduct.css"
+import "./CreateDeckModal.css"
 
 
 const CreateDeckModal = (classId) => {
@@ -36,16 +36,12 @@ const CreateDeckModal = (classId) => {
         }
     }
 
-    // useEffect(() => {
-    //     if (createdProduct) {
-    //         history.push(`/products/${createdProduct.id}`)
-    //     }
-    // }, [createdProduct])
+
 
     return (
-        <div className="create-product-form">
-            <h1>Create Deck</h1>
-            <form className='product-form' onSubmit={handleSubmit}>
+        <div className="create-deck-container">
+            <h1 className='create-deck-header'>Create Deck</h1>
+            <form className='create-deck-form' onSubmit={handleSubmit}>
                 <ul className="validation-errors">
                     {errors.map((error, idx) => (
 					    <li key={idx}>{error}</li>
@@ -63,7 +59,7 @@ const CreateDeckModal = (classId) => {
                         onChange={(e) => setName(e.target.value)}
                     />
                 </label>
-                <button className="create-product-submit-button" type="submit">Submit</button>
+                <button className="create-deck-submit-button" type="submit">Submit</button>
             </form>
         </div>
     )

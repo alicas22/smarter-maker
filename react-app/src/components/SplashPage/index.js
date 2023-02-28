@@ -18,7 +18,6 @@ function SplashPage() {
         <>
             <div className="splash-page-container">
                 <SplashPageNav />
-
                 <div className='splash-page-carousel-container'>
                     <div className="splash-page-carousel-captions">
                         <div className="splash-page-header">Rise to <br/>your challenge.</div>

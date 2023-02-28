@@ -26,7 +26,7 @@ function ClassHeader() {
         return singleClassDecks.some(deck => deck.id === card.deckId);
         });
 
-
+    if(!singleClass) return null
 
     return (
         <>
@@ -36,7 +36,7 @@ function ClassHeader() {
                     <div className="class-about-sub-button-container">
                         <div className="class-about-name-pencil">
                             {singleClass.name}
-                            <i className="fa-solid fa-pencil"></i>
+                            {/* <i className="fa-solid fa-pencil"></i> */}
                         </div>
                         <div className="class-about-subtitle">
                             Creator: {user.firstName} {user.lastName}

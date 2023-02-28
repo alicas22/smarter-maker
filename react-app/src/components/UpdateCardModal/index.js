@@ -2,7 +2,7 @@ import { useEffect, useState } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import {updateCardThunk} from '../../store/card'
 import { useModal } from "../../context/Modal"
-// import "./CreateClassModal.css"
+import './UpdateCard.css'
 
 
 const UpdateCardModal = ({card}) => {
@@ -40,9 +40,9 @@ const UpdateCardModal = ({card}) => {
 
 
     return (
-        <div className="create-card-form">
-            <h1>Update Card</h1>
-            <form className='card-form' onSubmit={handleSubmit}>
+        <div className="update-card-container">
+            <h1 className="update-card-header">Update Card</h1>
+            <form className='update-card-form' onSubmit={handleSubmit}>
                 <ul className="validation-errors">
                     {errors.map((error, idx) => (
 					    <li key={idx}>{error}</li>
@@ -52,7 +52,7 @@ const UpdateCardModal = ({card}) => {
                     <p>
                     Question
                     </p>
-                    <input
+                    <textarea
                         id="question"
                         type="text"
                         name="question"
@@ -64,7 +64,7 @@ const UpdateCardModal = ({card}) => {
                     <p>
                     Answer
                     </p>
-                    <input
+                    <textarea
                         id="answer"
                         type="text"
                         name="answer"
@@ -72,7 +72,7 @@ const UpdateCardModal = ({card}) => {
                         onChange={(e) => setAnswer(e.target.value)}
                     />
                 </label>
-                <button className="create-card-submit-button" type="submit">Submit</button>
+                <button className="update-card-submit-button" type="submit">Submit</button>
             </form>
         </div>
     )

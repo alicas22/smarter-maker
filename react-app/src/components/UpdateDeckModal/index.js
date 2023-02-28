@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux"
 import { updateDeckThunk } from "../../store/deck"
 import { useModal } from "../../context/Modal"
-// import "./CreateProduct.css"
+import './UpdateDeckModal.css'
 
 
 const UpdateDeckModal = ({deck}) => {
@@ -44,9 +44,9 @@ const UpdateDeckModal = ({deck}) => {
     // }, [createdProduct])
 
     return (
-        <div className="create-product-form">
-            <h1>Update Deck</h1>
-            <form className='product-form' onSubmit={handleSubmit}>
+        <div className="update-deck-container">
+            <h1 className="update-deck-header">Update Deck</h1>
+            <form className='update-deck-form' onSubmit={handleSubmit}>
                 <ul className="validation-errors">
                     {errors.map((error, idx) => (
 					    <li key={idx}>{error}</li>
@@ -64,7 +64,7 @@ const UpdateDeckModal = ({deck}) => {
                         onChange={(e) => setName(e.target.value)}
                     />
                 </label>
-                <button className="create-product-submit-button" type="submit">Submit</button>
+                <button className="update-deck-submit-button" type="submit">Submit</button>
             </form>
         </div>
     )

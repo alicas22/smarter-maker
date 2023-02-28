@@ -11,6 +11,8 @@ import CardHeader from "../CardHeader";
 import { loadAllDecksThunk } from "../../store/deck";
 import { loadAllCardsThunk } from "../../store/card";
 import PreviewCards from "../PreviewCards";
+import BrowseCards from "../BrowseCards";
+
 
 
 function Dashboard(isLoaded) {
@@ -18,24 +20,28 @@ function Dashboard(isLoaded) {
   const user = useSelector((state) => state.session.user);
   const dispatch = useDispatch();
   const history = useHistory();
-  const curUrl = useLocation().pathname;
-
+  const url = useLocation().pathname;
+  const [redirectToDefaultClass, setRedirectToDefaultClass] = useState(false);
 
   useEffect(() => {
     dispatch(loadAllClassesThunk())
     dispatch(loadAllDecksThunk())
     dispatch(loadAllCardsThunk())
-}, [dispatch])
+  }, [dispatch])
 
 
 
   const allClassesObj = useSelector((state) => state.classes.allClasses);
-  if (!curUrl.includes('/dashboard/') && allClassesObj) {
-    const userClasses = Object.values(allClassesObj);
-    if (userClasses.length > 0) {
-      history.push(`/dashboard/${userClasses[0].id}/decks`);
+
+  useEffect(() => {
+    if (!redirectToDefaultClass && url.startsWith('/dashboard') && allClassesObj) {
+      const userClasses = Object.values(allClassesObj);
+      if (userClasses.length > 0) {
+        history.push(`/dashboard/${userClasses[0].id}/decks`);
+        setRedirectToDefaultClass(true);
+      }
     }
-  }
+  }, [])
 
   return (
     <div className="dashboard-page-container">
@@ -43,20 +49,36 @@ function Dashboard(isLoaded) {
         <Navigation isLoaded={isLoaded} />
       </div>
       <div className="dashboard-rest-of-page">
-        <Switch>
-          <Route path="/dashboard/:classId/decks/:deckId/preview" >
-            <CardHeader />
-            <PreviewCards />
-          </Route>
-          <Route path="/dashboard/:classId/about">
-            <ClassHeader />
-            <About />
-          </Route>
-          <Route path="/dashboard/:classId" >
-            <ClassHeader />
-            <Decks />
-          </Route>
-        </Switch>
+        {allClassesObj && Object.values(allClassesObj).length > 0 ? (
+          <Switch>
+            <Route path="/dashboard/:classId/decks/:deckId/preview" >
+              <CardHeader />
+              <PreviewCards />
+            </Route>
+            <Route path="/dashboard/:classId/decks/:deckId/browse" >
+              <CardHeader />
+              <BrowseCards />
+            </Route>
+            <Route path="/dashboard/:classId/about">
+              <ClassHeader />
+              <About />
+            </Route>
+            <Route path="/dashboard/:classId/decks" >
+              <ClassHeader />
+              <Decks />
+            </Route>
+          </Switch>
+        ) : (
+          <div className="no-classes-message-container">
+            <div className="no-classes-message-header">
+              No Classes Avaialable
+            </div>
+            <div className="no-classes-message-subheader">
+              Please create one to your left to get started
+
+            </div>
+          </div>
+        )}
       </div>
     </div>
   );

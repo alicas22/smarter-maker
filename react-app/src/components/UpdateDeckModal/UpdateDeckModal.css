@@ -1,4 +1,4 @@
-.create-class-container{
+.update-deck-container{
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -7,11 +7,11 @@
     max-width:100%;
     font-family: "Mont Bold", Mont, sans-serif;
 }
-.create-class-header{
+.update-deck-header{
     color: #324A6B;
     padding-bottom: 1rem;
 }
-.create-class-subtitle{
+.update-deck-subtitle{
     color: #737373;
     font-size: 16px;
     font-weight: 300;
@@ -19,8 +19,8 @@
     padding-bottom: 1rem;
 }
 
-.create-class-container input,
-.create-class-container textarea{
+.update-deck-container input,
+.update-deck-container textarea{
     border: 2px solid rgba(25, 112, 150, 0.3);
     border-radius: 6px;
     color: #737373;
@@ -30,7 +30,7 @@
     padding: 6px 0px;
     width: 100%;
 }
-.create-class-submit-button {
+.update-deck-submit-button {
     border-radius: 24px;
     background-color: #ff8243;
     color: white;
@@ -42,16 +42,4 @@
     margin-top: 1.5rem;
     margin-bottom: 1rem;
     width: 100%;
-}
-
-p, label {
-    display: block;
-    text-align: left;
-    line-height: 24px;
-    margin-bottom: 4px;
-    font-weight: 500;
-
-}
-textarea {
-    resize: vertical;
 }
