@@ -39,11 +39,11 @@ const CreateClassModal = () => {
         }
     }
 
-    // useEffect(() => {
-    //     if (createdProduct) {
-    //         history.push(`/products/${createdProduct.id}`)
-    //     }
-    // }, [createdProduct])
+    useEffect(() => {
+        if (createdClass) {
+            history.push(`/dashboard/${createdClass.id}/decks`)
+        }
+    }, [createdClass])
 
     return (
         <div className="create-class-container">
