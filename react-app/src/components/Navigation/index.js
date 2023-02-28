@@ -33,6 +33,7 @@ function Navigation(isLoaded) {
 	const deleteButton = (async (e, id) => {
 		e.preventDefault()
 		await dispatch(deleteClassThunk(id))
+		history.push('/dashboard')
 	})
 
 	let sessionLinks;

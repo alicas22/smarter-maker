@@ -7,14 +7,14 @@ import { NavLink } from "react-router-dom";
 import Decks from "../Decks";
 import './ClassHeader.css'
 
-function ClassHeader() {
+function ClassHeader({ allClassesObj }) {
     const { classId } = useParams();
     const dispatch = useDispatch()
+    const currentClass = allClassesObj[classId];
     const user = useSelector((state) => state.session.user);
     const allDecksObj = useSelector((state) => state.decks.allDecks);
-    const allClassesObj = useSelector((state) => state.classes.allClasses);
+    // const allClassesObj = useSelector((state) => state.classes.allClasses);
     const allCardsObj = useSelector((state)=> state.cards.allCards)
-
     if (!allClassesObj || !allDecksObj || !allCardsObj ) return null
 
     const allDecksArr = Object.values(allDecksObj)
