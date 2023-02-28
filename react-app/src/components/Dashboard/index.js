@@ -34,14 +34,14 @@ function Dashboard(isLoaded) {
   const allClassesObj = useSelector((state) => state.classes.allClasses);
 
   useEffect(() => {
-    if (!redirectToDefaultClass && url.startsWith('/dashboard') && allClassesObj) {
+    if (!redirectToDefaultClass && url === '/dashboard' && allClassesObj) {
       const userClasses = Object.values(allClassesObj);
       if (userClasses.length > 0) {
         history.push(`/dashboard/${userClasses[0].id}/decks`);
         setRedirectToDefaultClass(true);
       }
     }
-  }, [])
+  }, [url, allClassesObj, history, redirectToDefaultClass])
 
   return (
     <div className="dashboard-page-container">
@@ -60,11 +60,11 @@ function Dashboard(isLoaded) {
               <BrowseCards />
             </Route>
             <Route path="/dashboard/:classId/about">
-              <ClassHeader />
+              <ClassHeader allClassesObj={allClassesObj}   />
               <About />
             </Route>
             <Route path="/dashboard/:classId/decks" >
-              <ClassHeader />
+              <ClassHeader allClassesObj={allClassesObj}  />
               <Decks />
             </Route>
           </Switch>
