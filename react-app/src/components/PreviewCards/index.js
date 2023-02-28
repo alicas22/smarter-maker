@@ -25,40 +25,44 @@ function PreviewCards() {
 
     const deleteButton = (async (e, id) => {
         e.preventDefault()
-        console.log('before delete card dispatch')
         await dispatch(deleteCardThunk(id))
-        console.log('after delete card dispatch')
     })
 
     return (
         <div className='preview-cards-container'>
-            <div className="create-class-modal" style={{ cursor: "pointer" }}>
-                <OpenModalButton
-                    buttonText="+"
-                    modalComponent={<CreateCardModal deckId={deckId} />}
-                    className="nav-bar-create-class-modal"
-                />
-            </div>
-            {singleDecksCards.map((card, i) => (
-                <div key={i} className='preview-single-card-container'>
-                    <div className='preview-card-question'>
-                        {card.question}
-                    </div>
-                    <div className='preview-card-answer'>
-                        {card.answer}
-                    </div>
-                    <div className='decks-delete-deck-button'
-                        onClick={e => deleteButton(e, card.id)}><i className="fa-solid fa-xmark"></i>
-                    </div>
-                    <div className="create-class-modal" style={{ cursor: "pointer" }}>
-                        <OpenModalButton
-                            buttonText=<i className="fa-solid fa-pencil card-pencil"></i>
-                            modalComponent={<UpdateCardModal card={card} />}
-                            className="nav-bar-create-class-modal"
-                        />
-                    </div>
+            <div className='new-test-container'>
+                <div className="create-card-modal-container" style={{ cursor: "pointer" }}>
+                    <OpenModalButton
+                        buttonText="Create new Card"
+                        modalComponent={<CreateCardModal deckId={deckId} />}
+                        className="create-card-modal"
+                    />
                 </div>
-            ))}
+                {singleDecksCards.map((card, i) => (
+                    <div className='preview-single-card-outer-container'>
+                        <div key={i} className='preview-single-card-inner-container'>
+                            <div className='preview-card-question'>
+                                {card.question}
+                            </div>
+                            <div className='preview-card-answer'>
+                                {card.answer}
+                            </div>
+                        </div>
+                        <div className='preview-card-crud-container'>
+                            <div className='preview-card-delete-card-button'
+                                onClick={e => deleteButton(e, card.id)}><i className="fa-solid fa-xmark card-x"></i>
+                            </div>
+                            <div className="update-card-modal" style={{ cursor: "pointer" }}>
+                                <OpenModalButton
+                                    buttonText=<i className="fa-solid fa-pencil card-pencil"></i>
+                                    modalComponent={<UpdateCardModal card={card} />}
+                                    className="update-card-modal"
+                                />
+                            </div>
+                        </div>
+                    </div>
+                ))}
+            </div>
         </div>
     )
 }

@@ -46,8 +46,9 @@ const CreateClassModal = () => {
     // }, [createdProduct])
 
     return (
-        <div className="create-class-form">
-            <h1>Create Class</h1>
+        <div className="create-class-container">
+            <h1 className="create-class-header">Create New Class</h1>
+            <h4 className="create-class-subtitle">A Class is a set of Flashcards, grouped into Decks</h4>
             <form className='class-form' onSubmit={handleSubmit}>
                 <ul className="validation-errors">
                     {errors.map((error, idx) => (
@@ -70,7 +71,7 @@ const CreateClassModal = () => {
                     <p>
                     Headline
                     </p>
-                    <input
+                    <textarea
                         id="headline"
                         type="text"
                         name="headline"
@@ -82,7 +83,7 @@ const CreateClassModal = () => {
                     <p>
                     Description
                     </p>
-                    <input
+                    <textarea
                         id="description"
                         type="text"
                         name="description"
