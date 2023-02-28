@@ -3,10 +3,28 @@
     flex-direction: row;
     width: 100%;
     height: 100vh;
-    overflow-y: auto;
+    overflow-y: hidden;
     overflow-x: hidden;
 }
 
 .dashboard-rest-of-page{
-    width:100%
+    width:100%;
+    height: 100vh;
+    overflow-y: hidden;
+}
+
+
+.no-classes-message-container{
+    padding-top:10rem;
+    text-align: center;
+    color: #324A6B;
+    font-family: "Mont Bold", Mont, sans-serif;
+}
+.no-classes-message-header{
+    font-size: 5vw;
+    padding-bottom: 5rem;
+}
+
+.no-classes-message-subheader{
+    font-size:2vw
 }

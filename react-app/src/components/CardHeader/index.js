@@ -39,13 +39,13 @@ function CardHeader() {
                     style={{ textDecoration: 'none' }} >
                     Preview Cards
                 </NavLink>
-                <NavLink to={`/dashboard/${classId}/edit`}
+                {/* <NavLink to={`/dashboard/${classId}/decks/${deckId}/edit`}
                     className="card-header-nav-bar-link"
                     activeClassName="card-header-nav-bar-link-active"
                     style={{ textDecoration: 'none' }} >
                     Edit Cards
-                </NavLink>
-                <NavLink to={`/dashboard/${classId}/browse`}
+                </NavLink> */}
+                <NavLink to={`/dashboard/${classId}/decks/${deckId}/browse`}
                     className="card-header-nav-bar-link"
                     activeClassName="card-header-nav-bar-link-active"
                     style={{ textDecoration: 'none' }} >

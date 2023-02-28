@@ -14,7 +14,9 @@
 .nav-bar-container {
   display: flex;
   flex-direction: column;
-  width: 370px;
+  width:auto;
+  max-width: 370px;
+  min-width:250px;
   color: rgba(255, 255, 255, 0.6);
   background-color: #324A6B;
   height: 100vh;
@@ -86,11 +88,19 @@
 .nav-bar-classes-cards-created {
   display: flex;
   flex: row;
-  justify-content: space-between;
+  justify-content: space-around;
+  align-items: center;
+  text-align: center;
+
   padding-bottom: 2rem;
   margin-left: 2rem;
   margin-right: 2rem;
   border-bottom:1px solid rgba(255, 255, 255, 0.3);
+}
+.user-decks-created,
+.user-cards-created{
+  display: flex;
+  justify-content: center;
 }
 
 .my-classes {

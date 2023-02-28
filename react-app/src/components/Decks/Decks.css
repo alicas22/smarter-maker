@@ -51,12 +51,13 @@
    background-color: rgb(92, 161, 214);
 }
 
+
 .decks-class-card {
     display: flex;
     flex-direction: row;
     padding: 30px 30px 30px 0px;
     border-bottom: 1px solid rgba(191, 191, 191, 0.8);
-
+    width: 100%;
 }
 
 .decks-deck-card-info-container {
@@ -76,10 +77,11 @@
     padding-right: 1rem;
     /* margin-right: 1rem; */
     color: #757575;
+ 
 }
 .card-pencil{
     font-size: 20px;
-  
+
 }
 .fa-xmark {
     cursor: pointer;

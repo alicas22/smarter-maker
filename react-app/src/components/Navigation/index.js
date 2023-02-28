@@ -80,10 +80,10 @@ function Navigation(isLoaded) {
 				</div>
 				<div className="nav-bar-classes-cards-created">
 					<div className="user-decks-created">
-						Decks Created <span className="number-decks-created">{singleUserDecks.length}</span>
+						Decks <br/>Created <span className="number-decks-created">{singleUserDecks.length}</span>
 					</div>
 					<div className="user-cards-created">
-						Cards Created <span className="number-cards-created">{singleUserCards.length}</span>
+						Cards <br/>Created <span className="number-cards-created">{singleUserCards.length}</span>
 					</div>
 				</div>
 				<div className="nav-bar-my-classes-header">
@@ -103,7 +103,7 @@ function Navigation(isLoaded) {
 						<div key ={i}>
 							<div className="nav-bar-class-card-container">
 								<NavLink
-									to={`/dashboard/${singleClass.id}`}
+									to={`/dashboard/${singleClass.id}/decks`}
 									exact
 									className="class-list-inactive try-this-one"
 									activeClassName="class-list-active try-this-one-active"
@@ -112,7 +112,7 @@ function Navigation(isLoaded) {
 										const currentUrl = window.location.pathname;
 
 										// Check if the current URL matches the class URL
-										const classUrl = `/dashboard/${singleClass.id}`;
+										const classUrl = `/dashboard/${singleClass.id}/decks`;
 										const isActive = currentUrl === classUrl;
 
 										// Return true to activate the link, false otherwise

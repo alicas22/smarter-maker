@@ -31,6 +31,10 @@ function Decks() {
     })
 
 
+    const handleLinkClick = e => {
+        e.stopPropagation(); // Prevents the click from bubbling up to the parent NavLink
+      };
+
     return (
         <>
             <div className="decks-component-container">
@@ -53,16 +57,19 @@ function Decks() {
                         className='card-info-navlink'
                         activeClassName="card-info-navlink-active"
                         key={i}
+                        // onClick={(e) => e.preventDefault()}
                     >
-                        <div className='decks-class-card'>
+                        <div className='decks-class-card' >
                             <i className="fa-solid fa-circle-check"></i>
                             <div className="decks-deck-card-info-container">
                                 <div className="decks-deck-names">{deck.name}</div>
-                                <div className="decks-card-crud-buttons">
-                                    <div className="edit-class-modal" style={{ cursor: "pointer" }}>
+                                <div className="decks-card-crud-buttons" >
+                                    <div className="edit-class-modal" onClick={(e) => e.preventDefault()} style={{ cursor: "pointer" }} >
                                         <OpenModalButton
-                                            buttonText=<i className="fa-solid fa-pencil card-pencil"></i>
-                                            modalComponent={<UpdateDeckModal deck={deck} />}
+                                            onClick={(e) => e.stopPropagation()}
+                                            buttonText=<i className="fa-solid fa-pencil card-pencil" ></i>
+                                            modalComponent={<UpdateDeckModal deck={deck}
+                                             onClick={(e) => e.stopPropagation()}/>}
                                         // className="edit-class-modal"
                                         />
                                     </div>

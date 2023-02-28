@@ -3,7 +3,7 @@ import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux"
 import { updateClassThunk } from "../../store/class"
 import { useModal } from "../../context/Modal"
-// import "./CreateProduct.css"
+import "./UpdateClassModal.css"
 
 
 const UpdateClassModal = ({singleClass}) => {
@@ -15,7 +15,6 @@ const UpdateClassModal = ({singleClass}) => {
     const [headline, setHeadline] = useState(singleClass.headline)
     const [errors, setErrors] = useState([])
     const [createdClass, setCreatedClass] = useState()
-    console.log('singleClass', singleClass)
     const user = useSelector(state => state.session.user)
 
     const handleSubmit = async (e) => {
@@ -46,9 +45,9 @@ const UpdateClassModal = ({singleClass}) => {
     // }, [createdProduct])
 
     return (
-        <div className="create-product-form">
-            <h1>Update Product</h1>
-            <form className='product-form' onSubmit={handleSubmit}>
+        <div className="update-class-container">
+            <h1 className="update-class-header">Update Class</h1>
+            <form className='update-class-form' onSubmit={handleSubmit}>
                 <ul className="validation-errors">
                     {errors.map((error, idx) => (
 					    <li key={idx}>{error}</li>
@@ -90,7 +89,7 @@ const UpdateClassModal = ({singleClass}) => {
                         onChange={(e) => setDescription(e.target.value)}
                     />
                 </label>
-                <button className="create-product-submit-button" type="submit">Submit</button>
+                <button className="update-class-submit-button" type="submit">Submit</button>
             </form>
         </div>
     )

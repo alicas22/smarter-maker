@@ -24,7 +24,7 @@ function LoginFormModal() {
       setErrors(data);
     } else {
       closeModal()
-      history.push('/dashboard/1')
+      history.push('/dashboard')
     }
   };
 

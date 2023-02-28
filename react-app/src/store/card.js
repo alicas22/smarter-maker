@@ -15,7 +15,7 @@ const loadSingleCardAction = (card) => ({
   card
 });
 
-const createCardAction= (newCard) => ({
+const createCardAction = (newCard) => ({
   type: CREATE_CARD,
   newCard
 });
@@ -72,7 +72,7 @@ export const createCardThunk = (payload) => async (dispatch) => {
 };
 
 export const updateCardThunk = (payload) => async (dispatch) => {
-  
+
   const response = await fetch(`/api/cards/${payload.id}`, {
     method: "PUT",
     headers: {
@@ -85,7 +85,7 @@ export const updateCardThunk = (payload) => async (dispatch) => {
     const newCard = await response.json();
     dispatch(updateCardAction(newCard));
     return newCard;
-  }  else if (response.status < 500) {
+  } else if (response.status < 500) {
     const data = await response.json();
     if (data.errors) {
       return data;
@@ -95,11 +95,9 @@ export const updateCardThunk = (payload) => async (dispatch) => {
 };
 
 export const deleteCardThunk = (cardId) => async (dispatch) => {
-  console.log("beginning of delete card thunk")
   const response = await fetch(`/api/cards/${cardId}`, {
     method: "DELETE",
   });
-  console.log('response from delete card thunk', response)
   if (response.ok) {
     const data = await response.json();
     dispatch(deleteCardAction(cardId));
@@ -121,7 +119,6 @@ const normalize = (arr) => {
 const initialState = {};
 
 const cardsReducer = (state = initialState, action) => {
-  console.log('action from cardsreducer', action)
   switch (action.type) {
     case LOAD_CARDS: {
       const newState = { ...state }
@@ -140,13 +137,13 @@ const cardsReducer = (state = initialState, action) => {
       return newState
     }
     case UPDATE_CARD: {
-      const newState = {...state}
+      const newState = { ...state }
       newState.allCards = { ...newState.allCards, [action.updatedCard.id]: action.updatedCard };
       // newState.singlecard={...newState.singlecard, ...action.newCard}
       return newState
     }
     case DELETE_CARD: {
-      const newState = { allCards : {...state.allCards}}
+      const newState = { allCards: { ...state.allCards } }
       delete newState.allCards[action.id];
 
       return newState;
