@@ -63,6 +63,7 @@ const UpdateClassModal = ({singleClass}) => {
                         name="name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
+                        required
                     />
                 </label>
                 <label>
@@ -75,6 +76,7 @@ const UpdateClassModal = ({singleClass}) => {
                         name="headline"
                         value={headline}
                         onChange={(e) => setHeadline(e.target.value)}
+                        required
                     />
                 </label>
                 <label>
@@ -87,6 +89,7 @@ const UpdateClassModal = ({singleClass}) => {
                         name="description"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
+                        required
                     />
                 </label>
                 <button className="update-class-submit-button" type="submit">Submit</button>

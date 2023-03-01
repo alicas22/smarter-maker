@@ -57,6 +57,7 @@ const CreateDeckModal = (classId) => {
                         name="name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
+                        required
                     />
                 </label>
                 <button className="create-deck-submit-button" type="submit">Submit</button>

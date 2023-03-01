@@ -1,21 +1,16 @@
 import { useSelector, useDispatch } from "react-redux";
-import { useState, useEffect } from "react";
-import { loadAllClassesThunk } from "../../store/class";
-import { loadAllDecksThunk } from "../../store/deck";
-import { useParams } from "react-router-dom";
+import { useParams, useHistory  } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import Decks from "../Decks";
 import './ClassHeader.css'
 
 function ClassHeader({ allClassesObj }) {
     const { classId } = useParams();
-    const dispatch = useDispatch()
-    const currentClass = allClassesObj[classId];
+    const history=useHistory()
     const user = useSelector((state) => state.session.user);
     const allDecksObj = useSelector((state) => state.decks.allDecks);
-    // const allClassesObj = useSelector((state) => state.classes.allClasses);
-    const allCardsObj = useSelector((state)=> state.cards.allCards)
-    if (!allClassesObj || !allDecksObj || !allCardsObj ) return null
+    const allCardsObj = useSelector((state) => state.cards.allCards)
+    if (!allClassesObj || !allDecksObj || !allCardsObj) return null
 
     const allDecksArr = Object.values(allDecksObj)
     const allClassesArr = Object.values(allClassesObj)
@@ -24,9 +19,11 @@ function ClassHeader({ allClassesObj }) {
     const allCardsArr = Object.values(allCardsObj)
     const singleClassesCards = allCardsArr.filter(card => {
         return singleClassDecks.some(deck => deck.id === card.deckId);
-        });
+    });
 
-    if(!singleClass) return null
+    if (!singleClass)  return null
+
+
 
     return (
         <>
@@ -40,7 +37,11 @@ function ClassHeader({ allClassesObj }) {
                         </div>
                         <div className="class-about-subtitle">
                             Creator: {user.firstName} {user.lastName}
-                            <span className="unique-cards-created">{singleClassesCards.length} unique cards</span>
+                            <span className="unique-cards-created">{singleClassesCards.length === 1 ? (
+                                <span>{singleClassesCards.length} unique card</span>
+                            ) : (
+                                <span>{singleClassesCards.length} unique cards</span>
+                            )}</span>
                         </div>
                         {/* <div className="class-about-study button">
                             <NavLink to={`/dashboard/${classId}/decks/`}>Study</NavLink>

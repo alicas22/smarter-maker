@@ -23,7 +23,7 @@ const UpdateCardModal = ({card}) => {
             deckId: card.deckId,
             question,
             answer,
-            mastery: 0,
+            mastery: card.mastery,
             id: card.id
         }
         if (!user) return null
@@ -58,6 +58,8 @@ const UpdateCardModal = ({card}) => {
                         name="question"
                         value={question}
                         onChange={(e) => setQuestion(e.target.value)}
+                        required
+
                     />
                 </label>
                 <label>
@@ -70,6 +72,7 @@ const UpdateCardModal = ({card}) => {
                         name="answer"
                         value={answer}
                         onChange={(e) => setAnswer(e.target.value)}
+                        required
                     />
                 </label>
                 <button className="update-card-submit-button" type="submit">Submit</button>

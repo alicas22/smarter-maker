@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import CreateCardModal from '../CreateCardModal';
 import UpdateCardModal from '../UpdateCardModal';
 import OpenModalButton from "../OpenModalButton";
+import DeleteModal from '../DeleteModal';
 import { deleteCardThunk } from '../../store/card';
 import './PreviewCards.css'
 
@@ -23,21 +24,15 @@ function PreviewCards() {
     const allCardsArr = Object.values(allCardsObj)
     const singleDecksCards = allCardsArr.filter(card => card.deckId === +deckId);
 
-    const deleteButton = (async (e, id) => {
-        e.preventDefault()
-        await dispatch(deleteCardThunk(id))
-    })
+    // const deleteButton = (async (e, id) => {
+    //     e.preventDefault()
+    //     await dispatch(deleteCardThunk(id))
+    // })
 
     return (
         <div className='preview-cards-container'>
             <div className='new-test-container'>
-                <div className="create-card-modal-container" style={{ cursor: "pointer" }}>
-                    <OpenModalButton
-                        buttonText="Create new Card"
-                        modalComponent={<CreateCardModal deckId={deckId} />}
-                        className="create-card-modal"
-                    />
-                </div>
+
                 {singleDecksCards.map((card, i) => (
                     <div className='preview-single-card-outer-container'>
                         <div key={i} className='preview-single-card-inner-container'>
@@ -49,8 +44,10 @@ function PreviewCards() {
                             </div>
                         </div>
                         <div className='preview-card-crud-container'>
-                            <div className='preview-card-delete-card-button'
-                                onClick={e => deleteButton(e, card.id)}><i className="fa-solid fa-xmark card-x"></i>
+                            <div className='preview-card-delete-card-button'>
+                                <OpenModalButton
+                                    buttonText=<i className="fa-solid fa-xmark card-x"></i>
+                                    modalComponent={<DeleteModal itemType={'card'} itemId={card.id} />} />
                             </div>
                             <div className="update-card-modal" style={{ cursor: "pointer" }}>
                                 <OpenModalButton
@@ -62,6 +59,13 @@ function PreviewCards() {
                         </div>
                     </div>
                 ))}
+                <div className="create-card-modal-container" style={{ cursor: "pointer" }}>
+                    <OpenModalButton
+                        buttonText="Create new Card"
+                        modalComponent={<CreateCardModal deckId={deckId} />}
+                        className="create-card-modal"
+                    />
+                </div>
             </div>
         </div>
     )
