@@ -11,6 +11,7 @@
     display: flex;
     flex-direction: column;
     padding-left: 3rem;
+    width: 100%;
 }
 
 .class-about-name-pencil {
@@ -20,8 +21,12 @@
 }
 
 .class-about-subtitle {
+    display: flex;
+    flex-direction: column;
+
     padding-top: .5rem;
-    color: #7D93A4
+    color: #7D93A4;
+    width: 100%
 }
 
 .big-hat {
@@ -37,21 +42,23 @@
     display: flex;
     flex-direction: column;
 }
-.unique-cards-created{
-    padding-left:2rem;
+
+.unique-cards-created {
+    padding-top: 5px;
 }
+
 .class-about-nav-bar {
 
     color: #46505e;
     font-family: 'Open Sans', sans-serif;
-    font-size:larger;
+    font-size: larger;
     display: flex;
     background-color: rgba(5, 101, 156, 0.08);
     border-bottom: 1px solid rgba(46, 64, 86, 0.26);
     height: 3rem;
 }
 
-.class-about-nav-bar-link{
+.class-about-nav-bar-link {
     display: flex;
     justify-content: center;
     align-items: center;
@@ -65,9 +72,25 @@
 .class-about-nav-bar-link:hover {
     color: #6cb5f9;
     border-bottom: 4px solid rgba(18, 57, 108, 0.18);
-  }
+}
+
 .class-about-nav-bar-link-active,
-.class-about-nav-bar-link:active{
-  border-bottom: 4px solid rgb(50, 74, 107) !important;
-  color: #46505e !important;
+.class-about-nav-bar-link:active {
+    border-bottom: 4px solid rgb(50, 74, 107) !important;
+    color: #46505e !important;
+}
+
+.class-about-mastery-bar-container {
+    font-family: 'Open Sans', sans-serif;
+    font-weight: bold;
+}
+.Circular-Progressbar-text{
+    padding-top: 0;
+}
+.class-about-mastery-subtitle {
+    position: absolute;
+    top: 138px;
+    right: 95px;
+    font-size: 14px;
+    font-weight: normal;
 }

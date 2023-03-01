@@ -75,7 +75,11 @@ const UpdateCardModal = ({card}) => {
                         required
                     />
                 </label>
-                <button className="update-card-submit-button" type="submit">Submit</button>
+                <button
+                className="update-card-submit-button"
+                type="submit"
+                style = {{cursor:"pointer"}}
+                >Submit</button>
             </form>
         </div>
     )

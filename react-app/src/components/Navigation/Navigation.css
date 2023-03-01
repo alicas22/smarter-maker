@@ -14,9 +14,9 @@
 .nav-bar-container {
   display: flex;
   flex-direction: column;
-  width:auto;
+  width: auto;
   max-width: 370px;
-  min-width:250px;
+  min-width: 250px;
   color: rgba(255, 255, 255, 0.6);
   background-color: #324A6B;
   height: 100vh;
@@ -48,6 +48,7 @@
   align-items: center;
   font-family: 'Mont', sans-serif;
   /* justify-content: center; */
+  text-align: center;
 }
 
 .fa-face-smile {
@@ -74,17 +75,18 @@
 }
 
 .user-decks-created,
-.user-cards-created{
+.user-cards-created {
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .number-decks-created,
-.number-cards-created{
+.number-cards-created {
   text-align: center;
-  color:white
+  color: white
 }
+
 .nav-bar-classes-cards-created {
   display: flex;
   flex: row;
@@ -95,10 +97,11 @@
   padding-bottom: 2rem;
   margin-left: 2rem;
   margin-right: 2rem;
-  border-bottom:1px solid rgba(255, 255, 255, 0.3);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.3);
 }
+
 .user-decks-created,
-.user-cards-created{
+.user-cards-created {
   display: flex;
   justify-content: center;
 }
@@ -115,8 +118,7 @@
   padding-left: 1rem;
   padding-right: 1rem;
   padding-bottom: 2rem;
-  padding-top:2rem
-
+  padding-top: 2rem
 }
 
 .nav-bar-create-class-modal {
@@ -131,8 +133,9 @@
   color: #324A6B;
   background-color: rgba(255, 255, 255, 0.3);
 }
-.nav-bar-create-class-modal:hover{
-  background-color:rgb(92, 161, 214);
+
+.nav-bar-create-class-modal:hover {
+  background-color: rgb(92, 161, 214);
 }
 
 
@@ -181,9 +184,10 @@
   width: 100%
 }
 
-.class-pencil:hover{
-  color:rgb(92, 161, 214);
+.class-pencil:hover {
+  color: rgb(92, 161, 214);
 }
+
 .nav-bar-class-card-container:hover .class-delete-button {
   display: block;
 }
@@ -200,6 +204,56 @@
 }
 
 .class-delete-button:hover {
-  background-color:rgb(92, 161, 214);
+  background-color: rgb(92, 161, 214);
   border-radius: 50%;
+}
+
+
+.create-class-modal-bigger {
+  display: flex;
+  flex: row;
+  align-items: center;
+  padding-left: 1rem;
+  padding-top: 1rem;
+}
+
+
+
+.create-class-bigger-button {
+  font-size: 36px;
+  border: 2px solid;
+  padding-left: 11px;
+  padding-right: 11px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+  border-radius: 50%;
+  color: #324A6B;
+  background-color: rgba(255, 255, 255, 0.3);
+}
+
+.lower-create-class-modal {
+  position: absolute;
+  background: transparent;
+  height: 50px;
+  width: 225px;
+  cursor: pointer;
+  z-index: 100;
+  border: 2px solid transparent;
+}
+
+.create-class-caption-smaller {
+  display: flex;
+  align-items: center;
+  font-family: 'Open Sans', sans-serif;
+}
+
+.create-class-bigger-button-caption {
+  padding-left: 1rem;
+}
+
+.create-class-modal-bigger:hover .create-class-bigger-button,
+.lower-create-class-modal:hover+.create-class-caption-smaller .create-class-bigger-button {
+  color: white;
+  background-color: #ff8243;
+  border-color: #ff8243;
 }

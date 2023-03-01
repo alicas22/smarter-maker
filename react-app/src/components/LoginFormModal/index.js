@@ -3,12 +3,13 @@ import { login } from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
+import { cleanUpClassesAction } from "../../store/class";
 import "./LoginForm.css";
 
 
 function LoginFormModal() {
   const dispatch = useDispatch();
-  const history=useHistory()
+  const history = useHistory()
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [errors, setErrors] = useState([]);
@@ -18,8 +19,8 @@ function LoginFormModal() {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+    await dispatch(cleanUpClassesAction())
     const data = await dispatch(login(email, password));
-
     if (data) {
       setErrors(data);
     } else {
@@ -29,17 +30,17 @@ function LoginFormModal() {
   };
 
   const demoEmail = 'demo@aa.io'
-	const demoPassword = 'password'
+  const demoPassword = 'password'
   const handleDemoLogin = async (e) => {
-		e.preventDefault();
-		const data = await dispatch(login(demoEmail, demoPassword));
-		if (data) {
+    e.preventDefault();
+    const data = await dispatch(login(demoEmail, demoPassword));
+    if (data) {
       setErrors(data);
-		} else {
+    } else {
       closeModal()
       history.push('/dashboard')
-		}
-	  };
+    }
+  };
 
   return (
     <>
@@ -71,9 +72,9 @@ function LoginFormModal() {
           />
         </label>
         <button className="login-modal-button" type="submit">Log In</button>
-        <div className="login-modal-button" onClick = {handleDemoLogin}>
-			Demo-Sign In
-		  </div>
+        <div className="login-modal-button" onClick={handleDemoLogin}>
+          Demo-Sign In
+        </div>
       </form>
     </>
   );

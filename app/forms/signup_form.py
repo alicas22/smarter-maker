@@ -17,8 +17,8 @@ def user_exists(form, field):
     # Checking if user exists
     email = field.data
     user = User.query.filter(User.email == email).first()
-    if '@' not in email:
-        raise ValidationError('Please enter a valid email')
+    # if '@' not in email:
+    #     raise ValidationError('Please enter a valid email')
     if user:
         raise ValidationError('Email address is already in use.')
 
@@ -37,5 +37,5 @@ class SignUpForm(FlaskForm):
     firstName = StringField('firstName', validators=[DataRequired(), valid_first_name] )
     lastName = StringField('lastName', validators=[DataRequired(), valid_last_name])
     username = StringField('username', validators=[DataRequired(), username_exists])
-    email = StringField('email', validators=[DataRequired(), user_exists])
+    email = StringField('email', validators=[DataRequired(),Email(message='Please enter a valid email address.'), user_exists])
     password = StringField('password', validators=[DataRequired()])
