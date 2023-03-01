@@ -1,7 +1,7 @@
 import { useState, useEffect } from "react";
 import { Switch, useHistory, useParams, useLocation, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import Navigation from "../Navigation";
+import DeleteModal from "../DeleteModal";
 import { loadAllDecksThunk, deleteDeckThunk } from '../../store/deck'
 import UpdateDeckModal from "../UpdateDeckModal";
 import OpenModalButton from "../OpenModalButton";
@@ -31,10 +31,6 @@ function Decks() {
     })
 
 
-    const handleLinkClick = e => {
-        e.stopPropagation(); // Prevents the click from bubbling up to the parent NavLink
-      };
-
     return (
         <>
             <div className="decks-component-container">
@@ -57,7 +53,7 @@ function Decks() {
                         className='card-info-navlink'
                         activeClassName="card-info-navlink-active"
                         key={i}
-                        // onClick={(e) => e.preventDefault()}
+
                     >
                         <div className='decks-class-card' >
                             <i className="fa-solid fa-circle-check"></i>
@@ -69,12 +65,17 @@ function Decks() {
                                             onClick={(e) => e.stopPropagation()}
                                             buttonText=<i className="fa-solid fa-pencil card-pencil" ></i>
                                             modalComponent={<UpdateDeckModal deck={deck}
-                                             onClick={(e) => e.stopPropagation()}/>}
+                                                onClick={(e) => e.stopPropagation()} />}
                                         // className="edit-class-modal"
                                         />
                                     </div>
-                                    <div className='decks-delete-deck-button'
-                                        onClick={e => deleteButton(e, deck.id)}><i className="fa-solid fa-xmark"></i>
+                                    <div className="decks-delete-deck-button"  onClick={(e) => e.preventDefault()}>
+                                        <OpenModalButton
+                                        onClick={(e) => e.stopPropagation()}
+                                            buttonText=<i className="fa-solid fa-xmark"></i>
+                                            modalComponent={<DeleteModal itemType={'deck'} itemId={deck.id}
+                                            onClick={(e) => e.stopPropagation()}  />}
+                                        />
                                     </div>
                                 </div>
                             </div>
