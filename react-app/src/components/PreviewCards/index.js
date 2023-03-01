@@ -24,10 +24,7 @@ function PreviewCards() {
     const allCardsArr = Object.values(allCardsObj)
     const singleDecksCards = allCardsArr.filter(card => card.deckId === +deckId);
 
-    // const deleteButton = (async (e, id) => {
-    //     e.preventDefault()
-    //     await dispatch(deleteCardThunk(id))
-    // })
+
 
     return (
         <div className='preview-cards-container'>
