@@ -57,6 +57,7 @@ const CreateCardModal = ({deckId}) => {
                         name="question"
                         value={question}
                         onChange={(e) => setQuestion(e.target.value)}
+                        required
                     />
                 </label>
                 <label>
@@ -69,6 +70,7 @@ const CreateCardModal = ({deckId}) => {
                         name="answer"
                         value={answer}
                         onChange={(e) => setAnswer(e.target.value)}
+                        required
                     />
                 </label>
                 <button className="create-card-submit-button" type="submit">Submit</button>

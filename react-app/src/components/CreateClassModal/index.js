@@ -65,6 +65,7 @@ const CreateClassModal = () => {
                         name="name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
+                        required
                     />
                 </label>
                 <label>
@@ -77,6 +78,7 @@ const CreateClassModal = () => {
                         name="headline"
                         value={headline}
                         onChange={(e) => setHeadline(e.target.value)}
+                        required
                     />
                 </label>
                 <label>
@@ -89,6 +91,7 @@ const CreateClassModal = () => {
                         name="description"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
+                        required
                     />
                 </label>
                 <button className="create-class-submit-button" type="submit">Submit</button>
