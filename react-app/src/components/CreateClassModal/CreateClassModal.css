@@ -44,14 +44,22 @@
     width: 100%;
 }
 
+::placeholder{
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 12px;
+    font-weight: 100;
+    opacity:.5
+}
+
 p, label {
     display: block;
     text-align: left;
     line-height: 24px;
     margin-bottom: 4px;
     font-weight: 500;
-
 }
+
+
 textarea {
     resize: vertical;
 }

@@ -61,22 +61,7 @@ text-align: center;
     text-align: center;
 }
 
-/* .modal-label {
-  color: #aaa;
-  font-size: 16px;
-  font-weight: 300;
-  font-weight: normal;
-  position: absolute;
-  pointer-events: none;
-  top: 8px;
-  transition: 0.2s ease all;
-} */
-/* input:focus ~ label,
-input:valid ~ label {
-  top: -12px;
-  font-size: 12px;
+label{
+  padding-top: 1rem;
+  text-indent: 2px;
 }
-input:not(:placeholder-shown) ~ label {
-  top: -12px;
-  font-size: 12px;
-} */
