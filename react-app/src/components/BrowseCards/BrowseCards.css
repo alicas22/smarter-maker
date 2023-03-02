@@ -99,6 +99,7 @@
   overflow-wrap: anywhere;
   word-break: keep-all;
   max-width: 100%;
+  overflow-y: auto;
 
 
 }
