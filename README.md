@@ -2,7 +2,7 @@
 
 <a name="readme-top"></a>
 
-Check out a live version of Kartsy here:
+Check out a live version of Smarter-Maker here:
 [Smarter-Maker][render-url]
 
 [render-url]: https://smarter-maker.onrender.com/
