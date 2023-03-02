@@ -155,6 +155,28 @@ function Navigation() {
 						</div>
 					</div>
 				</div>
+				<div className="developer-links-container">
+					<div className="developer-links-subtitle-and-icons">
+						Developer Links:
+						<div className="developer-links">
+							<a
+								className="developer-links-icons"
+								href="https://github.com/alicas22/smarter-maker"
+								target="_blank"
+							>
+								<i className="fab fa-github fa-xl developer-link"
+									/>
+							</a>
+							<a style={{ textDecoration: "none" }}
+								href="https://www.linkedin.com/in/anthony-licas-7b675061/"
+								target="_blank"
+							>
+								<i className="fab fa-linkedin fa-xl developer-link "
+									/>
+							</a>
+						</div>
+					</div>
+				</div>
 			</div>
 		</>
 	);

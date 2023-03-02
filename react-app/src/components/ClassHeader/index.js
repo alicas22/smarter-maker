@@ -54,9 +54,6 @@ function ClassHeader({ allClassesObj }) {
                                 <span>{singleClassesCards.length} unique cards</span>
                             )}</span>
                         </div>
-                        {/* <div className="class-about-study button">
-                            <NavLink to={`/dashboard/${classId}/decks/`}>Study</NavLink>
-                        </div> */}
                     </div>
                 </div>
                 <div className="class-about-mastery-bar-container">

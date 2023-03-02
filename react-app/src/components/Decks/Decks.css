@@ -29,7 +29,8 @@
 
 .decks-deck-names {
     color: #324A6B;
-    font-weight: 700
+    font-weight: 700;
+    padding-bottom: .5rem;
 }
 
 .decks-create-decks-modal-button {
@@ -77,7 +78,7 @@
     padding-right: 1rem;
     /* margin-right: 1rem; */
     color: #757575;
- 
+
 }
 .card-pencil{
     font-size: 20px;
@@ -98,4 +99,23 @@
 
 .decks-class-card:hover {
     background-color: rgb(108, 181, 249, 0.1);
+}
+
+.progress-bar-outer {
+    background-color: rgba(125, 147, 164, 0.15);
+    border-radius: 15px;
+    height: 10px;
+    width: 30vw;
+  }
+
+  .progress-bar-inner {
+    height: 10px;
+    border-radius: 15px;
+    background-color: #29a5dc;
+  }
+
+.decks-card-unique-cards{
+    padding-left: 20px;
+    color: #999999;
+    font-size: 12px;
 }
