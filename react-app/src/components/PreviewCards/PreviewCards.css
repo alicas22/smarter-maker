@@ -82,10 +82,14 @@
   color: #757575;
 
 }
+.card-x::before{
+  padding-right: 15px;
+}
 
 .card-x::before,
 .card-pencil::before {
   font-size: 30px;
+
 
 }
 
