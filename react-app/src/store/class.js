@@ -1,19 +1,14 @@
 const LOAD_CLASSES = "classes/LOAD_CLASSES";
-const LOAD_SINGLE_CLASS = "class/LOAD_SINGLE_CLASS";
 const CREATE_CLASS = "classes/CREATE_CLASS";
 const UPDATE_CLASS = "classes/UPDATE_CLASS";
 const DELETE_CLASS = "classes/DELETE_CLASS";
-
+const CLEAN_UP_CLASSES="classes/CLEANUP"
 
 const loadClassesAction = (classes) => ({
   type: LOAD_CLASSES,
   classes
 });
 
-const loadSingleClassAction = (singleClass) => ({
-    type: LOAD_SINGLE_CLASS,
-    singleClass
-  });
 
 
 const createClassAction = (newClass) => ({
@@ -32,6 +27,12 @@ const deleteClassAction = (classId) => ({
   classId
 });
 
+export const cleanUpClassesAction = () => {
+  return {
+      type: CLEAN_UP_CLASSES
+  }
+};
+
 export const loadAllClassesThunk = () => async (dispatch) => {
   const response = await fetch("/api/classes/user");
   if (response.ok) {
@@ -41,13 +42,6 @@ export const loadAllClassesThunk = () => async (dispatch) => {
 };
 
 
-export const loadSingleClassThunk = (classId) => async (dispatch) => {
-  const response = await fetch(`/api/classes/${classId}`);
-  if (response.ok) {
-    const singleClass = await response.json();
-    dispatch(loadSingleClassAction(singleClass));
-  }
-};
 
 export const createClassThunk = (payload) => async (dispatch) => {
   const response = await fetch("/api/classes/", {
@@ -125,11 +119,6 @@ const classReducer = (state = initialState, action) => {
         newState.allClasses = normalize(action.classes)
         return newState;
       }
-    case LOAD_SINGLE_CLASS:{
-        const newState = { ...state }
-        newState.singleClass = action.singleClass;
-        return newState
-      }
     case CREATE_CLASS:{
         const newState = { ...state }
         newState.allClasses = { ...newState.allClasses, [action.newClass.id]: action.newClass }
@@ -147,6 +136,10 @@ const classReducer = (state = initialState, action) => {
         delete newState.allClasses[action.classId]
         return newState;
       }
+       case CLEAN_UP_CLASSES: {
+            const newState = { ...initialState };
+            return newState;
+        }
     default:
         return state;
   }

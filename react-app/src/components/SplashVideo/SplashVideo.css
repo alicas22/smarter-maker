@@ -1,0 +1,50 @@
+.video-container {
+    display: flex;
+    flex-direction: row;
+    white-space: pre-wrap;
+    overflow: hidden;
+    /* hide the bottom part of the video */
+}
+
+video {
+    display: flex;
+    outline: none;
+    -webkit-appearance: none;
+    appearance: none;
+    border: none;
+    max-height: 1000px;
+    height: auto;
+    width: auto;
+    max-width: 70vw;
+    margin-bottom: -180px;
+
+}
+
+::-webkit-media-controls {
+    display: none !important;
+    -webkit-appearance: none;
+}
+
+.video-captions-container,
+.video-captions-header,
+.video-captions-subheader {
+    white-space: pre-wrap;
+}
+
+.video-captions-container {
+    padding-top: 12rem;
+    font-family: "Mont Bold", Mont, sans-serif;
+}
+
+.video-captions-header {
+    font-size: 4vw;
+    font-weight: bold;
+}
+
+.video-captions-subheader {
+    font-family: 'Open Sans', sans-serif;
+    font-size: calc(15px + 3 * ((100vw - 320px) / 1600));
+    font-weight: normal;
+    padding-top:4rem;
+    width:70%
+}

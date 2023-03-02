@@ -92,7 +92,11 @@ const UpdateClassModal = ({singleClass}) => {
                         required
                     />
                 </label>
-                <button className="update-class-submit-button" type="submit">Submit</button>
+                <button
+                className="update-class-submit-button"
+                type="submit"
+                style = {{cursor:"pointer"}}
+                >Submit</button>
             </form>
         </div>
     )

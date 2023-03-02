@@ -2,14 +2,16 @@ import { useHistory, useLocation, Switch, Route, useParams } from "react-router-
 import { useSelector, useDispatch } from "react-redux";
 import { useState, useEffect } from "react";
 import { loadAllClassesThunk } from "../../store/class";
+import { cleanUpClassesAction } from "../../store/class";
+import { loadAllDecksThunk } from "../../store/deck";
+import { loadAllCardsThunk } from "../../store/card";
+import ProtectedRoute from "../auth/ProtectedRoute";
 import Navigation from "../Navigation";
 import Decks from "../Decks";
 import './Dashboard.css'
 import ClassHeader from "../ClassHeader";
 import About from "../About";
 import CardHeader from "../CardHeader";
-import { loadAllDecksThunk } from "../../store/deck";
-import { loadAllCardsThunk } from "../../store/card";
 import PreviewCards from "../PreviewCards";
 import BrowseCards from "../BrowseCards";
 
@@ -22,7 +24,7 @@ function Dashboard(isLoaded) {
   const dispatch = useDispatch();
   const history = useHistory();
   const url = useLocation().pathname;
-  const [redirectToDefaultClass, setRedirectToDefaultClass] = useState(false);
+  const [redirectClass, setRedirectClass] = useState(false);
 
   useEffect(() => {
     dispatch(loadAllClassesThunk())
@@ -31,16 +33,16 @@ function Dashboard(isLoaded) {
   }, [dispatch])
 
   useEffect(() => { //redirects to first class if there is one when sent to /dashboard
-    if (isLoaded && !redirectToDefaultClass && url === '/dashboard' && allClassesObj && user) {
+    if (isLoaded && !redirectClass && url === '/dashboard' && allClassesObj && user) {
       const userClasses = Object.values(allClassesObj);
       if (userClasses.length > 0) {
         history.push(`/dashboard/${userClasses[0].id}/decks`);
-        setRedirectToDefaultClass(true);
+        setRedirectClass(true);
       }
     } else if (url !== '/dashboard') { //allows redirects to work when class is deleted from navigation
-      setRedirectToDefaultClass(false);
+      setRedirectClass(false);
     }
-  }, [url, allClassesObj, history, redirectToDefaultClass])
+  }, [url, allClassesObj, history, redirectClass])
 
 
   return (
@@ -51,22 +53,22 @@ function Dashboard(isLoaded) {
       <div className="dashboard-rest-of-page">
         {allClassesObj && Object.values(allClassesObj).length > 0 ? (
           <Switch>
-            <Route path="/dashboard/:classId/decks/:deckId/browse" >
+            <ProtectedRoute path="/dashboard/:classId/decks/:deckId/browse" >
               <CardHeader />
               <BrowseCards />
-            </Route>
-            <Route path="/dashboard/:classId/decks/:deckId/preview" >
+            </ProtectedRoute>
+            <ProtectedRoute path="/dashboard/:classId/decks/:deckId/preview" >
               <CardHeader />
               <PreviewCards />
-            </Route>
-            <Route path="/dashboard/:classId/about">
+            </ProtectedRoute>
+            <ProtectedRoute path="/dashboard/:classId/about">
               <ClassHeader allClassesObj={allClassesObj} />
               <About />
-            </Route>
-            <Route path="/dashboard/:classId/decks" >
+            </ProtectedRoute>
+            <ProtectedRoute path="/dashboard/:classId/decks" >
               <ClassHeader allClassesObj={allClassesObj} />
               <Decks />
-            </Route>
+            </ProtectedRoute>
           </Switch>
         ) : (
           <div className="no-classes-message-container">

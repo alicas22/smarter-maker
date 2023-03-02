@@ -1,7 +1,6 @@
-import { useSelector, useDispatch } from "react-redux";
-import { NavLink, Switch, useHistory } from "react-router-dom";
+import { useSelector } from "react-redux";
+import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
-import { deleteClassThunk } from "../../store/class"
 import CreateClassModal from '../CreateClassModal'
 import UpdateClassModal from '../UpdateClassModal'
 import OpenModalButton from "../OpenModalButton";
@@ -10,16 +9,15 @@ import DeleteModal from "../DeleteModal";
 import "./Navigation.css"
 
 
-function Navigation(isLoaded) {
-	const dispatch = useDispatch()
-	const history = useHistory()
+function Navigation() {
+
 	const user = useSelector((state) => state.session.user);
 	const [showMenu, setShowMenu] = useState(false);
 
-	const openMenu = () => {
-		if (showMenu) return;
-		setShowMenu(true);
-	};
+	// const openMenu = () => {
+	// 	if (showMenu) return;
+	// 	setShowMenu(true);
+	// };
 
 	useEffect(() => {
 		if (!showMenu) return;
@@ -31,11 +29,7 @@ function Navigation(isLoaded) {
 	}, [showMenu]);
 
 
-	const deleteButton = (async (e, id) => {
-		e.preventDefault()
-		await dispatch(deleteClassThunk(id))
-		history.push('/dashboard')
-	})
+
 
 	let sessionLinks;
 	if (user) {
@@ -61,6 +55,8 @@ function Navigation(isLoaded) {
 	const singleUserCards = allCardsArr.filter(card => {
 		return singleUserDecks.some(deck => deck.id === card.deckId)
 	})
+
+
 
 	return (
 		<>
@@ -95,7 +91,6 @@ function Navigation(isLoaded) {
 							buttonText="+"
 							modalComponent={<CreateClassModal userClasses={userClasses} />}
 							className="nav-bar-create-class-modal"
-
 						/>
 					</div>
 				</div>
@@ -146,15 +141,41 @@ function Navigation(isLoaded) {
 									</div>
 								</NavLink>
 							</div>
-							{/* <div className="edit-class-modal" style={{ cursor: "pointer" }}>
-								<OpenModalButton
-									buttonText="Update Class"
-									modalComponent={<UpdateClassModal singleClass={singleClass} />}
-								/>
-							</div> */}
-
 						</div>
 					))}
+					<div className="create-class-modal-bigger">
+						<OpenModalButton
+							buttonText=""
+							modalComponent={<CreateClassModal userClasses={userClasses} />}
+							className="lower-create-class-modal"
+						/>
+						<div className="create-class-caption-smaller">
+							<span className="create-class-bigger-button">+</span>
+							<span className="create-class-bigger-button-caption">Create New Class</span>
+						</div>
+					</div>
+				</div>
+				<div className="developer-links-container">
+					<div className="developer-links-subtitle-and-icons">
+						Developer Links:
+						<div className="developer-links">
+							<a
+								className="developer-links-icons"
+								href="https://github.com/alicas22/smarter-maker"
+								target="_blank"
+							>
+								<i className="fab fa-github fa-xl developer-link"
+									/>
+							</a>
+							<a style={{ textDecoration: "none" }}
+								href="https://www.linkedin.com/in/anthony-licas-7b675061/"
+								target="_blank"
+							>
+								<i className="fab fa-linkedin fa-xl developer-link "
+									/>
+							</a>
+						</div>
+					</div>
 				</div>
 			</div>
 		</>

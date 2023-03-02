@@ -2,8 +2,9 @@ import React, { useState } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { signUp } from "../../store/session";
-import "./SignupForm.css";
 import { useHistory } from "react-router-dom";
+import { cleanUpClassesAction } from "../../store/class";
+import "./SignupForm.css";
 
 function SignupFormModal() {
 	const dispatch = useDispatch();
@@ -20,6 +21,7 @@ function SignupFormModal() {
 	const handleSubmit = async (e) => {
 		e.preventDefault();
 		if (password === confirmPassword) {
+			await dispatch(cleanUpClassesAction())
 			const data = await dispatch(signUp(firstName, lastName, username, email, password));
 			if (data) {
 				setErrors(data);

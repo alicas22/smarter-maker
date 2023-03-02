@@ -1,12 +1,15 @@
 import { useSelector, useDispatch } from "react-redux";
-import { useParams, useHistory  } from "react-router-dom";
+import React, { useState, useEffect } from 'react';
+import { useParams, useHistory } from "react-router-dom";
 import { NavLink } from "react-router-dom";
-import Decks from "../Decks";
+import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
+import "react-circular-progressbar/dist/styles.css";
 import './ClassHeader.css'
 
 function ClassHeader({ allClassesObj }) {
     const { classId } = useParams();
-    const history=useHistory()
+    // const history = useHistory()
+    // const [progress, setProgress] = useState(0);
     const user = useSelector((state) => state.session.user);
     const allDecksObj = useSelector((state) => state.decks.allDecks);
     const allCardsObj = useSelector((state) => state.cards.allCards)
@@ -21,9 +24,17 @@ function ClassHeader({ allClassesObj }) {
         return singleClassDecks.some(deck => deck.id === card.deckId);
     });
 
-    if (!singleClass)  return null
+    let averageMastery
+    if (singleClassesCards.length <= 0) averageMastery = 0
+    else {
+        averageMastery = (singleClassesCards.reduce(
+            (total, card) => total + card.mastery,
+            0
+        ) / (singleClassesCards.length * 5)) * 100;
+    }
 
 
+    if (!singleClass) return null
 
     return (
         <>
@@ -43,12 +54,25 @@ function ClassHeader({ allClassesObj }) {
                                 <span>{singleClassesCards.length} unique cards</span>
                             )}</span>
                         </div>
-                        {/* <div className="class-about-study button">
-                            <NavLink to={`/dashboard/${classId}/decks/`}>Study</NavLink>
-                        </div> */}
                     </div>
                 </div>
-
+                <div className="class-about-mastery-bar-container">
+                    <div style={{ width: '140px' }}>
+                        <CircularProgressbar
+                            value={averageMastery}
+                            text={`${averageMastery.toFixed(1)}%`}
+                            strokeWidth={8}
+                            styles={buildStyles({
+                                strokeLinecap: "butt",
+                                trailColor: "#ECEFF1",
+                                pathColor: "#29a5dc",
+                                textColor: 'black'
+                            })}
+                        >
+                        </CircularProgressbar>
+                        <div className="class-about-mastery-subtitle">Mastery</div>
+                    </div>
+                </div>
             </div>
             <div className="class-about-nav-bar">
                 <NavLink to={`/dashboard/${classId}/about`}

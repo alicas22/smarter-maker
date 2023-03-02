@@ -94,7 +94,10 @@ const CreateClassModal = () => {
                         required
                     />
                 </label>
-                <button className="create-class-submit-button" type="submit">Submit</button>
+                <button
+                className="create-class-submit-button"
+                type="submit"
+                style = {{cursor:"pointer"}}>Submit</button>
             </form>
         </div>
     )
