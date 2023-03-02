@@ -33,7 +33,8 @@ function BrowseCards() {
         const singleDecksCards = allCardsArr.filter(
             (card) => card.deckId === +deckId
         );
-        setColor(colors[singleDecksCards[cardNum].mastery]);
+        if (singleDecksCards.length <= 0) return null
+        else setColor(colors[singleDecksCards[cardNum].mastery]);
     }, [allCardsObj, allClassesObj, allDecksObj, cardNum, deckId]);
 
 
@@ -48,7 +49,7 @@ function BrowseCards() {
 
     if (singleDecksCards.length === 0) return (
         <div className="no-cards-message">
-            This class does not have any cards.
+            This deck does not have any cards.
         </div>
     );
 

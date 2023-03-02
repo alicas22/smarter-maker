@@ -2,14 +2,14 @@
     font-family: "Mont Bold", Mont, sans-serif;
 }
 
-/* .splash-page-carousel-container {
-    margin-top: 5rem;
-} */
+.splash-page-carousel-container {
+    margin-top: 3rem;
+}
 
 .splash-page-carousel-captions {
     position: absolute;
     top: 25%;
-    z-index: 2;
+    z-index: 1;
     margin-right: 4%;
     margin-left: 4%;
     white-space: pre-line !important;

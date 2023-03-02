@@ -27,8 +27,8 @@ const SplashPageNav = () => {
           Log Out
         </div>
         <NavLink to='/dashboard'
-        style={{textDecoration:'none'}}
-        className="splash-page-nav-dashboard-link">
+          style={{ textDecoration: 'none' }}
+          className="splash-page-nav-dashboard-link">
           <div >
             Dashboard
           </div>
@@ -58,8 +58,12 @@ const SplashPageNav = () => {
   return (
     <div className="splash-page-nav-container">
       <div className="splash-page-nav-logo">
-        <i className="fa-solid fa-head-side-virus"></i>
-        <p className="splash-page-nav-bar-app-name">Smarter-Maker</p>
+        <NavLink to='/dashboard'
+          style={{ textDecoration: 'none' }}
+          className="splash-page-nav-logo-link">
+          <i className="fa-solid fa-head-side-virus"></i>
+          <p className="splash-page-nav-bar-app-name">Smarter-Maker</p>
+        </NavLink>
       </div>
       {sessionLinks}
 
