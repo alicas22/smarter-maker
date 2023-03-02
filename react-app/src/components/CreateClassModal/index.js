@@ -66,6 +66,7 @@ const CreateClassModal = () => {
                         value={name}
                         onChange={(e) => setName(e.target.value)}
                         required
+                        placeholder="i.e. Biology 101"
                     />
                 </label>
                 <label>
@@ -79,6 +80,7 @@ const CreateClassModal = () => {
                         value={headline}
                         onChange={(e) => setHeadline(e.target.value)}
                         required
+                        placeholder="i.e. Basics of first my biology class"
                     />
                 </label>
                 <label>
@@ -92,6 +94,7 @@ const CreateClassModal = () => {
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
                         required
+                        placeholder="i.e. Students will investigate biological concepts including the chemical basis of life, cell structure and function, metabolism, reproduction, genetics, evolution, biological diversity and classification, plant structure and function, animal structure and function and ecology."
                     />
                 </label>
                 <button

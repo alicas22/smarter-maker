@@ -51,7 +51,7 @@ const CreateCardModal = ({deckId}) => {
                     <p>
                     Question
                     </p>
-                    <input
+                    <textarea
                         id="question"
                         type="text"
                         name="question"
@@ -64,7 +64,7 @@ const CreateCardModal = ({deckId}) => {
                     <p>
                     Answer
                     </p>
-                    <input
+                    <textarea
                         id="answer"
                         type="text"
                         name="answer"
