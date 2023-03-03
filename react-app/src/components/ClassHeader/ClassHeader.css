@@ -23,6 +23,7 @@
     max-width: 500px;
     overflow-x: hidden;
     word-wrap: break-word
+}
 
 .class-about-subtitle {
     display: flex;
