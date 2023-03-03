@@ -30,6 +30,9 @@
     padding: 6px 0px;
     width: 100%;
 }
+.update-card-container textarea{
+    min-height:100px;
+}
 .update-card-submit-button {
     border-radius: 24px;
     background-color: #ff8243;

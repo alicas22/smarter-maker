@@ -30,6 +30,10 @@
     padding: 6px 0px;
     width: 100%;
 }
+.create-class-container textarea{
+    min-height:100px;
+
+}
 .create-class-submit-button {
     border-radius: 24px;
     background-color: #ff8243;
