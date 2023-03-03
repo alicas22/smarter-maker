@@ -100,9 +100,14 @@
   word-break: keep-all;
   max-width: 100%;
   overflow-y: auto;
-
-
 }
+
+@media only screen and (max-height: 850px) {
+  .browse-deck-card-content {
+    height: 30vw;
+  }
+}
+
 .browse-deck-card-content > * {
   display: inline-block;
   white-space: pre-wrap;

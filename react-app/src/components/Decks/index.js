@@ -103,7 +103,7 @@ function Decks() {
                                         <div className="decks-delete-deck-button" onClick={(e) => e.preventDefault()}>
                                             <OpenModalButton
                                                 onClick={(e) => e.stopPropagation()}
-                                                buttonText=<i className="fa-solid fa-xmark"></i>
+                                                buttonText=<i className="fa-solid fa-xmark deck-xmark"></i>
                                                 modalComponent={<DeleteModal itemType={'deck'} itemId={deck.id}
                                                     onClick={(e) => e.stopPropagation()} />}
                                             />

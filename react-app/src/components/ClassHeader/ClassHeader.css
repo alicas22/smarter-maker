@@ -14,10 +14,12 @@
     width: 100%;
 }
 
-.class-about-name-pencil {
+.class-about-name-pencil,
+.class-about-name-pencil input {
     font-family: "Mont Bold", Mont, sans-serif;
     color: #324A6B;
     font-size: 30px;
+
     max-width: 500px;
     overflow-x: hidden;
     word-wrap: break-word
@@ -45,6 +47,31 @@
     display: flex;
     flex-direction: column;
 }
+
+/* edit in place css */
+.class-name-edit-input{
+    border: 2px solid rgba(25, 112, 150, 0.3);
+    border-radius: 6px;
+    color: #737373;
+    font-size: 18px;
+    font-weight: 600;
+    outline: none;
+    padding: 6px 0px;
+}
+
+.class-name-edit-x,
+.class-name-edit-submit {
+    background: none;
+    border: none;
+    cursor: pointer;
+    color: #324A6B;
+    font-size: 30px;
+    padding-left:15px
+}
+
+
+
+/* edit in place end */
 
 .unique-cards-created {
     padding-top: 5px;
