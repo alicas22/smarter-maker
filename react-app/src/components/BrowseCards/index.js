@@ -49,7 +49,7 @@ function BrowseCards() {
 
     if (singleDecksCards.length === 0) return (
         <div className="no-cards-message">
-            This deck does not have any cards.
+            This class does not have any cards.
         </div>
     );
 

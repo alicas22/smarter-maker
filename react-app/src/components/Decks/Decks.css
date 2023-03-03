@@ -88,7 +88,7 @@ word-wrap: break-word;
     font-size: 20px;
 
 }
-.fa-xmark {
+.deck-xmark{
     cursor: pointer;
     color: #757575;
     padding-left: 3rem;
@@ -97,7 +97,7 @@ word-wrap: break-word;
 }
 
 .card-pencil:hover,
-.fa-xmark:hover {
+.deck-xmark:hover {
     color: rgb(92, 161, 214);
 }
 
