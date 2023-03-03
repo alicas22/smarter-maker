@@ -110,7 +110,7 @@ function Navigation() {
 										const currentUrl = window.location.pathname;
 
 										// Check if the current URL starts with the class URL
-										const classUrl = `/dashboard/${singleClass.id}/decks`;
+										const classUrl = `/dashboard/${singleClass.id}`;
 										const isActive = currentUrl.startsWith(classUrl);
 
 										// Return true to activate the link, false otherwise
