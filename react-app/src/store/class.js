@@ -66,6 +66,7 @@ export const createClassThunk = (payload) => async (dispatch) => {
 };
 
 export const updateClassThunk = (payload) => async (dispatch) => {
+  console.log('createClassThunk')
   const response = await fetch(`/api/classes/${payload.id}`, {
     method: "PUT",
     headers: {

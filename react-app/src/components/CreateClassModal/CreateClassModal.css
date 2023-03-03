@@ -44,12 +44,12 @@
     width: 100%;
 }
 
-::placeholder{
+/* ::placeholder{
     font-family: 'Times New Roman', Times, serif;
     font-size: 12px;
     font-weight: 100;
     opacity:.5
-}
+} */
 
 p, label {
     display: block;
