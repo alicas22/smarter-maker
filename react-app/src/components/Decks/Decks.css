@@ -27,6 +27,10 @@
     color: #757575;
 }
 
+.deck-name-progress-bar-container{
+max-width: 30vw;
+word-wrap: break-word;
+}
 .decks-deck-names {
     color: #324A6B;
     font-weight: 700;

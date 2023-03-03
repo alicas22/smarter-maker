@@ -64,6 +64,7 @@
 
 .fa-gear {
   transition: rotate 0.5s ease-in-out;
+  cursor: pointer;
 }
 
 .fa-gear-click {
@@ -180,12 +181,18 @@
   padding-right: 1rem;
   font-size: 3rem;
 }
+.single-class-name{
+  overflow-x: hidden;
+  word-wrap: break-word;
 
+
+}
 .class-name-edit-modal-delete-button {
   display: flex;
   flex-direction: row;
   justify-content: space-between;
-  width: 100%
+  width: 75%;
+
 }
 
 .class-pencil:hover {

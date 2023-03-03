@@ -19,10 +19,10 @@
     font-family: "Mont Bold", Mont, sans-serif;
     color: #324A6B;
     font-size: 30px;
-    max-width:500px;
+
+    max-width: 500px;
     overflow-x: hidden;
-    word-wrap: break-word;
-}
+    word-wrap: break-word
 
 .class-about-subtitle {
     display: flex;
