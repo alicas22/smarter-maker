@@ -18,6 +18,9 @@
     font-family: "Mont Bold", Mont, sans-serif;
     color: #324A6B;
     font-size: 30px;
+    max-width: 500px;
+    overflow-x: hidden;
+    word-wrap: break-word
 }
 
 .class-about-subtitle {
@@ -84,9 +87,11 @@
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
 }
-.Circular-Progressbar-text{
+
+.Circular-Progressbar-text {
     padding-top: 0;
 }
+
 .class-about-mastery-subtitle {
     position: absolute;
     top: 138px;

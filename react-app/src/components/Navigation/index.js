@@ -119,7 +119,7 @@ function Navigation() {
 								>
 									<i className="fa-solid fa-graduation-cap little-hat"></i>
 									<div className="class-name-edit-modal-delete-button">
-										<h3>{singleClass.name}</h3>
+										<h3 className="single-class-name">{singleClass.name}</h3>
 										<div className="edit-class-modal" style={{ cursor: "pointer" }}>
 											<div className="delete-class-edit-modal-only" onClick={(e) => e.preventDefault()}>
 												<OpenModalButton
