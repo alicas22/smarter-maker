@@ -120,9 +120,9 @@
 }
 
 .class-about-mastery-subtitle {
-    position: absolute;
-    top: 138px;
-    right: 95px;
+    position: relative;
+    top: -55px;
+    right: -45px;
     font-size: 14px;
     font-weight: normal;
 }
