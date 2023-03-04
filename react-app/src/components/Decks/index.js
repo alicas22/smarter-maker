@@ -43,7 +43,7 @@ function Decks() {
     const allCardsArr = Object.values(allCardsObj)
 
     return (
-        <>
+        <div className="decks-container-container">
             <div className="decks-component-container">
                 <div className="decks-header-container">
                     <div className="decks-check-title">
@@ -58,64 +58,66 @@ function Decks() {
                         />
                     </div>
                 </div>
-                {singleClassDecks.map((deck, i) => {
-                    const singleDecksCards = allCardsArr.filter((card) => card.deckId === deck.id)
-                    const cardsStudied = singleDecksCards.filter((card) => card.mastery > 0);
-                    const singleDecksMastery = Math.round(singleDecksCards.map((card) => card.mastery).reduce((total, mastery) => total + mastery, 0) / singleDecksCards.length * 20);
-                    const deckColor = getColor(singleDecksMastery);
+                <div className="decks-list-container">
+                    {singleClassDecks.map((deck, i) => {
+                        const singleDecksCards = allCardsArr.filter((card) => card.deckId === deck.id)
+                        const cardsStudied = singleDecksCards.filter((card) => card.mastery > 0);
+                        const singleDecksMastery = Math.round(singleDecksCards.map((card) => card.mastery).reduce((total, mastery) => total + mastery, 0) / singleDecksCards.length * 20);
+                        const deckColor = getColor(singleDecksMastery);
 
-                    return (
-                        <NavLink to={`/dashboard/${classId}/decks/${deck.id}/preview`}
-                            style={{ textDecoration: 'none' }}
-                            className='card-info-navlink'
-                            activeClassName="card-info-navlink-active"
-                            key={i}
-                        >
-                            <div className='decks-class-card' >
-                                <i className="fa-solid fa-circle-check"></i>
-                                <div className="decks-deck-card-info-container">
-                                    <div className="deck-name-progress-bar-container">
-                                        <div className="decks-deck-names">{deck.name}
-                                            <span className="decks-card-unique-cards">
-                                                {cardsStudied.length} of {singleDecksCards.length}  unique cards studied
-                                            </span>
+                        return (
+                            <NavLink to={`/dashboard/${classId}/decks/${deck.id}/preview`}
+                                style={{ textDecoration: 'none' }}
+                                className='card-info-navlink'
+                                activeClassName="card-info-navlink-active"
+                                key={i}
+                            >
+                                <div className='decks-class-card' >
+                                    <i className="fa-solid fa-circle-check"></i>
+                                    <div className="decks-deck-card-info-container">
+                                        <div className="deck-name-progress-bar-container">
+                                            <div className="decks-deck-names">{deck.name}
+                                                <span className="decks-card-unique-cards">
+                                                    {cardsStudied.length} of {singleDecksCards.length}  unique cards studied
+                                                </span>
+                                            </div>
+                                            <div className="progress-bar-outer">
+                                                <div
+                                                    className="progress-bar-inner"
+                                                    style={{
+                                                        width: `${singleDecksMastery}%`,
+                                                        backgroundColor: deckColor,
+                                                    }}
+                                                />
+                                            </div>
                                         </div>
-                                        <div className="progress-bar-outer">
-                                            <div
-                                                className="progress-bar-inner"
-                                                style={{
-                                                    width: `${singleDecksMastery}%`,
-                                                    backgroundColor: deckColor,
-                                                }}
-                                            />
-                                        </div>
-                                    </div>
-                                    <div className="decks-card-crud-buttons" >
-                                        <div className="edit-class-modal" onClick={(e) => e.preventDefault()} style={{ cursor: "pointer" }} >
-                                            <OpenModalButton
-                                                onClick={(e) => e.stopPropagation()}
-                                                buttonText=<i className="fa-solid fa-pencil card-pencil" ></i>
-                                                modalComponent={<UpdateDeckModal deck={deck}
-                                                    onClick={(e) => e.stopPropagation()} />}
-                                            // className="edit-class-modal"
-                                            />
-                                        </div>
-                                        <div className="decks-delete-deck-button" onClick={(e) => e.preventDefault()}>
-                                            <OpenModalButton
-                                                onClick={(e) => e.stopPropagation()}
-                                                buttonText=<i className="fa-solid fa-xmark deck-xmark"></i>
-                                                modalComponent={<DeleteModal itemType={'deck'} itemId={deck.id}
-                                                    onClick={(e) => e.stopPropagation()} />}
-                                            />
+                                        <div className="decks-card-crud-buttons" >
+                                            <div className="edit-class-modal" onClick={(e) => e.preventDefault()} style={{ cursor: "pointer" }} >
+                                                <OpenModalButton
+                                                    onClick={(e) => e.stopPropagation()}
+                                                    buttonText=<i className="fa-solid fa-pencil card-pencil" ></i>
+                                                    modalComponent={<UpdateDeckModal deck={deck}
+                                                        onClick={(e) => e.stopPropagation()} />}
+                                                // className="edit-class-modal"
+                                                />
+                                            </div>
+                                            <div className="decks-delete-deck-button" onClick={(e) => e.preventDefault()}>
+                                                <OpenModalButton
+                                                    onClick={(e) => e.stopPropagation()}
+                                                    buttonText=<i className="fa-solid fa-xmark deck-xmark"></i>
+                                                    modalComponent={<DeleteModal itemType={'deck'} itemId={deck.id}
+                                                        onClick={(e) => e.stopPropagation()} />}
+                                                />
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
-                            </div>
-                        </NavLink>
-                    )
-                })}
+                            </NavLink>
+                        )
+                    })}
+                </div>
             </div>
-        </>
+        </div>
     );
 }
 

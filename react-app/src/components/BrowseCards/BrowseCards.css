@@ -10,8 +10,8 @@
   display: flex;
   justify-content: center;
   align-items: flex-start;
-  margin-top: 2rem;
-  height: 100%;
+  padding-top: 2rem;
+  height: calc(100%-140px);
   width: 100%;
   font-family: "Open Sans", sans-serif;
 }
@@ -99,7 +99,7 @@
   overflow-wrap: anywhere;
   word-break: keep-all;
   max-width: 100%;
-  overflow-y: auto;
+
 }
 
 @media only screen and (max-height: 850px) {

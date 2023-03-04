@@ -9,17 +9,19 @@ function About() {
     const userClasses = Object.values(allClassesObj)
     const singleClass = userClasses.find((singleClass) => singleClass.id === +classId)
     return (
-        <div className="about-container">
-            <div className="about-headline-container">
-                <div className="about-headline-header">Headline</div>
-                <div className="about-headline-content">
-                    {singleClass.headline}
+        <div className="about-container-container">
+            <div className="about-container">
+                <div className="about-headline-container">
+                    <div className="about-headline-header">Headline</div>
+                    <div className="about-headline-content">
+                        {singleClass.headline}
+                    </div>
                 </div>
-            </div>
-            <div className="about-description-container">
-                <div className="about-description-header">Description</div>
-                <div className="about-description-content">
-                    {singleClass.description}
+                <div className="about-description-container">
+                    <div className="about-description-header">Description</div>
+                    <div className="about-description-content">
+                        {singleClass.description}
+                    </div>
                 </div>
             </div>
         </div>

@@ -22,7 +22,7 @@ function App() {
 
 
   return (
-    <>
+    <div className='app-container'>
       {isLoaded && (
         <Switch>
           <Route exact path="/">
@@ -39,7 +39,7 @@ function App() {
           </Route>
         </Switch>
       )}
-    </>
+    </div>
   );
 }
 
