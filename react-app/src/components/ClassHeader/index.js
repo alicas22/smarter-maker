@@ -51,7 +51,7 @@ function ClassHeader({ allClassesObj }) {
 
     const handleSave = async (e) => {
         e.preventDefault()
-        console.log('inside handleSave')
+        setErrors([])
         const payload = {
             userId: user.id,
             name: newName,
@@ -62,10 +62,10 @@ function ClassHeader({ allClassesObj }) {
         const data = await dispatch(updateClassThunk(payload))
         if (data.errors) {
             setErrors(data.errors);
+        } else {
+            setEditMode(false);
         }
-        setEditMode(false)
     }
-
     return (
         <>
             <div className="class-about-container">
