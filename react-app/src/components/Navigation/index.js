@@ -88,7 +88,7 @@ function Navigation() {
 					<h3 className="my-classes"> My Classes ({userClasses.length})</h3>
 					<div className="create-class-modal" style={{ cursor: "pointer" }}>
 						<OpenModalButton
-							buttonText="+"
+							buttonText=<i class="fa-solid fa-plus"></i>
 							modalComponent={<CreateClassModal userClasses={userClasses} />}
 							className="nav-bar-create-class-modal"
 						/>
@@ -121,14 +121,14 @@ function Navigation() {
 									<div className="class-name-edit-modal-delete-button">
 										<h3 className="single-class-name">{singleClass.name}</h3>
 										<div className="edit-class-modal" style={{ cursor: "pointer" }}>
-											<div className="delete-class-edit-modal-only" onClick={(e) => e.preventDefault()}>
+											{/* <div className="delete-class-edit-modal-only" onClick={(e) => e.preventDefault()}>
 												<OpenModalButton
 													onClick={(e) => e.stopPropagation()}
 													buttonText=<i className="fa-solid fa-pencil class-pencil"></i>
 													modalComponent={<UpdateClassModal singleClass={singleClass}
 														onClick={(e) => e.stopPropagation()} />}
 												/>
-											</div>
+											</div> */}
 											<div className="class-delete-button" onClick={(e) => e.preventDefault()}>
 												<OpenModalButton
 													onClick={(e) => e.stopPropagation()}
@@ -155,7 +155,7 @@ function Navigation() {
 						</div>
 					</div>
 				</div>
-				
+
 				<div className="developer-links-container">
 					<div className="developer-links-subtitle-and-icons">
 						Developer Links:

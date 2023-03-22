@@ -16,7 +16,7 @@
   flex-direction: column;
   width: auto;
   max-width: 370px;
-  min-width: 250px;
+  min-width: 300px;
   color: rgba(255, 255, 255, 0.6);
   background-color: #324A6B;
   height: 100vh;
@@ -123,13 +123,16 @@
 }
 
 .nav-bar-create-class-modal {
+  display: flex;
+  justify-content: center;
+  align-items: center;
   cursor: pointer;
   font-size: 26px;
   border: 2px solid;
-  padding-left: 8px;
-  padding-right: 8px;
-  padding-top: 0px;
-  padding-bottom: 0px;
+  padding-left: 3px;
+  padding-right: 3px;
+  padding-top: 1px;
+  padding-bottom: 1px;
   border-radius: 50%;
   color: #324A6B;
   background-color: rgba(255, 255, 255, 0.3);
@@ -207,7 +210,7 @@
   position: relative;
   top: -15px;
   cursor: pointer;
-  margin-right: 1.5rem;
+  margin-right: 1rem;
   padding-left: 7px;
   padding-right: 7px;
   display: none;

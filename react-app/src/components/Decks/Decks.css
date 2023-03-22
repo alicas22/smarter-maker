@@ -49,14 +49,16 @@
 }
 
 .decks-create-decks-modal-button {
+    display: flex;
+    justify-content: center;
+    align-items: center;
     cursor: pointer;
     font-size: 26px;
     border: 2px solid;
-    background-color: black;
-    padding-left: 8px;
-    padding-right: 8px;
-    padding-top: 0px;
-    padding-bottom: 0px;
+    padding-left: 3px;
+    padding-right: 3px;
+    padding-top: 1px;
+    padding-bottom: 1px;
     margin-right: 4rem;
     border-radius: 50%;
     color: white;
