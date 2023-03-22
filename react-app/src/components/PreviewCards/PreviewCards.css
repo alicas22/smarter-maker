@@ -145,3 +145,6 @@
 .create-card-modal:hover{
 background-color: #ff8243;
 }
+.card-x:hover{
+  color: rgb(92, 161, 214);
+}

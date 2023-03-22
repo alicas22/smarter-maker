@@ -23,6 +23,7 @@ function ClassHeader({ allClassesObj }) {
     useEffect(() => {
         if (inputRef.current && editMode) {
             inputRef.current.focus();
+            setNewName(singleClass.name)
         }
     }, [editMode]);
 
@@ -66,6 +67,7 @@ function ClassHeader({ allClassesObj }) {
             setEditMode(false);
         }
     }
+
     return (
         <>
             <div className="class-about-container">
@@ -76,8 +78,9 @@ function ClassHeader({ allClassesObj }) {
                             {editMode || errors.length > 0 ? (
                                 <form
                                     className="class-name-edit-input"
-                                    onSubmit={handleSave}>
-                                    <ul className="validation-errors">
+                                    onSubmit={handleSave}
+                                    style={{border:"none"}}>
+                                    <ul className="edit-in-place-validation-errors">
                                         {errors.map((error, idx) => (
                                             <li key={idx}>{error}</li>
                                         ))}
@@ -90,7 +93,6 @@ function ClassHeader({ allClassesObj }) {
                                         value={newName}
                                         onChange={e => setNewName(e.target.value)}
                                         placeholder={singleClass.name}
-                                    //  onBlur={() => setEditMode(false)}
                                     >
                                     </input>
                                     <i className="fa-solid fa-xmark class-name-edit-x"

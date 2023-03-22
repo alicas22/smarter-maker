@@ -17,6 +17,7 @@ const colors = {
     4: "#7FAE2E",
     5: "#00A8D7",
 };
+
 function getColor(mastery) {
     if (mastery === 0) return colors[0];
     else if (mastery > 0 && mastery < 30) return colors[1];
@@ -52,7 +53,7 @@ function Decks() {
                     </div>
                     <div className="decks-create-deck-modal" style={{ cursor: "pointer" }}>
                         <OpenModalButton
-                            buttonText="+"
+                            buttonText=<i class="fa-solid fa-plus"></i>
                             modalComponent={<CreateDeckModal classId={classId} />}
                             className="decks-create-decks-modal-button"
                         />

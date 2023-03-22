@@ -1,26 +1,25 @@
-import { useDispatch, useSelector } from 'react-redux'
+import { useSelector } from 'react-redux'
 import { useParams } from "react-router-dom";
+import React from 'react';
+
 import CreateCardModal from '../CreateCardModal';
 import UpdateCardModal from '../UpdateCardModal';
 import OpenModalButton from "../OpenModalButton";
 import DeleteModal from '../DeleteModal';
-import { deleteCardThunk } from '../../store/card';
+
 import './PreviewCards.css'
 
 function PreviewCards() {
-    const dispatch = useDispatch()
-    const { deckId } = useParams();
-    const user = useSelector((state) => state.session.user);
+       const { deckId } = useParams();
     const allDecksObj = useSelector((state) => state.decks.allDecks);
     const allClassesObj = useSelector((state) => state.classes.allClasses);
     const allCardsObj = useSelector((state) => state.cards.allCards)
 
+
+
     if (!allClassesObj || !allDecksObj || !allCardsObj) return null
 
-    // const allDecksArr = Object.values(allDecksObj)
-    // const allClassesArr = Object.values(allClassesObj)
-    // const singleClass = allClassesArr.find((singleClass) => singleClass.id === +classId)
-    // const singleClassDecks = allDecksArr.filter((singleDeck) => singleDeck.classId === +classId)
+
     const allCardsArr = Object.values(allCardsObj)
     const singleDecksCards = allCardsArr.filter(card => card.deckId === +deckId);
 
