@@ -4,12 +4,13 @@ import { useState, useEffect } from 'react';
 import { updateCardThunk } from '../../store/card';
 import './BrowseCards.css'
 import { useDispatch } from 'react-redux';
-import { useMemo } from 'react';
+import { useMemo, useContext } from 'react';
+import { ThemeContext, themes } from '../../context/ThemeContext';
 
 
 function BrowseCards() {
-
     const { deckId } = useParams();
+    const { theme } = useContext(ThemeContext);
     const dispatch = useDispatch();
     const [cardNum, setCardNum] = useState(0)
     const [isAnswer, setIsAnswer] = useState(false)
@@ -48,7 +49,7 @@ function BrowseCards() {
     }, [allCardsObj, allClassesObj, allDecksObj, deckId]);
 
     if (singleDecksCards.length === 0) return (
-        <div className="no-cards-message">
+        <div className={`no-cards-message ${theme === themes.dark ? 'dark' : 'light'}`}>
             This class does not have any cards.
         </div>
     );
@@ -105,7 +106,7 @@ function BrowseCards() {
                     <div className='browse-deck-card-header' style={{ backgroundColor: color }}>
                         Card {cardNum + 1} of {singleDecksCards.length}
                     </div>
-                    <div className={`browse-deck-card-content card-question ${letterClassName}`}>
+                    <div className={`browse-deck-card-content  ${theme === themes.dark ? 'dark' : 'light'} card-question ${letterClassName}`}>
                         {!isAnswer ? singleDecksCards[cardNum].question : singleDecksCards[cardNum].answer}
                     </div>
                     <div className='browse-deck-next-button-container'>

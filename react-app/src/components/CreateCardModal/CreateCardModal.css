@@ -11,6 +11,10 @@
     color: #324A6B;
     padding-bottom: 1rem;
 }
+.create-card-header.dark{
+    color: rgb(156, 184, 209);
+}
+
 .create-card-subtitle{
     color: #737373;
     font-size: 16px;
@@ -31,6 +35,14 @@
     padding-left:5px;
     width: 100%;
 }
+.create-card-container.dark input,
+.create-card-container.dark textarea{
+    border-color: rgba(29, 130, 174, 0.3);
+    color: rgb(159, 151, 139);
+    outline-color: initial;
+    border: 2px solid rgba(25, 112, 150, 0.3);
+    background-color: #3b3b3b;
+}
 .create-card-container textarea{
     min-height:100px;
 }
@@ -47,4 +59,9 @@
     margin-bottom: 1rem;
     width: 100%;
     cursor: pointer;
+}
+
+.create-card-submit-button.dark {
+    background-color: rgb(164, 55, 0);
+    color: rgb(232, 230, 227);
 }

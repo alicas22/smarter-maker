@@ -7,13 +7,14 @@
 }
 
 .login-modal-header{
-
 color: #324a6b;
 font-family: "Mont Bold", Mont, sans-serif;
 font-size: 36px;
 text-align: center;
+}
 
-
+.login-modal-header.dark{
+  color: rgb(156, 184, 209);
 }
 
 .login-modal-input {
@@ -30,6 +31,14 @@ text-align: center;
   position: relative;
   width: 100%;
   z-index: 10;
+}
+
+.login-modal-input.dark {
+  border-color: rgba(29, 130, 174, 0.3);
+  color: rgb(159, 151, 139);
+  outline-color: initial;
+  border: 2px solid rgba(25, 112, 150, 0.3);
+  background-color: #3b3b3b;
 }
 
 .login-modal-input:focus {
@@ -53,6 +62,11 @@ text-align: center;
   margin-bottom: 15px;
   margin-top:20px;
   cursor: pointer;
+}
+
+.login-modal-button.dark {
+  background-color: rgb(164, 55, 0);
+  color: rgb(232, 230, 227);
 }
 
 .validation-errors{

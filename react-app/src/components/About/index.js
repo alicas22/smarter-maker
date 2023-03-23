@@ -1,11 +1,13 @@
 import { useSelector, useDispatch } from "react-redux";
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import { useParams } from "react-router-dom";
 import { updateClassThunk } from "../../store/class"
 import './About.css'
+import { ThemeContext, themes } from '../../context/ThemeContext';
 
 function About() {
     const { classId } = useParams();
+    const { theme } = useContext(ThemeContext);
     const dispatch = useDispatch()
     const inputHeadlineRef = useRef(null);
     const inputDescriptionRef = useRef(null);
@@ -83,7 +85,7 @@ function About() {
                         Headline
                         {editHeadlineMode || headlineErrors.length > 0 ? (
                             <>
-                                <i className="fa-solid fa-xmark class-about-edit-x"
+                                <i className={`fa-solid fa-xmark class-about-edit-x  ${theme === themes.dark ? 'dark' : 'light'}`}
                                     onClick={() => {
                                         setNewHeadline("");
                                         setHeadlineErrors([]);
@@ -92,10 +94,10 @@ function About() {
                                     style={{ cursor: "pointer" }}></i>
                                 <button
                                     type="button"
-                                    className="class-headline-edit-submit"
+                                    className={`class-headline-edit-submit ${theme === themes.dark ? 'dark' : 'light'}`}
                                     onClick={handleHeadlineSave}
                                     style={{textDecoration:'none'}}>
-                                    <i className="fa-solid fa-check class-headline-edit-submit"></i>
+                                    <i className={`fa-solid fa-check class-headline-edit-submit  ${theme === themes.dark ? 'dark' : 'light'}`}></i>
                                 </button>
                             </>
 
@@ -120,7 +122,7 @@ function About() {
                                     ))}
                                 </ul>
                                 <textarea
-                                    className="class-name-edit-input"
+                                    className={`class-name-edit-input ${theme === themes.dark ? 'dark' : 'light'}`}
                                     type="text"
                                     ref={inputHeadlineRef}// assign the reference to the input element
                                     name="newHeadline"
@@ -144,7 +146,7 @@ function About() {
                         Description
                         {editDescriptionMode || descriptionErrors.length > 0 ? (
                             <>
-                                <i className="fa-solid fa-xmark class-about-edit-x"
+                                <i className={`fa-solid fa-xmark class-about-edit-x  ${theme === themes.dark ? 'dark' : 'light'}`}
                                     onClick={() => {
                                         setNewDescription("");
                                         setDescriptionErrors([]);
@@ -155,7 +157,7 @@ function About() {
                                     type="button"
                                     className="class-description-edit-submit"
                                     onClick={handleDescriptionSave}>
-                                    <i className="fa-solid fa-check class-description-edit-submit"></i>
+                                    <i className={`fa-solid fa-check class-description-edit-submit ${theme === themes.dark ? 'dark' : 'light'}`}></i>
                                 </button>
                             </>
 
@@ -179,7 +181,7 @@ function About() {
                                     ))}
                                 </ul>
                                 <textarea
-                                    className="class-name-edit-input"
+                                    className={`class-name-edit-input ${theme === themes.dark ? 'dark' : 'light'}`}
                                     type="text"
                                     ref={inputDescriptionRef}// assign the reference to the input element
                                     name="newDescription"

@@ -1,9 +1,8 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useContext } from "react";
+import { ThemeContext } from '../../context/ThemeContext';
 import { useDispatch } from "react-redux";
 import { logout } from "../../store/session";
-import OpenModalButton from "../OpenModalButton";
-import LoginFormModal from "../LoginFormModal";
-import SignupFormModal from "../SignupFormModal";
+
 import "./Navigation.css"
 import { useHistory } from "react-router-dom";
 
@@ -11,6 +10,7 @@ function ProfileButton({ user }) {
   const dispatch = useDispatch();
   const history = useHistory()
   const [showMenu, setShowMenu] = useState(false);
+  const { theme, toggleTheme } = useContext(ThemeContext);
 
   const ulRef = useRef();
 
@@ -51,12 +51,17 @@ function ProfileButton({ user }) {
       </div>
       <div className={ulClassName} ref={ulRef}>
         {user && (
-          <>
-            <div onClick={handleLogout} className='button-container-signout1' style={{ padding: '9px', cursor: 'pointer' }}>
-              <i style={{ paddingRight: '5px' }} class="fa-solid fa-arrow-right-from-bracket"></i>
-              Log Out
+          <div className="nav-drop-down-menu">
+            <div className='button-container-signout1' >
+              <div onClick={toggleTheme} className='button-container-signout1'>Toggle Theme</div>
             </div>
-          </>
+            <div onClick={handleLogout} className='button-container-signout2-container' >
+              <div className='button-container-signout2'>
+                <i style={{ paddingRight: '20px' }} class="fa-solid fa-arrow-right-from-bracket"></i>
+                Log Out
+              </div>
+            </div>
+          </div>
           // )} : (
           // <>
           //   <OpenModalButton
