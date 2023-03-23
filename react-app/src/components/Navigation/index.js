@@ -2,7 +2,6 @@ import { useSelector } from "react-redux";
 import { NavLink } from "react-router-dom";
 import { useState, useEffect } from "react";
 import CreateClassModal from '../CreateClassModal'
-import UpdateClassModal from '../UpdateClassModal'
 import OpenModalButton from "../OpenModalButton";
 import ProfileButton from "./ProfileButton";
 import DeleteModal from "../DeleteModal";
@@ -14,10 +13,6 @@ function Navigation() {
 	const user = useSelector((state) => state.session.user);
 	const [showMenu, setShowMenu] = useState(false);
 
-	// const openMenu = () => {
-	// 	if (showMenu) return;
-	// 	setShowMenu(true);
-	// };
 
 	useEffect(() => {
 		if (!showMenu) return;

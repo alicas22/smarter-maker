@@ -47,6 +47,12 @@
 
    }
 
+   .class-about-edit-x.dark,
+   .class-headline-edit-submit.dark,
+   .class-description-edit-submit.dark{
+    color: rgb(156,184,209);
+   }
+
    .class-about-edit-x{
     padding-left:1rem;
    }

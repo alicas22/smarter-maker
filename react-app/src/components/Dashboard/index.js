@@ -1,6 +1,6 @@
-import { useHistory, useLocation, Switch, Route, useParams } from "react-router-dom";
+import { useHistory, useLocation, Switch} from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext  } from "react";
 import { loadAllClassesThunk } from "../../store/class";
 import { cleanUpClassesAction } from "../../store/class";
 import { loadAllDecksThunk } from "../../store/deck";
@@ -17,14 +17,17 @@ import BrowseCards from "../BrowseCards";
 
 
 
+import { ThemeContext, themes } from '../../context/ThemeContext';
+
 function Dashboard(isLoaded) {
-  // const { classId } = useParams();
+  const { theme } = useContext(ThemeContext);
   const user = useSelector((state) => state.session.user);
   const allClassesObj = useSelector((state) => state.classes.allClasses);
   const dispatch = useDispatch();
   const history = useHistory();
   const url = useLocation().pathname;
   const [redirectClass, setRedirectClass] = useState(false);
+
 
   useEffect(() => {
     dispatch(loadAllClassesThunk())
@@ -46,7 +49,9 @@ function Dashboard(isLoaded) {
 
 
   return (
-    <div className="dashboard-page-container">
+    <div className="dashboard-page-container"
+    style={{ background: theme.background, color: theme.text }}
+    >
       <div className="dashboard-nav-component">
         <Navigation isLoaded={isLoaded} />
       </div>
@@ -71,11 +76,11 @@ function Dashboard(isLoaded) {
             </ProtectedRoute>
           </Switch>
         ) : (
-          <div className="no-classes-message-container">
-            <div className="no-classes-message-header">
+          <div className={`no-classes-message-container ${theme === themes.dark ? 'dark' : 'light'}`}>
+            <div className={`no-classes-message-header ${theme === themes.dark ? 'dark' : 'light'}`}>
               No Classes Available
             </div>
-            <div className="no-classes-message-subheader">
+            <div className={`no-classes-message-subheader${theme === themes.dark ? 'dark' : 'light'}`}>
               Please create one to your left to get started
             </div>
           </div>

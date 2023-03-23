@@ -6,6 +6,10 @@
   font-size: 3vw
 }
 
+.no-cards-message.dark{
+  color: rgb(156,184,209);
+}
+
 .browse-deck-container {
   display: flex;
   justify-content: center;
@@ -102,6 +106,10 @@
 
 }
 
+.browse-deck-card-content.dark {
+  color:rgb(206, 202, 195);
+}
+
 @media only screen and (max-height: 850px) {
   .browse-deck-card-content {
     height: 30vw;
@@ -129,6 +137,12 @@
 
 .browse-deck-card-content.card-answer::before {
   content: 'A';
+}
+
+
+
+.browse-deck-card-content.dark::before{
+  color: rgba(160, 152, 139, 0.2);
 }
 
 .browse-deck-next-button {

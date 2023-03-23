@@ -48,6 +48,10 @@
     padding-bottom: .5rem;
 }
 
+.decks-deck-names.dark{
+    color: rgb(156,184,209);
+}
+
 .decks-create-decks-modal-button {
     display: flex;
     justify-content: center;

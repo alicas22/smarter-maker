@@ -13,8 +13,12 @@
   font-weight: 700;
   text-align: center;
   text-transform: capitalize;
-
   }
+
+  .signup-modal-header.dark{
+    color: rgb(156, 184, 209);
+}
+
 
   .signup-modal-input {
     background-color: transparent;
@@ -31,6 +35,15 @@
     width: 100%;
     z-index: 10;
   }
+
+  .signup-modal-input.dark {
+    border-color: rgba(29, 130, 174, 0.3);
+    color: rgb(159, 151, 139);
+    outline-color: initial;
+    border: 2px solid rgba(25, 112, 150, 0.3);
+    background-color: #3b3b3b;
+  }
+
 
   .signup-modal-input:focus {
     border-bottom: 4px solid #197096;
@@ -53,6 +66,11 @@
     height: 48px;
     margin-bottom: 15px;
     margin-top:50px
+  }
+
+  .signup-modal-button.dark {
+    background-color: rgb(164, 55, 0);
+    color: rgb(232, 230, 227);
   }
 
   .validation-errors{

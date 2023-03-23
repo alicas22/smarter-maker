@@ -1,11 +1,13 @@
-import { useEffect, useState } from "react"
+import {  useState, useContext  } from "react"
 import { useDispatch, useSelector } from "react-redux"
 import {createCardThunk} from '../../store/card'
 import { useModal } from "../../context/Modal"
 import './CreateCardModal.css'
+import { ThemeContext, themes } from '../../context/ThemeContext';
 
 
 const CreateCardModal = ({deckId}) => {
+    const { theme } = useContext(ThemeContext);
     const dispatch = useDispatch()
     const { closeModal } = useModal();
     const [question, setQuestion] = useState('')
@@ -39,8 +41,8 @@ const CreateCardModal = ({deckId}) => {
 
 
     return (
-        <div className="create-card-container">
-            <h1 className="create-card-header">Create Card</h1>
+        <div className={`create-card-container ${theme === themes.dark ? 'dark' : 'light'}`}>
+            <h1 className={`create-card-header ${theme === themes.dark ? 'dark' : 'light'}`}>Create Card</h1>
             <form className='create-card-form' onSubmit={handleSubmit}>
                 <ul className="validation-errors">
                     {errors.map((error, idx) => (
@@ -74,7 +76,7 @@ const CreateCardModal = ({deckId}) => {
                     />
                 </label>
                 <button
-                className="create-card-submit-button"
+                className={`create-card-submit-button ${theme === themes.dark ? 'dark' : 'light'}`}
                 type="submit"
                 style = {{cursor:"pointer"}}>Submit</button>
             </form>

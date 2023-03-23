@@ -1,12 +1,13 @@
 import { useParams, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import { loadAllDecksThunk } from "../../store/deck";
-import { useEffect } from "react";
+import { useContext } from "react";
 import './CardHeader.css'
+import { ThemeContext, themes } from '../../context/ThemeContext';
 
 function CardHeader() {
     const { classId, deckId } = useParams();
-    const dispatch = useDispatch()
+    const { theme } = useContext(ThemeContext);
     const allDecksObj = useSelector((state) => state.decks.allDecks);
     const allClassesObj = useSelector((state) => state.classes.allClasses);
     const allCardsObj = useSelector((state) => state.cards.allCards)
@@ -28,17 +29,17 @@ function CardHeader() {
                     style={{ textDecoration: 'none', color: '#777' }}>
                     <div className="card-header-arrow-hat-classname">
                         <i className="fa-solid fa-chevron-left"></i>
-                        <i className="fa-solid fa-graduation-cap tiny-hat"></i>
-                        <span className="card-header-class-name">{singleClass.name}</span>
+                        <i className={`fa-solid fa-graduation-cap tiny-hat ${theme === themes.dark ? 'dark' : 'light'}`}></i>
+                        <span className={`card-header-class-name ${theme === themes.dark ? 'dark' : 'light'}`}>{singleClass.name}</span>
                     </div>
                 </NavLink>
-                <div className="card-header-deck-name">Deck: {singleDeck.name}</div>
+                <div className={`card-header-deck-name ${theme === themes.dark ? 'dark' : 'light'}`}>Deck: {singleDeck.name}</div>
             </div>
 
             <div className="card-header-nav-bar">
                 <NavLink to={`/dashboard/${classId}/decks/${deckId}/preview`}
-                    className="card-header-nav-bar-link"
-                    activeClassName="card-header-nav-bar-link-active"
+                    className={`card-header-nav-bar-link ${theme === themes.dark ? 'dark' : 'light'}`}
+                    activeClassName={`card-header-nav-bar-link-active ${theme === themes.dark ? 'dark' : 'light'}`}
                     style={{ textDecoration: 'none' }} >
                     Preview Cards
                 </NavLink>
@@ -49,8 +50,8 @@ function CardHeader() {
                     Edit Cards
                 </NavLink> */}
                 <NavLink to={`/dashboard/${classId}/decks/${deckId}/browse`}
-                    className="card-header-nav-bar-link"
-                    activeClassName="card-header-nav-bar-link-active"
+                    className={`card-header-nav-bar-link ${theme === themes.dark ? 'dark' : 'light'}`}
+                    activeClassName={`card-header-nav-bar-link-active ${theme === themes.dark ? 'dark' : 'light'}`}
                     style={{ textDecoration: 'none' }} >
                     Browse Cards
                 </NavLink>
