@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react"
+import {  useState, useContext  } from "react"
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux"
 import { createDeckThunk } from "../../store/deck"
 import { useModal } from "../../context/Modal"
 import "./CreateDeckModal.css"
+import { ThemeContext, themes } from '../../context/ThemeContext';
 
 
 const CreateDeckModal = (classId) => {
+    const { theme } = useContext(ThemeContext);
     const dispatch = useDispatch()
     const history = useHistory()
     const { closeModal } = useModal();
@@ -39,8 +41,8 @@ const CreateDeckModal = (classId) => {
 
 
     return (
-        <div className="create-deck-container">
-            <h1 className='create-deck-header'>Create Deck</h1>
+        <div className={`create-deck-container ${theme === themes.dark ? 'dark' : 'light'}`}>
+            <h1 className={`create-deck-header ${theme === themes.dark ? 'dark' : 'light'}`}>Create Deck</h1>
             <form className='create-deck-form' onSubmit={handleSubmit}>
                 <ul className="validation-errors">
                     {errors.map((error, idx) => (
@@ -61,7 +63,7 @@ const CreateDeckModal = (classId) => {
                     />
                 </label>
                 <button
-                className="create-deck-submit-button"
+                className={`create-deck-submit-button ${theme === themes.dark ? 'dark' : 'light'}`}
                 type="submit"
                 style = {{cursor:"pointer"}}>Submit</button>
             </form>

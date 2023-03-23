@@ -19,10 +19,15 @@
     font-family: "Mont Bold", Mont, sans-serif;
     color: #324A6B;
     font-size: 30px;
-
     max-width: 500px;
     overflow-x: hidden;
     word-wrap: break-word
+}
+
+.class-about-name-pencil.dark,
+.class-about-name-pencil input.dark {
+    color: rgb(156,184,209);
+   
 }
 
 .class-about-subtitle {
@@ -34,9 +39,16 @@
     width: 100%
 }
 
+.class-about-subtitle.dark{
+    color: rgb(162,154,142)
+}
+
 .big-hat {
     font-size: 120px;
     color: rgb(11, 119, 83)
+}
+.big-hat.dark{
+    color: rgb(125,243,204)
 }
 
 .fa-pencil {
@@ -58,6 +70,10 @@
     outline: none;
     padding: 6px 0px;
 }
+.class-name-edit-input.dark{
+    background: #131516;
+    color: rgb(156,184,209);
+}
 
 .class-name-edit-x,
 .class-name-edit-submit {
@@ -69,8 +85,10 @@
     padding-left:15px
 }
 
-
-
+.class-name-edit-x.dark,
+.class-name-edit-submit.dark {
+    color: rgb(156,184,209);
+}
 /* edit in place end */
 
 .unique-cards-created {
@@ -98,7 +116,9 @@
     color: rgba(70, 80, 94, 0.8);
     font-size: 18px;
 }
-
+.class-about-nav-bar-link.dark {
+    color:rgb(162,154,142)
+}
 .class-about-nav-bar-link:hover {
     color: #6cb5f9;
     border-bottom: 4px solid rgba(18, 57, 108, 0.18);
@@ -110,9 +130,21 @@
     color: #46505e !important;
 }
 
+.class-about-nav-bar-link-active.dark,
+.class-about-nav-bar-link:active.dark {
+    border-bottom-color: rgb(66, 98, 142) !important;
+    color: rgb(180, 174, 164) !important;
+}
+
+
+
 .class-about-mastery-bar-container {
     font-family: 'Open Sans', sans-serif;
     font-weight: bold;
+}
+
+.Circular-Progressbar.dark{
+    color:white
 }
 
 .Circular-Progressbar-text {

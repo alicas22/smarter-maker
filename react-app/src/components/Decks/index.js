@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext  } from "react";
 import { useParams, NavLink } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
 import DeleteModal from "../DeleteModal";
@@ -8,6 +8,7 @@ import OpenModalButton from "../OpenModalButton";
 import CreateDeckModal from "../CreateDeckModal";
 import './Decks.css'
 
+import { ThemeContext, themes } from '../../context/ThemeContext';
 //need to be outside component to prevent too many rerenders
 const colors = {
     0: "#7D93A4",
@@ -31,6 +32,7 @@ function getColor(mastery) {
 function Decks() {
     const { classId } = useParams();
     const dispatch = useDispatch();
+    const { theme } = useContext(ThemeContext);
     const allDecksObj = useSelector((state) => state.decks.allDecks)
     const allCardsObj = useSelector((state) => state.cards.allCards)
 
@@ -77,7 +79,7 @@ function Decks() {
                                     <i className="fa-solid fa-circle-check"></i>
                                     <div className="decks-deck-card-info-container">
                                         <div className="deck-name-progress-bar-container">
-                                            <div className="decks-deck-names">{deck.name}
+                                            <div className={`decks-deck-names ${theme === themes.dark ? 'dark' : 'light'}`}>{deck.name}
                                                 <span className="decks-card-unique-cards">
                                                     {cardsStudied.length} of {singleDecksCards.length}  unique cards studied
                                                 </span>

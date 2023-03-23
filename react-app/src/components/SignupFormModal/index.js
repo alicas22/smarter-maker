@@ -1,12 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext  } from "react";
 import { useDispatch } from "react-redux";
 import { useModal } from "../../context/Modal";
 import { signUp } from "../../store/session";
 import { useHistory } from "react-router-dom";
 import { cleanUpClassesAction } from "../../store/class";
 import "./SignupForm.css";
+import { ThemeContext, themes } from '../../context/ThemeContext';
 
 function SignupFormModal() {
+	const { theme } = useContext(ThemeContext);
 	const dispatch = useDispatch();
 	const history = useHistory()
 	const [firstName, setFirstName] = useState("");
@@ -39,7 +41,7 @@ function SignupFormModal() {
 	return (
 		<>
 			<form className="signup-modal-form" onSubmit={handleSubmit}>
-				<h1 className='signup-modal-header'>Sign Up</h1>
+				<h1 className={`signup-modal-header ${theme === themes.dark ? 'dark' : 'light'}`}>Sign Up</h1>
 				<ul className="validation-errors">
 					{errors.map((error, idx) => (
 						<li key={idx}>{error}</li>
@@ -48,7 +50,7 @@ function SignupFormModal() {
 				<label className="modal-label">
 					First Name
 					<input
-						className="login-modal-input"
+						className={`login-modal-input ${theme === themes.dark ? 'dark' : 'light'}`}
 						type="text"
 						value={firstName}
 						onChange={(e) => setFirstName(e.target.value)}
@@ -58,7 +60,7 @@ function SignupFormModal() {
 				<label className="modal-label">
 					Last Name
 					<input
-						className="login-modal-input"
+						className={`login-modal-input ${theme === themes.dark ? 'dark' : 'light'}`}
 						type="text"
 						value={lastName}
 						onChange={(e) => setLastName(e.target.value)}
@@ -68,7 +70,7 @@ function SignupFormModal() {
 				<label>
 					Email
 					<input
-						className="login-modal-input"
+						className={`login-modal-input ${theme === themes.dark ? 'dark' : 'light'}`}
 						type="text"
 						value={email}
 						onChange={(e) => setEmail(e.target.value)}
@@ -78,7 +80,7 @@ function SignupFormModal() {
 				<label>
 					Username
 					<input
-						className="login-modal-input"
+						className={`login-modal-input ${theme === themes.dark ? 'dark' : 'light'}`}
 						type="text"
 						value={username}
 						onChange={(e) => setUsername(e.target.value)}
@@ -88,7 +90,7 @@ function SignupFormModal() {
 				<label>
 					Password
 					<input
-						className="login-modal-input"
+						className={`login-modal-input ${theme === themes.dark ? 'dark' : 'light'}`}
 						type="password"
 						value={password}
 						onChange={(e) => setPassword(e.target.value)}
@@ -98,14 +100,14 @@ function SignupFormModal() {
 				<label>
 					Confirm Password
 					<input
-						className="login-modal-input"
+						className={`login-modal-input ${theme === themes.dark ? 'dark' : 'light'}`}
 						type="password"
 						value={confirmPassword}
 						onChange={(e) => setConfirmPassword(e.target.value)}
 						required
 					/>
 				</label>
-				<button className="login-modal-button " type="submit">Sign Up</button>
+				<button className={`login-modal-button ${theme === themes.dark ? 'dark' : 'light'}`} type="submit">Sign Up</button>
 			</form>
 		</>
 	);

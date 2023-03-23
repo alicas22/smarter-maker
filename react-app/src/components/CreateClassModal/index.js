@@ -1,12 +1,14 @@
-import { useEffect, useState } from "react"
+import { useEffect, useState, useContext } from "react"
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux"
 import { createClassThunk } from "../../store/class"
 import { useModal } from "../../context/Modal"
+import { ThemeContext, themes } from '../../context/ThemeContext';
 import "./CreateClassModal.css"
 
 
 const CreateClassModal = () => {
+    const { theme } = useContext(ThemeContext);
     const dispatch = useDispatch()
     const history = useHistory()
     const { closeModal } = useModal();
@@ -46,9 +48,9 @@ const CreateClassModal = () => {
     }, [createdClass])
 
     return (
-        <div className="create-class-container">
-            <h1 className="create-class-header">Create New Class</h1>
-            <h4 className="create-class-subtitle">A Class is a set of Flashcards, grouped into Decks</h4>
+        <div className={`create-class-container ${theme === themes.dark ? 'dark' : 'light'}`}>
+            <h1 className={`create-class-header ${theme === themes.dark ? 'dark' : 'light'}`}>Create New Class</h1>
+            <h4 className={`create-class-subtitle ${theme === themes.dark ? 'dark' : 'light'}`}>A Class is a set of Flashcards, grouped into Decks</h4>
             <form className='class-form' onSubmit={handleSubmit}>
                 <ul className="validation-errors">
                     {errors.map((error, idx) => (
@@ -98,7 +100,7 @@ const CreateClassModal = () => {
                     />
                 </label>
                 <button
-                className="create-class-submit-button"
+                className={`create-class-submit-button ${theme === themes.dark ? 'dark' : 'light'}`}
                 type="submit"
                 style = {{cursor:"pointer"}}>Submit</button>
             </form>

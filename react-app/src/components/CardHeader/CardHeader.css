@@ -24,12 +24,24 @@
     color:rgb(11, 119, 83)
 }
 
+.tiny-hat.dark{
+    color: rgb(125,243,204)
+}
+
+.card-header-class-name.dark{
+    color: #9d9488;
+}
+
 .card-header-deck-name{
     /* padding-left: 15rem; */
     font-weight: 700;
 }
-.card-header-nav-bar {
 
+.card-header-deck-name.dark{
+    color: rgb(157, 148, 136);
+}
+
+.card-header-nav-bar {
     color: #46505e;
     font-family: 'Open Sans', sans-serif;
     font-size: larger;
@@ -51,6 +63,10 @@
     font-size: 18px;
 }
 
+.card-header-nav-bar-link.dark{
+    color:rgb(162,154,142)
+}
+
 .card-header-nav-bar-link:hover {
     color: #6cb5f9;
     border-bottom: 4px solid rgba(18, 57, 108, 0.18);
@@ -60,4 +76,10 @@
 .card-header-nav-bar-link:active {
     border-bottom: 4px solid rgb(50, 74, 107) !important;
     color: #46505e !important;
+}
+
+.card-header-nav-bar-link-active.dark,
+.card-header-nav-bar-link:active.dark {
+    border-bottom-color: rgb(66, 98, 142) !important;
+    color: rgb(180, 174, 164) !important;
 }

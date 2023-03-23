@@ -1,16 +1,18 @@
 import { useSelector } from 'react-redux'
 import { useParams } from "react-router-dom";
-import React from 'react';
+import React, { useContext } from 'react';
 
 import CreateCardModal from '../CreateCardModal';
 import UpdateCardModal from '../UpdateCardModal';
 import OpenModalButton from "../OpenModalButton";
 import DeleteModal from '../DeleteModal';
+import { ThemeContext, themes } from '../../context/ThemeContext';
 
 import './PreviewCards.css'
 
 function PreviewCards() {
-       const { deckId } = useParams();
+    const { deckId } = useParams();
+    const { theme } = useContext(ThemeContext);
     const allDecksObj = useSelector((state) => state.decks.allDecks);
     const allClassesObj = useSelector((state) => state.classes.allClasses);
     const allCardsObj = useSelector((state) => state.cards.allCards)
@@ -32,10 +34,10 @@ function PreviewCards() {
                 {singleDecksCards.map((card, i) => (
                     <div className='preview-single-card-outer-container'>
                         <div key={i} className='preview-single-card-inner-container'>
-                            <div className='preview-card-question'>
+                            <div className={`preview-card-question ${theme === themes.dark ? 'dark' : 'light'}`}>
                                 {card.question}
                             </div>
-                            <div className='preview-card-answer'>
+                            <div className={`preview-card-answer ${theme === themes.dark ? 'dark' : 'light'}`}>
                                 {card.answer}
                             </div>
                         </div>
@@ -59,7 +61,7 @@ function PreviewCards() {
                     <OpenModalButton
                         buttonText="Create new Card"
                         modalComponent={<CreateCardModal deckId={deckId} />}
-                        className="create-card-modal"
+                        className={`create-card-modal ${theme === themes.dark ? 'dark' : 'light'}`}
                     />
                 </div>
             </div>

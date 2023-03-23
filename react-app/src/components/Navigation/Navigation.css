@@ -75,6 +75,34 @@
   color: rgb(92, 161, 214);
 }
 
+.nav-drop-down-menu{
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  /* align-items: center; */
+}
+
+.button-container-signout1,
+.button-container-signout2{
+  border-radius: 8px;
+  padding: 9px;
+  cursor: pointer
+}
+
+.button-container-signout2-container {
+  width: 100%;
+}
+
+.button-container-signout2{
+  padding-left:22px;
+  width:auto
+}
+
+.button-container-signout1:hover,
+.button-container-signout2:hover{
+  background-color:rgb(92, 161, 214);
+}
+
 .user-decks-created,
 .user-cards-created {
   display: flex;

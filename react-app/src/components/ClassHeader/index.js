@@ -1,5 +1,5 @@
 import { useSelector, useDispatch } from "react-redux";
-import React, { useState, useRef, useEffect } from 'react';
+import React, { useState, useRef, useEffect, useContext } from 'react';
 import { useParams } from "react-router-dom";
 import { NavLink } from "react-router-dom";
 import { CircularProgressbar, buildStyles } from 'react-circular-progressbar';
@@ -7,8 +7,11 @@ import { updateClassThunk } from "../../store/class"
 import "react-circular-progressbar/dist/styles.css";
 import './ClassHeader.css'
 
+import { ThemeContext, themes } from '../../context/ThemeContext';
+
 function ClassHeader({ allClassesObj }) {
     const { classId } = useParams();
+    const { theme } = useContext(ThemeContext);
     const dispatch = useDispatch()
     const inputRef = useRef(null);
     const [editMode, setEditMode] = useState(false);
@@ -47,6 +50,14 @@ function ClassHeader({ allClassesObj }) {
         ) / (singleClassesCards.length * 5)) * 100;
     }
 
+    //mastery progress bar styles
+    const styles = buildStyles({
+        strokeLinecap: "butt",
+        trailColor: "#ECEFF1",
+        pathColor: "#29a5dc",
+        textColor: theme === themes.dark ? 'white' : 'black'
+      });
+
 
     if (!singleClass) return null
 
@@ -71,22 +82,22 @@ function ClassHeader({ allClassesObj }) {
     return (
         <>
             <div className="class-about-container">
-                <i className="fa-solid fa-graduation-cap big-hat"></i>
+                <i className={`fa-solid fa-graduation-cap big-hat ${theme === themes.dark ? 'dark' : 'light'}`}></i>
                 <div className="class-about-header">
                     <div className="class-about-sub-button-container">
-                        <div className="class-about-name-pencil">
+                        <div className={`class-about-name-pencil  ${theme === themes.dark ? 'dark' : 'light'}`}>
                             {editMode || errors.length > 0 ? (
                                 <form
                                     className="class-name-edit-input"
                                     onSubmit={handleSave}
-                                    style={{border:"none"}}>
+                                    style={{ border: "none" }}>
                                     <ul className="edit-in-place-validation-errors">
                                         {errors.map((error, idx) => (
                                             <li key={idx}>{error}</li>
                                         ))}
                                     </ul>
                                     <input
-                                        className="class-name-edit-input"
+                                        className={`class-name-edit-input  ${theme === themes.dark ? 'dark' : 'light'}`}
                                         type="text"
                                         ref={inputRef}// assign the reference to the input element
                                         name="newName"
@@ -95,7 +106,7 @@ function ClassHeader({ allClassesObj }) {
                                         placeholder={singleClass.name}
                                     >
                                     </input>
-                                    <i className="fa-solid fa-xmark class-name-edit-x"
+                                    <i className={`fa-solid fa-xmark class-name-edit-x  ${theme === themes.dark ? 'dark' : 'light'}`}
                                         onClick={() => {
                                             setNewName("");
                                             setErrors([]);
@@ -104,7 +115,7 @@ function ClassHeader({ allClassesObj }) {
                                         style={{ cursor: "pointer" }}></i>
                                     <button
                                         type="submit"
-                                        className="class-name-edit-submit"
+                                        className={`class-name-edit-submit  ${theme === themes.dark ? 'dark' : 'light'}`}
                                         onSubmit={handleSave}>
                                         <i className="fa-solid fa-check"></i>
                                     </button>
@@ -118,7 +129,7 @@ function ClassHeader({ allClassesObj }) {
                                 </>
                             )}
                         </div>
-                        <div className="class-about-subtitle">
+                        <div className={`class-about-subtitle ${theme === themes.dark ? 'dark' : 'light'}`}>
                             Creator: {user.firstName} {user.lastName}
                             <span className="unique-cards-created">{singleClassesCards.length === 1 ? (
                                 <span>{singleClassesCards.length} unique card</span>
@@ -128,18 +139,13 @@ function ClassHeader({ allClassesObj }) {
                         </div>
                     </div>
                 </div>
-                <div className="class-about-mastery-bar-container">
-                    <div style={{ width: '140px' }}>
+                <div className={`class-about-mastery-bar-container ${theme === themes.dark ? 'dark' : 'light'}`}>
+                    <div style={{ width: '140px' }} >
                         <CircularProgressbar
                             value={averageMastery}
                             text={`${averageMastery.toFixed(1)}%`}
                             strokeWidth={8}
-                            styles={buildStyles({
-                                strokeLinecap: "butt",
-                                trailColor: "#ECEFF1",
-                                pathColor: "#29a5dc",
-                                textColor: 'black'
-                            })}
+                            styles={styles}
                         >
                         </CircularProgressbar>
                         <div className="class-about-mastery-subtitle">Mastery</div>
@@ -148,14 +154,14 @@ function ClassHeader({ allClassesObj }) {
             </div>
             <div className="class-about-nav-bar">
                 <NavLink to={`/dashboard/${classId}/about`}
-                    className="class-about-nav-bar-link"
-                    activeClassName="class-about-nav-bar-link-active"
+                    className={`class-about-nav-bar-link ${theme === themes.dark ? 'dark' : 'light'}`}
+                    activeClassName={`class-about-nav-bar-link-active ${theme === themes.dark ? 'dark' : 'light'}`}
                     style={{ textDecoration: 'none' }} >
                     About
                 </NavLink>
                 <NavLink to={`/dashboard/${classId}/decks`}
-                    className="class-about-nav-bar-link"
-                    activeClassName="class-about-nav-bar-link-active"
+                     className={`class-about-nav-bar-link ${theme === themes.dark ? 'dark' : 'light'}`}
+                    activeClassName={`class-about-nav-bar-link-active ${theme === themes.dark ? 'dark' : 'light'}`}
                     style={{ textDecoration: 'none' }} >
                     Decks ({singleClassDecks.length})
                 </NavLink>

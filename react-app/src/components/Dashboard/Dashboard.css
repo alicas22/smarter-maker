@@ -20,6 +20,9 @@
     color: #324A6B;
     font-family: "Mont Bold", Mont, sans-serif;
 }
+.no-classes-message-container.dark{
+    color: rgb(156,184,209);
+}
 .no-classes-message-header{
     font-size: 5vw;
     padding-bottom: 5rem;

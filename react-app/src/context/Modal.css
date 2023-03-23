@@ -1,4 +1,4 @@
-#modal {
+.modal {
   position: fixed;
   top: 3rem;
   right: 0;
@@ -14,7 +14,7 @@
 
 }
 
-#modal-background {
+.modal-background {
   position: fixed;
   top: 0;
   right: 0;
@@ -23,7 +23,7 @@
   background-color: rgba(0, 0, 0, 0.7);
 }
 
-#modal-content {
+.modal-content {
   align-items: center;
   background-color: #fff;
   border-radius: 24px;
@@ -38,4 +38,16 @@
   max-width: 400px;
   overflow-y: auto;
 
+}
+
+.modal.dark{
+/* background-color: rgb(24, 26, 27); */
+}
+
+.modal-background.dark{
+  /* background-color: rgb(24, 26, 27); */
+}
+
+.modal-content.dark{
+  background-color: rgb(24, 26, 27);
 }

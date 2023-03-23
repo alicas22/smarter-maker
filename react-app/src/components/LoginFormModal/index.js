@@ -1,13 +1,14 @@
-import React, { useState } from "react";
+import React, { useState, useContext } from "react";
 import { login } from "../../store/session";
 import { useDispatch } from "react-redux";
 import { useHistory } from "react-router-dom";
 import { useModal } from "../../context/Modal";
 import { cleanUpClassesAction } from "../../store/class";
 import "./LoginForm.css";
-
+import { ThemeContext, themes } from '../../context/ThemeContext';
 
 function LoginFormModal() {
+  const { theme } = useContext(ThemeContext);
   const dispatch = useDispatch();
   const history = useHistory()
   const [email, setEmail] = useState("");
@@ -45,7 +46,7 @@ function LoginFormModal() {
   return (
     <>
       <form className="login-modal-form" onSubmit={handleSubmit}>
-        <h1 className='login-modal-header'>Log In</h1>
+        <h1 className={`login-modal-header  ${theme === themes.dark ? 'dark' : 'light'}`}>Log In</h1>
         <ul className="validation-errors">
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
@@ -54,7 +55,7 @@ function LoginFormModal() {
         <label>
           Email
           <input
-            className="login-modal-input"
+            className={`login-modal-input  ${theme === themes.dark ? 'dark' : 'light'}`}
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
@@ -64,15 +65,15 @@ function LoginFormModal() {
         <label>
           Password
           <input
-            className="login-modal-input"
+            className={`login-modal-input  ${theme === themes.dark ? 'dark' : 'light'}`}
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
             required
           />
         </label>
-        <button className="login-modal-button" type="submit">Log In</button>
-        <div className="login-modal-button" onClick={handleDemoLogin}>
+        <button className={`login-modal-button  ${theme === themes.dark ? 'dark' : 'light'}`} type="submit">Log In</button>
+        <div className={`login-modal-button  ${theme === themes.dark ? 'dark' : 'light'}`} onClick={handleDemoLogin}>
           Demo-Sign In
         </div>
       </form>
