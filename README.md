@@ -41,7 +41,9 @@ Check out a live version of Smarter-Maker here:
 
 
 ### Code Sample
-```
+The following code sample handles the logic to properly render a class depending on if there are classes created or not. It also redirects to a different class when the one you are viewing is deleted. 
+
+```js
   useEffect(() => { //redirects to first class if there is one when sent to /dashboard
     if (isLoaded && !redirectClass && url === '/dashboard' && allClassesObj && user) {
       const userClasses = Object.values(allClassesObj);
