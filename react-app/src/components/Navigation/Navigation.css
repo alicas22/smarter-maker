@@ -30,6 +30,10 @@
   color: white
 }
 
+.nav-head-icon:hover {
+  color: rgb(92, 161, 214);
+}
+
 .nav-bar-header-container {
   display: flex;
   flex-direction: row;
@@ -236,13 +240,15 @@
 
 .class-delete-button {
   position: relative;
-  top: -15px;
+  /* top: -15px; */
+  font-size: large;
   cursor: pointer;
   margin-right: 1rem;
-  padding-left: 7px;
-  padding-right: 7px;
+  padding-left: 5px;
+  padding-right: 5px;
   display: none;
-  color: rgba(255, 255, 255, 0.3)
+  color: rgba(255, 255, 255, 0.3);
+  /* margin-top:1rem */
 }
 
 .class-delete-button:hover {

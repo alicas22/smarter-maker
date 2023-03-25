@@ -34,3 +34,8 @@
     width: 100%;
     cursor: pointer;
 }
+
+.delete-modal-form-button:hover{
+    background-color: rgb(200, 6, 6);
+    font-size: 1.1rem;
+}

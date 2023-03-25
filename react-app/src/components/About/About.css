@@ -38,25 +38,41 @@
 
    .class-about-edit-x,
    .class-headline-edit-submit,
-   .class-description-edit-submit{
-    background: none;
-    border: none;
-    cursor: pointer;
-    color: #324A6B;
-    font-size: 18px;
+   .class-description-edit-submit {
+       background: none;
+       border: none;
+       cursor: pointer;
+       color: #324A6B;
+       font-size: 18px;
+   }
 
+   .class-about-pencil:hover {
+       color: #324A6B;
+   }
+
+   .class-about-edit-x:hover,
+   .class-headline-edit-submit:hover,
+   .class-description-edit-submit:hover {
+       color: rgb(92, 161, 214);
    }
 
    .class-about-edit-x.dark,
    .class-headline-edit-submit.dark,
-   .class-description-edit-submit.dark{
-    color: rgb(156,184,209);
+   .class-description-edit-submit.dark {
+       color: rgb(156, 184, 209);
    }
 
-   .class-about-edit-x{
-    padding-left:1rem;
+   .class-about-edit-x.dark:hover,
+   .class-headline-edit-submit.dark:hover,
+   .class-description-edit-submit.dark:hover {
+       color: #29A5DC;
    }
+
+   .class-about-edit-x {
+       padding-left: 1rem;
+   }
+
    .class-headline-edit-submit,
-   .class-description-edit-submit{
-    padding-left:0.5rem;
+   .class-description-edit-submit {
+       padding-left: 0.5rem;
    }

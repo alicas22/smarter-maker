@@ -44,11 +44,11 @@ const CreateCardModal = ({deckId}) => {
         <div className={`create-card-container ${theme === themes.dark ? 'dark' : 'light'}`}>
             <h1 className={`create-card-header ${theme === themes.dark ? 'dark' : 'light'}`}>Create Card</h1>
             <form className='create-card-form' onSubmit={handleSubmit}>
-                <ul className="validation-errors">
+                {/* <ul className="validation-errors">
                     {errors.map((error, idx) => (
 					    <li key={idx}>{error}</li>
 					))}
-                </ul>
+                </ul> */}
                 <label>
                     <p>
                     Question
@@ -59,8 +59,10 @@ const CreateCardModal = ({deckId}) => {
                         name="question"
                         value={question}
                         onChange={(e) => setQuestion(e.target.value)}
-                        required
                     />
+                                        <div className='validation-errors'>
+                        {errors.filter((error) => error.includes('question')).length > 0 ? errors.filter((error) => error.includes('question'))[0].split(': ')[1] : ''}
+                    </div>
                 </label>
                 <label>
                     <p>
@@ -72,8 +74,10 @@ const CreateCardModal = ({deckId}) => {
                         name="answer"
                         value={answer}
                         onChange={(e) => setAnswer(e.target.value)}
-                        required
                     />
+                                        <div className='validation-errors'>
+                        {errors.filter((error) => error.includes('answer')).length > 0 ? errors.filter((error) => error.includes('answer'))[0].split(': ')[1] : ''}
+                    </div>
                 </label>
                 <button
                 className={`create-card-submit-button ${theme === themes.dark ? 'dark' : 'light'}`}

@@ -6,8 +6,8 @@
   font-size: 3vw
 }
 
-.no-cards-message.dark{
-  color: rgb(156,184,209);
+.no-cards-message.dark {
+  color: rgb(156, 184, 209);
 }
 
 .browse-deck-container {
@@ -59,7 +59,6 @@
 .back-arrow:hover,
 .forward-arrow:hover {
   background-color: rgba(5, 101, 156, 0.08);
-  ;
   color: rgb(92, 161, 214);
 }
 
@@ -93,7 +92,7 @@
   text-align: center;
   padding: 0 2rem;
   height: 575px;
-  width:50vw;
+  width: 50vw;
   border: 1px solid rgba(46, 64, 86, 0.26);
   font-size: 30px;
   color: #24292f;
@@ -107,7 +106,7 @@
 }
 
 .browse-deck-card-content.dark {
-  color:rgb(206, 202, 195);
+  color: rgb(206, 202, 195);
 }
 
 @media only screen and (max-height: 850px) {
@@ -116,7 +115,7 @@
   }
 }
 
-.browse-deck-card-content > * {
+.browse-deck-card-content>* {
   display: inline-block;
   white-space: pre-wrap;
   overflow-wrap: anywhere;
@@ -141,7 +140,7 @@
 
 
 
-.browse-deck-card-content.dark::before{
+.browse-deck-card-content.dark::before {
   color: rgba(160, 152, 139, 0.2);
 }
 
@@ -172,6 +171,10 @@
   transition: all 0.3s ease;
 }
 
+.browse-deck-next-button:hover {
+  font-size: 16px;
+}
+
 
 .mastery-buttons-container {
   align-items: center;
@@ -191,7 +194,7 @@
 
 .mastery-buttons-buttons-container {
   display: flex;
-  width:100%;
+  width: 100%;
   justify-content: space-between;
 }
 
@@ -206,6 +209,10 @@
   height: 60px;
   justify-content: center;
   width: 60px;
+}
+
+.mastery-button:hover {
+  font-size: 18px;
 }
 
 .mastery-button-confidence {

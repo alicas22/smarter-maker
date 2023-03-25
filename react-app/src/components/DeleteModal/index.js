@@ -25,9 +25,9 @@ function DeleteModal({ itemType, itemId }) {
                 });
                 break;
             case "class":
+                history.push('/dashboard')
                 dispatch(deleteClassThunk(itemId)).then(() => {
                     closeModal();
-                    history.push('/dashboard')
                 });
                 break;
             case "deck":

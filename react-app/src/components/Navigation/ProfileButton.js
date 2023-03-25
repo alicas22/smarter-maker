@@ -2,6 +2,8 @@ import React, { useState, useEffect, useRef, useContext } from "react";
 import { ThemeContext } from '../../context/ThemeContext';
 import { useDispatch } from "react-redux";
 import { logout } from "../../store/session";
+import { cleanUpClassesAction } from "../../store/class";
+import { cleanUpDecksAction } from "../../store/deck";
 
 import "./Navigation.css"
 import { useHistory } from "react-router-dom";
@@ -33,9 +35,11 @@ function ProfileButton({ user }) {
     return () => document.removeEventListener("click", closeMenu);
   }, [showMenu]);
 
-  const handleLogout = (e) => {
+  const handleLogout = async(e) => {
     e.preventDefault();
-    dispatch(logout());
+    await dispatch(cleanUpClassesAction())
+    await dispatch(cleanUpDecksAction())
+    await dispatch(logout());
     history.push('/')
   };
 

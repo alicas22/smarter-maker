@@ -1,4 +1,4 @@
-import { useState, useContext  } from "react"
+import { useState, useContext } from "react"
 import { useHistory } from 'react-router-dom'
 import { useDispatch, useSelector } from "react-redux"
 import { updateDeckThunk } from "../../store/deck"
@@ -7,7 +7,7 @@ import './UpdateDeckModal.css'
 import { ThemeContext, themes } from '../../context/ThemeContext';
 
 
-const UpdateDeckModal = ({deck}) => {
+const UpdateDeckModal = ({ deck }) => {
     const { theme } = useContext(ThemeContext);
     const dispatch = useDispatch()
     const history = useHistory()
@@ -49,14 +49,14 @@ const UpdateDeckModal = ({deck}) => {
         <div className={`update-deck-container ${theme === themes.dark ? 'dark' : 'light'}`}>
             <h1 className={`update-deck-header ${theme === themes.dark ? 'dark' : 'light'}`}>Update Deck</h1>
             <form className='update-deck-form' onSubmit={handleSubmit}>
-                <ul className="validation-errors">
+                {/* <ul className="validation-errors">
                     {errors.map((error, idx) => (
 					    <li key={idx}>{error}</li>
 					))}
-                </ul>
+                </ul> */}
                 <label>
                     <p>
-                    Name
+                        Name
                     </p>
                     <input
                         id="name"
@@ -64,13 +64,15 @@ const UpdateDeckModal = ({deck}) => {
                         name="name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        required
                     />
+                    <div className='validation-errors'>
+                        {errors.filter((error) => error.includes('name')).length > 0 ? errors.filter((error) => error.includes('name'))[0].split(': ')[1] : ''}
+                    </div>
                 </label>
                 <button
-                className={`update-deck-submit-button ${theme === themes.dark ? 'dark' : 'light'}`}
-                type="submit"
-                style = {{cursor:"pointer"}}
+                    className={`update-deck-submit-button ${theme === themes.dark ? 'dark' : 'light'}`}
+                    type="submit"
+                    style={{ cursor: "pointer" }}
                 >Submit</button>
             </form>
         </div>

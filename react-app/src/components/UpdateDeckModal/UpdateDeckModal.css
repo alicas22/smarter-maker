@@ -59,6 +59,10 @@
     width: 100%;
 }
 
+.update-deck-submit-button:hover {
+    font-size:1.1rem
+}
+
 .update-deck-submit-button.dark {
     background-color: rgb(164, 55, 0);
     color: rgb(232, 230, 227);
