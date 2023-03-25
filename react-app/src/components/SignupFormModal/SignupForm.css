@@ -73,11 +73,14 @@
     color: rgb(232, 230, 227);
   }
 
+
+
   .validation-errors{
       color: red;
       list-style: none;
       padding-left: 0;
-      text-align: center;
+      padding-top:5px
+      /* text-align: center; */
   }
 
   label {

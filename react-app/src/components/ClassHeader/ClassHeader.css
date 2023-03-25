@@ -27,7 +27,12 @@
 .class-about-name-pencil.dark,
 .class-about-name-pencil input.dark {
     color: rgb(156,184,209);
-   
+
+}
+.big-class-pencil:hover,
+.class-name-edit-submit:hover,
+.class-name-edit-x:hover{
+    color: rgb(92, 161, 214);
 }
 
 .class-about-subtitle {

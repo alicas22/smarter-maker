@@ -52,14 +52,14 @@ const CreateClassModal = () => {
             <h1 className={`create-class-header ${theme === themes.dark ? 'dark' : 'light'}`}>Create New Class</h1>
             <h4 className={`create-class-subtitle ${theme === themes.dark ? 'dark' : 'light'}`}>A Class is a set of Flashcards, grouped into Decks</h4>
             <form className='class-form' onSubmit={handleSubmit}>
-                <ul className="validation-errors">
+                {/* <ul className="validation-errors">
                     {errors.map((error, idx) => (
 					    <li key={idx}>{error}</li>
 					))}
-                </ul>
+                </ul> */}
                 <label>
                     <p>
-                    Name
+                        Name
                     </p>
                     <input
                         id="name"
@@ -67,13 +67,15 @@ const CreateClassModal = () => {
                         name="name"
                         value={name}
                         onChange={(e) => setName(e.target.value)}
-                        required
                         placeholder="i.e. Biology 101"
                     />
+                    <div className='validation-errors'>
+                        {errors.filter((error) => error.includes('name')).length > 0 ? errors.filter((error) => error.includes('name'))[0].split(': ')[1] : ''}
+                    </div>
                 </label>
                 <label>
                     <p>
-                    Headline
+                        Headline
                     </p>
                     <textarea
                         id="headline"
@@ -81,13 +83,15 @@ const CreateClassModal = () => {
                         name="headline"
                         value={headline}
                         onChange={(e) => setHeadline(e.target.value)}
-                        required
                         placeholder="i.e. Basics of first my biology class"
                     />
+                    <div className='validation-errors'>
+                        {errors.filter((error) => error.includes('headline')).length > 0 ? errors.filter((error) => error.includes('headline'))[0].split(': ')[1] : ''}
+                    </div>
                 </label>
                 <label>
                     <p>
-                    Description
+                        Description
                     </p>
                     <textarea
                         id="description"
@@ -95,14 +99,16 @@ const CreateClassModal = () => {
                         name="description"
                         value={description}
                         onChange={(e) => setDescription(e.target.value)}
-                        required
                         placeholder="i.e. Students will investigate biological concepts including the chemical basis of life, cell structure and function, metabolism, reproduction, genetics, evolution, biological diversity and classification, plant structure and function, animal structure and function and ecology."
                     />
+                    <div className='validation-errors'>
+                        {errors.filter((error) => error.includes('description')).length > 0 ? errors.filter((error) => error.includes('description'))[0].split(': ')[1] : ''}
+                    </div>
                 </label>
                 <button
-                className={`create-class-submit-button ${theme === themes.dark ? 'dark' : 'light'}`}
-                type="submit"
-                style = {{cursor:"pointer"}}>Submit</button>
+                    className={`create-class-submit-button ${theme === themes.dark ? 'dark' : 'light'}`}
+                    type="submit"
+                    style={{ cursor: "pointer" }}>Submit</button>
             </form>
         </div>
     )

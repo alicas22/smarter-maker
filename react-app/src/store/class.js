@@ -2,7 +2,7 @@ const LOAD_CLASSES = "classes/LOAD_CLASSES";
 const CREATE_CLASS = "classes/CREATE_CLASS";
 const UPDATE_CLASS = "classes/UPDATE_CLASS";
 const DELETE_CLASS = "classes/DELETE_CLASS";
-const CLEAN_UP_CLASSES="classes/CLEANUP"
+const CLEAN_UP_CLASSES = "classes/CLEANUP"
 
 const loadClassesAction = (classes) => ({
   type: LOAD_CLASSES,
@@ -18,8 +18,8 @@ const createClassAction = (newClass) => ({
 
 
 const updateClassAction = (updatedClass) => ({
-    type: UPDATE_CLASS,
-    updatedClass
+  type: UPDATE_CLASS,
+  updatedClass
 });
 
 const deleteClassAction = (classId) => ({
@@ -29,7 +29,7 @@ const deleteClassAction = (classId) => ({
 
 export const cleanUpClassesAction = () => {
   return {
-      type: CLEAN_UP_CLASSES
+    type: CLEAN_UP_CLASSES
   }
 };
 
@@ -103,9 +103,9 @@ export const deleteClassThunk = (classId) => async (dispatch) => {
 };
 
 const normalize = (arr) => {
-    const resObj = {}
-    arr.forEach((ele) => { resObj[ele.id] = ele })
-    return resObj
+  const resObj = {}
+  arr.forEach((ele) => { resObj[ele.id] = ele })
+  return resObj
 }
 
 
@@ -115,34 +115,34 @@ const initialState = {};
 const classReducer = (state = initialState, action) => {
 
   switch (action.type) {
-    case LOAD_CLASSES:{
-        const newState = { ...state }
-        newState.allClasses = normalize(action.classes)
-        return newState;
-      }
-    case CREATE_CLASS:{
-        const newState = { ...state }
-        newState.allClasses = { ...newState.allClasses, [action.newClass.id]: action.newClass }
-        // newState.singleClass = { ...newState.singleClass, ...action.newClass }
-        return newState
-      }
+    case LOAD_CLASSES: {
+      const newState = { ...state }
+      newState.allClasses = normalize(action.classes)
+      return newState;
+    }
+    case CREATE_CLASS: {
+      const newState = { ...state }
+      newState.allClasses = { ...newState.allClasses, [action.newClass.id]: action.newClass }
+      // newState.singleClass = { ...newState.singleClass, ...action.newClass }
+      return newState
+    }
     case UPDATE_CLASS: {
-        const newState = { ...state }
-        newState.allClasses = { ...newState.allClasses, [action.updatedClass.id]: action.updatedClass }
-        // newState.singleClass = { ...newState.singleClass, ...action.updatedClass }
-        return newState
-      }
-    case DELETE_CLASS:{
-        const newState = { allClasses : {...state.allClasses}}
-        delete newState.allClasses[action.classId]
-        return newState;
-      }
-       case CLEAN_UP_CLASSES: {
-            const newState = { ...initialState };
-            return newState;
-        }
+      const newState = { ...state }
+      newState.allClasses = { ...newState.allClasses, [action.updatedClass.id]: action.updatedClass }
+      // newState.singleClass = { ...newState.singleClass, ...action.updatedClass }
+      return newState
+    }
+    case DELETE_CLASS: {
+      const newState = { allClasses: { ...state.allClasses } }
+      delete newState.allClasses[action.classId]
+      return newState;
+    }
+    case CLEAN_UP_CLASSES: {
+      const newState = { ...initialState };
+      return newState;
+    }
     default:
-        return state;
+      return state;
   }
 }
 

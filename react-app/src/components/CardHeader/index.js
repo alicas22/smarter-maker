@@ -1,6 +1,6 @@
 import { useParams, NavLink } from "react-router-dom";
-import { useSelector, useDispatch } from "react-redux";
-import { loadAllDecksThunk } from "../../store/deck";
+import { useSelector } from "react-redux";
+
 import { useContext } from "react";
 import './CardHeader.css'
 import { ThemeContext, themes } from '../../context/ThemeContext';
@@ -22,13 +22,15 @@ function CardHeader() {
     const singleDeck = singleClassDecks.find((singleDeck) => singleDeck.id === +deckId)
     const singleDecksCards = allCardsArr.filter(card => card.deckId === +deckId);
 
+
+
     return (
         <div className="card-header-container">
             <div className="card-header-back-to-class-container">
                 <NavLink to={`/dashboard/${classId}/decks`}
                     style={{ textDecoration: 'none', color: '#777' }}>
                     <div className="card-header-arrow-hat-classname">
-                        <i className="fa-solid fa-chevron-left"></i>
+                        <i className="fa-solid fa-chevron-left card-header-left"></i>
                         <i className={`fa-solid fa-graduation-cap tiny-hat ${theme === themes.dark ? 'dark' : 'light'}`}></i>
                         <span className={`card-header-class-name ${theme === themes.dark ? 'dark' : 'light'}`}>{singleClass.name}</span>
                     </div>

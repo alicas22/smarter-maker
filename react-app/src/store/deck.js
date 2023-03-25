@@ -3,7 +3,7 @@ const LOAD_SINGLE_DECK = "decks/LOAD_SINGLE_DECK";
 const CREATE_DECK = "decks/CREATE_DECK";
 const UPDATE_DECK = "decks/UPDATE_DECK";
 const DELETE_DECK = "decks/DELETE_DECK";
-
+const CLEAN_UP_DECKS="decks/CLEANUP"
 
 const loadDecksAction = (decks) => ({
   type: LOAD_DECKS,
@@ -29,6 +29,12 @@ const deleteDeckAction = (id) => ({
   type: DELETE_DECK,
   id
 });
+
+export const cleanUpDecksAction = () => {
+  return {
+      type: CLEAN_UP_DECKS
+  }
+};
 
 
 export const loadAllDecksThunk = () => async (dispatch) => {
@@ -145,9 +151,12 @@ const decksReducer = (state = initialState, action) => {
     case DELETE_DECK: {
       const newState = { allDecks : {...state.allDecks}}
       delete newState.allDecks[action.id];
-
       return newState;
     }
+    case CLEAN_UP_DECKS: {
+      const newState = { ...initialState };
+      return newState;
+  }
     default:
       return state;
   }

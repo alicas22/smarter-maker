@@ -123,7 +123,7 @@ function ClassHeader({ allClassesObj }) {
                             ) : (
                                 <>
                                     {singleClass.name}
-                                    <i className="fa-solid fa-pencil"
+                                    <i className="fa-solid fa-pencil big-class-pencil"
                                         onClick={() => setEditMode(true)} // pass the click handler to the icon
                                         style={{ cursor: 'pointer' }} />
                                 </>

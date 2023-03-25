@@ -42,10 +42,11 @@ function PreviewCards() {
                             </div>
                         </div>
                         <div className='preview-card-crud-container'>
-                            <div className='preview-card-delete-card-button'>
+                            <div className='preview-card-delete-card-button' style={{ cursor: "pointer" }}>
                                 <OpenModalButton
                                     buttonText=<i className="fa-solid fa-xmark card-x"></i>
-                                    modalComponent={<DeleteModal itemType={'card'} itemId={card.id} />} />
+                                    modalComponent={<DeleteModal itemType={'card'} itemId={card.id} />}
+                                     />
                             </div>
                             <div className="update-card-modal" style={{ cursor: "pointer" }}>
                                 <OpenModalButton

@@ -68,12 +68,15 @@ text-align: center;
   background-color: rgb(164, 55, 0);
   color: rgb(232, 230, 227);
 }
-
+.login-modal-button:hover {
+  font-size: 18px;
+}
 .validation-errors{
     color: red;
     list-style: none;
     padding-left: 0;
-    text-align: center;
+    padding-top: 5px;
+    /* text-align: center; */
 }
 
 label{

@@ -1,8 +1,7 @@
-import { useHistory, useLocation, Switch} from "react-router-dom";
+import { useHistory, useLocation, Switch } from "react-router-dom";
 import { useSelector, useDispatch } from "react-redux";
-import { useState, useEffect, useContext  } from "react";
+import { useState, useEffect, useContext } from "react";
 import { loadAllClassesThunk } from "../../store/class";
-import { cleanUpClassesAction } from "../../store/class";
 import { loadAllDecksThunk } from "../../store/deck";
 import { loadAllCardsThunk } from "../../store/card";
 import ProtectedRoute from "../auth/ProtectedRoute";
@@ -14,19 +13,18 @@ import About from "../About";
 import CardHeader from "../CardHeader";
 import PreviewCards from "../PreviewCards";
 import BrowseCards from "../BrowseCards";
-
-
-
 import { ThemeContext, themes } from '../../context/ThemeContext';
 
 function Dashboard(isLoaded) {
   const { theme } = useContext(ThemeContext);
+  const history = useHistory()
   const user = useSelector((state) => state.session.user);
   const allClassesObj = useSelector((state) => state.classes.allClasses);
   const dispatch = useDispatch();
-  const history = useHistory();
   const url = useLocation().pathname;
+  const classIdFromUrl = url.split('/')[2];
   const [redirectClass, setRedirectClass] = useState(false);
+
 
 
   useEffect(() => {
@@ -48,9 +46,11 @@ function Dashboard(isLoaded) {
   }, [url, allClassesObj, history, redirectClass])
 
 
+
+
   return (
     <div className="dashboard-page-container"
-    style={{ background: theme.background, color: theme.text }}
+      style={{ background: theme.background, color: theme.text }}
     >
       <div className="dashboard-nav-component">
         <Navigation isLoaded={isLoaded} />

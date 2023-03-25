@@ -1,8 +1,6 @@
-
 .preview-cards-container {
   display: flex;
   flex-direction: column;
-
   height: 85vh;
   font-family: 'Open Sans', sans-serif;
   z-index: 10;
@@ -55,7 +53,8 @@
   color: #757575;
 
 }
-.card-pencil::before{
+
+.card-pencil::before {
   padding-right: 30px;
 }
 
@@ -91,13 +90,13 @@
   padding-top: 4rem;
   padding-bottom: 3rem;
   overflow-y: auto;
-  width:28vw;
+  width: 28vw;
   white-space: pre-wrap;
 }
 
 .preview-card-question.dark,
 .preview-card-answer.dark {
-  color:rgb(206, 202, 195);
+  color: rgb(206, 202, 195);
 }
 
 .preview-card-question::before {
@@ -109,6 +108,7 @@
   color: rgb(103, 113, 125, 0.2);
   margin: 1rem;
 }
+
 .preview-card-answer::before {
   content: 'A';
   position: absolute;
@@ -146,19 +146,19 @@
   transition: all 0.3s ease;
 }
 
-.create-card-modal:hover{
-background-color: #ff8243;
+.create-card-modal:hover {
+  background-color: #ff8243;
 }
 
-.create-card-modal.dark{
+.create-card-modal.dark {
   background-color: rgb(69, 85, 99);
 }
 
-.create-card-modal.dark:hover{
+.create-card-modal.dark:hover {
   background-color: rgb(164, 55, 0);
   color: rgb(232, 230, 227);
 }
 
-.card-x:hover{
+.card-x:hover {
   color: rgb(92, 161, 214);
 }

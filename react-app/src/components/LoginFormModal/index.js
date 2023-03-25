@@ -47,11 +47,11 @@ function LoginFormModal() {
     <>
       <form className="login-modal-form" onSubmit={handleSubmit}>
         <h1 className={`login-modal-header  ${theme === themes.dark ? 'dark' : 'light'}`}>Log In</h1>
-        <ul className="validation-errors">
+        {/* <ul className="validation-errors">
           {errors.map((error, idx) => (
             <li key={idx}>{error}</li>
           ))}
-        </ul>
+        </ul> */}
         <label>
           Email
           <input
@@ -59,8 +59,10 @@ function LoginFormModal() {
             type="text"
             value={email}
             onChange={(e) => setEmail(e.target.value)}
-            required
           />
+          <div className='validation-errors'>
+            {errors.filter((error) => error.includes('email')).length > 0 ? errors.filter((error) => error.includes('email'))[0].split(': ')[1] : ''}
+          </div>
         </label>
         <label>
           Password
@@ -69,8 +71,10 @@ function LoginFormModal() {
             type="password"
             value={password}
             onChange={(e) => setPassword(e.target.value)}
-            required
           />
+          <div className='validation-errors'>
+            {errors.filter((error) => error.includes('password')).length > 0 ? errors.filter((error) => error.includes('password'))[0].split(': ')[1] : ''}
+          </div>
         </label>
         <button className={`login-modal-button  ${theme === themes.dark ? 'dark' : 'light'}`} type="submit">Log In</button>
         <div className={`login-modal-button  ${theme === themes.dark ? 'dark' : 'light'}`} onClick={handleDemoLogin}>

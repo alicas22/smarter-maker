@@ -102,7 +102,7 @@ function About() {
                             </>
 
                         ) : (
-                            <i className="fa-solid fa-pencil"
+                            <i className="fa-solid fa-pencil class-about-pencil"
                                 onClick={() => setEditHeadlineMode(true)} // pass the click handler to the icon
                                 style={{ cursor: 'pointer', textIndent:"1rem"  }} />
                         )}
@@ -162,7 +162,7 @@ function About() {
                             </>
 
                         ) : (
-                            <i className="fa-solid fa-pencil "
+                            <i className="fa-solid fa-pencil class-about-pencil"
                                 onClick={() => setEditDescriptionMode(true)} // pass the click handler to the icon
                                 style={{ cursor: 'pointer', textIndent:"1rem" }} />
                         )}

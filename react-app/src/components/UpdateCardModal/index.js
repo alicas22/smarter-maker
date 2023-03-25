@@ -1,11 +1,11 @@
-import { useState, useContext  } from "react"
+import { useState, useContext } from "react"
 import { useDispatch, useSelector } from "react-redux"
-import {updateCardThunk} from '../../store/card'
+import { updateCardThunk } from '../../store/card'
 import { useModal } from "../../context/Modal"
 import './UpdateCard.css'
 import { ThemeContext, themes } from '../../context/ThemeContext';
 
-const UpdateCardModal = ({card}) => {
+const UpdateCardModal = ({ card }) => {
     const { theme } = useContext(ThemeContext);
     const dispatch = useDispatch()
     const { closeModal } = useModal();
@@ -44,14 +44,14 @@ const UpdateCardModal = ({card}) => {
         <div className={`update-card-container ${theme === themes.dark ? 'dark' : 'light'}`}>
             <h1 className={`update-card-header ${theme === themes.dark ? 'dark' : 'light'}`}>Update Card</h1>
             <form className='update-card-form' onSubmit={handleSubmit}>
-                <ul className="validation-errors">
+                {/* <ul className="validation-errors">
                     {errors.map((error, idx) => (
 					    <li key={idx}>{error}</li>
 					))}
-                </ul>
+                </ul> */}
                 <label>
                     <p>
-                    Question
+                        Question
                     </p>
                     <textarea
                         id="question"
@@ -59,13 +59,14 @@ const UpdateCardModal = ({card}) => {
                         name="question"
                         value={question}
                         onChange={(e) => setQuestion(e.target.value)}
-                        required
-
                     />
+                    <div className='validation-errors'>
+                        {errors.filter((error) => error.includes('question')).length > 0 ? errors.filter((error) => error.includes('question'))[0].split(': ')[1] : ''}
+                    </div>
                 </label>
                 <label>
                     <p>
-                    Answer
+                        Answer
                     </p>
                     <textarea
                         id="answer"
@@ -73,13 +74,15 @@ const UpdateCardModal = ({card}) => {
                         name="answer"
                         value={answer}
                         onChange={(e) => setAnswer(e.target.value)}
-                        required
                     />
+                    <div className='validation-errors'>
+                        {errors.filter((error) => error.includes('answer')).length > 0 ? errors.filter((error) => error.includes('answer'))[0].split(': ')[1] : ''}
+                    </div>
                 </label>
                 <button
-                className={`update-card-submit-button ${theme === themes.dark ? 'dark' : 'light'}`}
-                type="submit"
-                style = {{cursor:"pointer"}}
+                    className={`update-card-submit-button ${theme === themes.dark ? 'dark' : 'light'}`}
+                    type="submit"
+                    style={{ cursor: "pointer" }}
                 >Submit</button>
             </form>
         </div>
