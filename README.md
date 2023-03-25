@@ -27,7 +27,7 @@ Check out a live version of Smarter-Maker here:
 
 
 ### Features and Screenshots
-* Smarter-Maker Splashpage - You will be able to test the features without signing up by clicking on the "Demo Sign In" button.
+* Smarter-Maker Splashpage - You will be able to test the features without signing up by clicking on the "Demo Sign In" button
 ![image](https://user-images.githubusercontent.com/112198918/222297676-5cdc7524-2a68-4888-ba4c-821f5ab2456c.png)
 
 * Dashboard: Class Page - You are able to select, create, edit, delete a class and view all of its decks
@@ -36,6 +36,24 @@ Check out a live version of Smarter-Maker here:
 * Dashboard: Browse Cards - You are able to study cards and record your progress
 ![image](https://user-images.githubusercontent.com/112198918/222298087-8f1a6f39-bd4a-4c9b-9dae-abf7e211bd75.png)
 
+* Persistent Dark Mode - Toggle between light and dark modes
+![image](https://user-images.githubusercontent.com/112198918/227680350-67715328-8144-4904-acad-0856dcdbea3e.png)
+
+
+### Code Sample
+```
+  useEffect(() => { //redirects to first class if there is one when sent to /dashboard
+    if (isLoaded && !redirectClass && url === '/dashboard' && allClassesObj && user) {
+      const userClasses = Object.values(allClassesObj);
+      if (userClasses.length > 0) {
+        history.push(`/dashboard/${userClasses[0].id}/decks`);
+        setRedirectClass(true);
+      }
+    } else if (url !== '/dashboard') { //allows redirects to work when class is deleted from navigation
+      setRedirectClass(false);
+    }
+  }, [url, allClassesObj, history, redirectClass])
+```
 
 
 
