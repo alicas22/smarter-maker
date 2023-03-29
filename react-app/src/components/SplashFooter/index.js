@@ -44,6 +44,10 @@ function SplashFooter() {
                         style={{ textDecoration: "none", color: "white" }}
                         target="_blank"
                     >Github</a></p>
+                    <p><a href="https://alicas22.github.io/"
+                        style={{ textDecoration: "none", color: "white" }}
+                        target="_blank"
+                    >Portfolio</a></p>
                 </div>
             </div>
             <p style={{ color: "white" }}><i class="fa-regular fa-copyright"></i> 2023 Smarter-Making, Inc. </p>
