@@ -62,13 +62,13 @@ The following code sample handles the logic to properly render a class depending
 ## Getting started
 1. Clone this repository (only this branch)
 
-2. Install dependencies
+2. Install python dependencies - navigate to /app and run:
 
       ```bash
       pipenv install -r requirements.txt
       ```
 
-3. Create a **.env** file based on the example with proper settings for your
+3. Create a **.flaskenv** file based on the example with proper settings for your
    development environment
 
 4. Make sure the SQLite3 database connection URL is in the **.env** file
@@ -95,6 +95,21 @@ The following code sample handles the logic to properly render a class depending
    ```bash
    flask run
    ```
+   
+7. In a new terminal, navigate to the /react-app directory
+
+
+8. Install NPM packages
+   ```sh
+   npm install
+   ```
+   
+9. Start the frontend server
+   ```sh
+   npm start
+   ```
+   
+8. Navigate to http://localhost:3000/ to begin using the application.
 
 <p align="right">(<a href="#readme-top">back to top</a>)</p>
 
